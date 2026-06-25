@@ -1,0 +1,2136 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- SEO & Metadata Optimization -->
+    <title>KayaVox — Minimalist Premium Digital Art Prints</title>
+    <meta name="description" content="Elevate your space in 60 seconds. Museum-grade minimalist digital art prints designed for quiet luxury and coastal interiors. Scalable to standard US framing ratios.">
+    <meta name="keywords" content="minimalist home decor, digital art download, printable wall art, impasto oil painting, coastal chic style, organic modern living room, printable digital art, luxury wall decor">
+    <meta name="author" content="KayaVox">
+
+    <!-- Open Graph & Pinterest Optimization -->
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="KayaVox — Minimalist Premium Digital Art Prints">
+    <meta property="og:description" content="Bringing quiet luxury into your home. Instantly download high-resolution (300 DPI) digital files featuring realistic palette-knife oil textures.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=1000&h=1500&fm=webp">
+    <meta property="og:image:width" content="1000">
+    <meta property="og:image:height" content="1500">
+    <meta property="og:url" content="https://kayavox.art">
+
+    <!-- Pinterest Rich Pin Metadata -->
+    <meta name="pinterest-rich-pin" content="true">
+    <meta name="pinterest:type" content="product">
+    <meta name="pinterest:name" content="KayaVox Premium Digital Wall Art">
+    <meta name="pinterest:price" content="9.00 USD">
+    <meta name="pinterest:category" content="Art & Home Decor">
+
+    <!-- Structured Data JSON-LD for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "KayaVox Minimalist Premium Digital Art Prints",
+      "image": [
+        "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=1000&h=1500&fm=webp"
+      ],
+      "description": "Museum-grade minimalist digital art prints with ultra-high resolution impasto oil painting textures. Scalable to standard US framing ratios.",
+      "brand": {
+        "@type": "Brand",
+        "name": "KayaVox"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "9.00",
+        "highPrice": "29.00",
+        "offerCount": "4"
+      }
+    }
+    </script>
+
+    <!-- Preconnect hints for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800&fm=webp">
+
+    <!-- Fonts & Styling framework -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <style>
+        :root {
+            --cream: #FAF7F0;
+            --clay: #1A1814;
+            --gold: #C5A059;
+            --gold-muted: #B08D4B;
+            --sand: #E5DED0;
+            --border-color: rgba(26, 24, 20, 0.05);
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+        
+        body { 
+            background-color: var(--cream); 
+            color: var(--clay); 
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            padding-bottom: 84px;
+        }
+        @media (min-width: 1024px) {
+            body { padding-bottom: 0; }
+        }
+
+        h1, h2, h3, .serif { 
+            font-family: 'Playfair Display', serif; 
+            letter-spacing: -0.01em;
+        }
+
+        .hero-title { 
+            font-size: clamp(2.5rem, 6vw, 4.2rem); 
+            line-height: 1.15; 
+        }
+
+        *:focus-visible {
+            outline: 2px solid var(--gold) !important;
+            outline-offset: 4px !important;
+        }
+
+        button, a, .art-preview-selector, .room-tab, .size-btn {
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, opacity 0.2s ease;
+            touch-action: manipulation;
+        }
+
+        button:active, a:active, .art-preview-selector:active, .room-tab:active, .size-btn:active {
+            transform: scale(0.96) !important;
+        }
+
+        .btn-primary { 
+            background: var(--gold); 
+            color: white; 
+            padding: 1.1rem 2.6rem; 
+            border-radius: 999px; 
+            font-size: 0.75rem; 
+            letter-spacing: 0.2em; 
+            text-transform: uppercase;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(197, 160, 89, 0.15);
+            min-height: 52px;
+        }
+
+        .btn-primary:hover { 
+            background: var(--gold-muted); 
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(197, 160, 89, 0.25);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.96) translateY(0px) !important;
+        }
+
+        .reveal-node {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-node.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .img-zoom {
+            overflow: hidden;
+            border-radius: 1rem;
+            background-color: var(--sand);
+            position: relative;
+        }
+
+        .img-zoom img {
+            transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .img-zoom:hover img {
+            transform: scale(1.03);
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .room-tab.active {
+            border-color: var(--gold);
+            color: var(--clay);
+            background-color: white;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--sand);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #C5A059 0%, #E2C285 50%, #B08D4B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 3D Envelope Unboxing Styles */
+        .envelope-wrapper {
+            perspective: 1000px;
+            width: 320px;
+            height: 220px;
+            position: relative;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .envelope-wrapper:hover {
+            transform: scale(1.02);
+        }
+        .envelope-back {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #E2C285;
+            border-radius: 6px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            z-index: 1;
+        }
+        .envelope-front {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 100%;
+            background: #C5A059;
+            clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%);
+            z-index: 3;
+            border-radius: 6px;
+        }
+        .envelope-flap {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #B08D4B;
+            clip-path: polygon(0 0, 100% 0, 50% 50%);
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 4;
+            border-radius: 6px 6px 0 0;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        .envelope-wrapper.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+        .wax-seal {
+            position: absolute;
+            top: 48%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px; height: 60px;
+            background: #8B2323;
+            border-radius: 50%;
+            z-index: 5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 0 15px rgba(0,0,0,0.6);
+            display: flex; align-items: center; justify-content: center;
+            color: #E6B5B5; font-family: 'Playfair Display', serif; font-style: italic; font-weight: bold; font-size: 20px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .wax-seal::after {
+            content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
+        }
+        .envelope-wrapper.open .wax-seal {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1.5);
+            pointer-events: none;
+        }
+        .letter-content {
+            position: absolute;
+            bottom: 5px; left: 5%; width: 90%; height: 95%;
+            background: #fff;
+            z-index: 2;
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+            border: 1px solid #eee;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: 0 -10px 20px rgba(0,0,0,0.08);
+            border-radius: 4px;
+        }
+        .envelope-wrapper.open .letter-content {
+            transform: translateY(-80%);
+        }
+
+        .cv-lazy {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 1000px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-100 selection:text-amber-900">
+
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[9999] bg-amber-600 text-white px-6 py-3 rounded-xl font-bold text-sm outline-none shadow-xl" data-i18n="skip_to_content">
+        Skip to main content
+    </a>
+
+    <!-- Decorative film grain overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed top-0 w-full z-40 pl-[max(1.5rem,env(safe-area-inset-left))] pr-[max(1.5rem,env(safe-area-inset-right))] pt-[max(1rem,env(safe-area-inset-top))] pb-4 md:px-12 flex justify-between items-center bg-[var(--nav-bg)] backdrop-blur-md border-b border-[var(--border-color)] transition-all duration-300">
+        <div class="flex items-center gap-3">
+            <div class="text-2xl md:text-3xl font-bold serif italic text-gold-gradient" aria-hidden="true">KV</div>
+            <span class="text-xs tracking-[0.3em] font-light hidden sm:block uppercase text-clay">KayaVox</span>
+        </div>
+        
+        <!-- Desktop Nav Items -->
+        <div class="hidden lg:flex space-x-12 items-center text-clay">
+            <a href="#shop" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity" data-i18n="nav_shop">Shop Prints</a>
+            <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity" data-i18n="nav_lava">Lava Store</a>
+            <a href="#texture" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity" data-i18n="nav_process">The Process</a>
+            
+            <div class="flex items-center gap-4 pl-4 border-l border-[var(--border-color)]">
+                <!-- Language Selector -->
+                <select id="lang-selector" class="bg-transparent text-[10px] uppercase font-bold tracking-widest border border-[var(--border-color)] rounded px-1.5 py-0.5 outline-none cursor-pointer text-[var(--clay)]">
+                    <option value="en">EN</option>
+                    <option value="ru">RU</option>
+                    <option value="fr">FR</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-6">
+            <!-- Dynamic Cart Trigger -->
+            <button data-action="toggle-cart" data-state="true" aria-haspopup="dialog" aria-expanded="false" class="relative flex items-center justify-center gap-2 group focus:outline-none min-h-[48px] px-3 rounded-lg" aria-label="Open shopping cart">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-[var(--clay)] group-hover:text-amber-700 transition-colors"></i>
+                <span class="text-xs uppercase tracking-widest font-medium border-b border-[var(--border-color)] pb-0.5 text-clay group-hover:border-amber-600 transition-all hidden xs:inline" data-i18n="nav_cart">
+                    Cart
+                </span>
+                <span id="cart-counter" class="absolute -top-1 -right-1 bg-amber-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold opacity-0 transition-opacity duration-300">0</span>
+            </button>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button data-action="toggle-menu" data-state="true" aria-haspopup="dialog" aria-expanded="false" class="lg:hidden flex items-center justify-center p-3 -mr-2 min-h-[48px] min-w-[48px] text-clay" aria-label="Open mobile menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU DRAWER -->
+    <div id="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Mobile Navigation" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transform translate-x-full transition-transform duration-500 ease-out flex justify-end">
+        <div class="w-full max-w-sm bg-[var(--cream)] h-[100dvh] p-8 pt-[max(2rem,env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center mb-12">
+                    <span class="text-xl serif italic text-amber-700" data-i18n="mobile_nav_title">Navigation</span>
+                    <button data-action="toggle-menu" data-state="false" aria-label="Close mobile menu" class="p-3 min-h-[48px] min-w-[48px] flex items-center justify-center rounded-full hover:bg-[var(--sand)] transition-colors text-clay">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-6">
+                    <a href="#shop" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_shop">Shop Prints</a>
+                    <a href="https://app.lava.top/kayavox" target="_blank" rel="noopener" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_lava">Lava Store</a>
+                    <a href="#previewer" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_staging">Virtual Preview</a>
+                    <a href="#texture" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_process">The Process</a>
+                </div>
+            </div>
+            <div class="border-t border-[var(--border-color)] pt-6 space-y-4">
+                <div class="flex justify-between items-center pb-4 border-b border-[var(--border-color)]">
+                    <span class="text-xs uppercase tracking-widest text-gray-400 font-semibold" data-i18n="mobile_settings">Quick Settings</span>
+                    <select id="lang-selector-mobile" class="bg-transparent text-[10px] uppercase font-bold tracking-widest border border-[var(--border-color)] rounded px-1.5 py-0.5 text-[var(--clay)]">
+                        <option value="en">EN</option>
+                        <option value="ru">RU</option>
+                        <option value="fr">FR</option>
+                    </select>
+                </div>
+                <div>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest mb-2 font-semibold" data-i18n="mobile_support_header">Support & Licensing</p>
+                    <p class="text-sm italic serif text-gray-600">hello@kayavox.art</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+        
+        <!-- HERO SECTION -->
+        <section class="min-h-[100svh] flex items-center pt-[max(6rem,calc(env(safe-area-inset-top)+6rem))] pb-20 px-6 pl-[max(1.5rem,env(safe-area-inset-left))] pr-[max(1.5rem,env(safe-area-inset-right))] relative overflow-hidden bg-[var(--cream)]">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full mt-8 md:mt-0">
+                <div class="reveal-node z-10 space-y-8" id="hero-text-block">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/60 border border-[var(--border-color)] rounded-full shadow-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" aria-hidden="true"></span>
+                        <p class="text-[11px] uppercase tracking-[0.25em] text-amber-800 font-semibold" data-i18n="hero_tag">Quiet Luxury &middot; Framed in 60 seconds</p>
+                    </div>
+                    
+                    <h1 class="hero-title italic leading-tight" data-i18n="hero_title">Quiet luxury that feels<br>like stillness itself.</h1>
+
+                    <div class="space-y-2 border-l-2 border-amber-600/30 pl-6">
+                        <p class="text-lg md:text-xl serif italic text-gray-800" data-i18n="hero_price_sub">High-resolution digital downloads from $9</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-[0.15em] font-semibold" data-i18n="hero_format_sub">Instant access &bull; Formatted for US Standard Frames</p>
+                    </div>
+
+                    <p class="text-sm md:text-base text-gray-500 max-w-lg leading-relaxed font-light" data-i18n="hero_description">
+                        Download, print, and frame museum-grade printable wall art designed to restore soft light, organic texture, and visual stillness to your home.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
+                        <a href="#shop" class="btn-primary w-full sm:w-auto text-center py-4.5 px-10 text-sm tracking-widest min-h-[52px]" data-i18n="hero_btn_shop">Shop the Prints</a>
+                        <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="px-10 py-4.5 rounded-full text-xs uppercase tracking-widest border border-[var(--border-color)] bg-white/30 hover:bg-black hover:text-white transition-all duration-300 text-center min-h-[52px] flex items-center justify-center font-semibold w-full sm:w-auto text-clay" data-i18n="hero_btn_catalog">Full Catalog</a>
+                    </div>
+                </div>
+
+                <div class="relative reveal-node" style="transition-delay: 200ms;">
+                    <div class="img-zoom rounded-[2rem] shadow-[0_30px_80px_-15px_rgba(26,24,20,0.12)] relative z-10 max-w-[500px] lg:max-w-none mx-auto aspect-[4/5]">
+                        <img id="heroImage" 
+                             src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800&fm=webp" 
+                             srcset="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=600&fm=webp 1x, https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=1200&fm=webp 2x"
+                             alt="Refined luxury home framing showcasing a KayaVox printable wall art" 
+                             class="w-full h-full object-cover"
+                             width="800"
+                             height="1000"
+                             fetchpriority="high"
+                             decoding="sync">
+                        <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md px-4 py-3 rounded-xl border border-[var(--border-color)] shadow-sm text-left">
+                            <span class="block text-[10px] uppercase tracking-wider text-gray-400 font-bold" data-i18n="hero_visual_tag">In-room visualization:</span>
+                            <span class="text-xs serif italic text-[var(--clay)]">24 × 36 in, Thin Oak Frame</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-amber-600/5 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE SPACE PREVIEWER -->
+        <section id="previewer" class="py-24 bg-white px-6 border-t border-[var(--border-color)]">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal-node">
+                    <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block mb-3" data-i18n="preview_tag">Interactive Wall Staging</span>
+                    <h2 class="text-3xl md:text-4xl serif italic mb-4 text-clay" data-i18n="preview_title">See it styled in your home</h2>
+                    <p class="text-sm md:text-base text-gray-500 font-light" data-i18n="preview_desc">Select a space below, upload your own wall, and toggle different pieces to watch how perfectly KayaVox art ties the room together.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-12 items-center" id="previewer-controls-container">
+                    <!-- Left: Controls -->
+                    <div class="lg:col-span-4 space-y-8 reveal-node">
+                        <fieldset>
+                            <legend class="text-xs uppercase tracking-widest text-gray-400 block mb-3 font-semibold" data-i18n="preview_step1">1. Select Space:</legend>
+                            <div class="flex flex-wrap gap-2.5" id="room-tab-parent">
+                                <button data-room="living" aria-pressed="true" class="room-tab active px-4 py-3 border border-gray-200 rounded-full text-xs uppercase tracking-widest font-medium transition-all min-h-[48px] text-clay" data-i18n="room_living">Living Room</button>
+                                <button data-room="bedroom" aria-pressed="false" class="room-tab px-4 py-3 border border-gray-200 rounded-full text-xs uppercase tracking-widest font-medium transition-all min-h-[48px] text-clay" data-i18n="room_bedroom">Bedroom</button>
+                                <button data-room="office" aria-pressed="false" class="room-tab px-4 py-3 border border-gray-200 rounded-full text-xs uppercase tracking-widest font-medium transition-all min-h-[48px] text-clay" data-i18n="room_office">Home Office</button>
+                                
+                                <label id="upload-tab-label" for="room-upload" class="room-tab px-4 py-3 border border-amber-200 border-dashed text-amber-700 bg-amber-50 rounded-full text-xs uppercase tracking-widest transition-all cursor-pointer flex items-center gap-2 hover:bg-amber-100 shadow-sm min-h-[48px] font-semibold">
+                                    <i data-lucide="upload" class="w-3.5 h-3.5" aria-hidden="true"></i> <span data-i18n="room_upload">Your Wall</span>
+                                </label>
+                                <input type="file" id="room-upload" accept="image/*" class="sr-only">
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend class="text-xs uppercase tracking-widest text-gray-400 block mb-3 font-semibold" data-i18n="preview_step2">2. Choose Artwork to Stage:</legend>
+                            <div class="space-y-3" id="art-preview-parent">
+                                <button data-art="art-golden" data-title="Golden Shoreline" class="art-preview-selector w-full flex items-center gap-4 p-3 bg-gray-50 rounded-xl hover:bg-amber-50/50 transition-colors border-2 border-transparent focus:outline-none min-h-[56px]" aria-label="Select Golden Shoreline for preview">
+                                    <div class="w-12 h-16 bg-[#eae3d5] overflow-hidden rounded-md shadow-sm aspect-[3/4]">
+                                        <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=150&fm=webp" class="w-full h-full object-cover" alt="Golden Shoreline Thumb" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="text-left">
+                                        <span class="block text-[10px] uppercase tracking-wider text-gray-400 font-semibold" data-i18n="art_series_tag">Signature Series</span>
+                                        <span class="text-sm font-semibold text-[var(--clay)]" data-i18n="art_title_golden">Golden Shoreline</span>
+                                    </div>
+                                </button>
+                                <button data-art="art-lavender" data-title="Lavender Dusk" class="art-preview-selector w-full flex items-center gap-4 p-3 bg-gray-50 rounded-xl hover:bg-amber-50/50 transition-colors border-2 border-transparent focus:outline-none min-h-[56px]" aria-label="Select Lavender Dusk for preview">
+                                    <div class="w-12 h-16 bg-[#eae3d5] overflow-hidden rounded-md shadow-sm aspect-[3/4]">
+                                        <img src="https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=150&fm=webp" class="w-full h-full object-cover" alt="Lavender Dusk Thumb" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="text-left">
+                                        <span class="block text-[10px] uppercase tracking-wider text-gray-400 font-semibold" data-i18n="art_series_tag">Signature Series</span>
+                                        <span class="text-sm font-semibold text-[var(--clay)]" data-i18n="art_title_lavender">Lavender Dusk</span>
+                                    </div>
+                                </button>
+                                <button data-art="art-mist" data-title="Morning Mist" class="art-preview-selector w-full flex items-center gap-4 p-3 bg-gray-50 rounded-xl hover:bg-amber-50/50 transition-colors border-2 border-transparent focus:outline-none min-h-[56px]" aria-label="Select Morning Mist for preview">
+                                    <div class="w-12 h-16 bg-[#eae3d5] overflow-hidden rounded-md shadow-sm aspect-[3/4]">
+                                        <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=150&fm=webp" class="w-full h-full object-cover" alt="Morning Mist Thumb" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="text-left">
+                                        <span class="block text-[10px] uppercase tracking-wider text-gray-400 font-semibold" data-i18n="art_series_tag">Signature Series</span>
+                                        <span class="text-sm font-semibold text-[var(--clay)]" data-i18n="art_title_mist">Morning Mist</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <!-- Right: Visualizer Display Canvas -->
+                    <div class="lg:col-span-8 reveal-node" aria-live="polite">
+                        <div class="relative overflow-hidden rounded-[2.5rem] shadow-xl border border-[var(--border-color)] bg-[#eae3d5] aspect-[16/10] flex items-center justify-center">
+                            <img id="room-background" 
+                                 src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800&fm=webp"
+                                 srcset="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800&fm=webp 1x, https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1600&fm=webp 2x" 
+                                 class="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-300" 
+                                 alt="Room preview backdrop"
+                                 width="800"
+                                 height="500"
+                                 loading="lazy"
+                                 decoding="async">
+                            <div class="relative z-10 w-[24%] aspect-[3/4] shadow-[0_20px_50px_rgba(0,0,0,0.35)] border-8 border-neutral-900 bg-white p-1.5 transition-all duration-500 hover:scale-105" style="transform: translateY(-5%);">
+                                <div class="w-full h-full bg-white relative overflow-hidden flex items-center justify-center p-2 border border-neutral-200">
+                                    <img id="previewer-art-image" 
+                                         src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=400&fm=webp"
+                                         srcset="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=400&fm=webp 1x, https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800&fm=webp 2x" 
+                                         class="w-full h-full object-cover transition-opacity duration-300" 
+                                         alt="Selected artwork staged in room"
+                                         width="300"
+                                         height="400"
+                                         loading="lazy"
+                                         decoding="async">
+                                </div>
+                            </div>
+                            <div class="absolute bottom-6 right-6 z-10 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-[var(--border-color)] shadow-md flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-green-500 animate-ping" aria-hidden="true"></div>
+                                <div class="text-xs text-left">
+                                    <p class="text-gray-400 font-medium" data-i18n="preview_staged_status">Staged Artwork:</p>
+                                    <p id="active-layout-title" class="font-bold text-[var(--clay)] italic serif">Golden Shoreline</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCALE & RATIO VISUALIZER -->
+        <section id="size-guide" class="py-24 bg-[#F6F1E8] px-6 border-t border-[var(--border-color)] overflow-hidden">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal-node">
+                    <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block mb-3" data-i18n="size_tag">Interactive Scale Guide</span>
+                    <h2 class="text-3xl md:text-4xl serif italic mb-4 text-clay" data-i18n="size_title">Find your perfect proportion</h2>
+                    <p class="text-sm md:text-base text-gray-500 font-light" data-i18n="size_desc">Eliminate the guesswork. Use our visualizer to see exactly how our standard print sizes look above a typical 84-inch sofa.</p>
+                </div>
+
+                <div class="reveal-node bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-[var(--border-color)] flex flex-col items-center">
+                    <!-- Size Toggles -->
+                    <div class="flex flex-wrap justify-center gap-3 mb-16" id="size-toggles">
+                        <button data-size-width="64" data-size-height="96" class="size-btn px-6 py-3 rounded-full text-xs uppercase tracking-widest font-semibold border border-gray-200 hover:border-amber-600 transition-all text-[var(--clay)] min-h-[48px]">A4 (8x12")</button>
+                        <button data-size-width="112" data-size-height="144" class="size-btn px-6 py-3 rounded-full text-xs uppercase tracking-widest font-semibold border border-gray-200 hover:border-amber-600 transition-all text-[var(--clay)] min-h-[48px]">14x18"</button>
+                        <button data-size-width="144" data-size-height="192" class="size-btn px-6 py-3 rounded-full text-xs uppercase tracking-widest font-semibold border border-amber-600 bg-amber-50 text-amber-800 transition-all min-h-[48px]">18x24"</button>
+                        <button data-size-width="192" data-size-height="288" class="size-btn px-6 py-3 rounded-full text-xs uppercase tracking-widest font-semibold border border-gray-200 hover:border-amber-600 transition-all text-[var(--clay)] min-h-[48px]">24x36"</button>
+                    </div>
+
+                    <!-- Visual Area -->
+                    <div class="relative w-full max-w-3xl aspect-[16/9] flex flex-col items-center justify-end border-b-2 border-gray-100 pb-2 overflow-hidden mb-12">
+                        <!-- Artwork Frame -->
+                        <div id="visualizer-frame" class="absolute bottom-[35%] md:bottom-[40%] bg-white border-[4px] md:border-[6px] border-neutral-900 shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all duration-700 ease-in-out z-10" style="width: 144px; height: 192px;">
+                            <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=400&fm=webp" class="w-full h-full object-cover p-0.5 md:p-1" alt="Scale visualization art" loading="lazy" decoding="async">
+                            <!-- Helper measurement line -->
+                            <div class="absolute -right-6 md:-right-8 top-0 bottom-0 flex items-center">
+                                <div class="w-px h-full bg-amber-600 relative">
+                                    <div class="absolute top-0 -left-1 w-3 h-px bg-amber-600"></div>
+                                    <div class="absolute bottom-0 -left-1 w-3 h-px bg-amber-600"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sofa Silhouette (SVG) -->
+                        <div class="w-[90%] md:w-[80%] max-w-[600px] text-gray-100 z-0 relative transform translate-y-4">
+                            <svg viewBox="0 0 800 300" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                <path d="M 50 150 L 750 150 Q 780 150 780 180 L 780 280 L 730 280 L 730 250 L 70 250 L 70 280 L 20 280 L 20 180 Q 20 150 50 150 Z" />
+                                <rect x="70" y="100" width="660" height="150" rx="15" />
+                                <rect x="70" y="100" width="210" height="150" rx="15" fill="rgba(0,0,0,0.03)"/>
+                                <rect x="295" y="100" width="210" height="150" rx="15" fill="rgba(0,0,0,0.03)"/>
+                                <rect x="520" y="100" width="210" height="150" rx="15" fill="rgba(0,0,0,0.03)"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-widest text-gray-400 text-center mb-8" data-i18n="size_footer_tag">Visualizer scale visually calibrated to a standard 84" (213cm) 3-seater sofa</p>
+                    
+                    <!-- Bespoke / White Glove Sizing Section -->
+                    <div class="w-full max-w-2xl border border-dashed border-amber-200 bg-amber-50/30 rounded-2xl p-6 text-center space-y-3">
+                        <span class="inline-block text-[10px] uppercase tracking-[0.2em] font-semibold text-amber-800" data-i18n="size_bespoke_tag">Atelier White-Glove Service</span>
+                        <h3 class="serif italic text-lg text-[var(--clay)]" data-i18n="size_bespoke_title">Bespoke Monumental Scaling</h3>
+                        <p class="text-xs text-gray-500 font-light leading-relaxed max-w-lg mx-auto" data-i18n="size_bespoke_desc">Need a grand architectural statement? Every collection purchase includes complimentary bespoke AI-upscaling up to 60"×90" (152×228cm) at ultra-sharp 300 DPI. Just reply to your delivery email with your required dimensions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPLIMENTARY DOWNLOAD / LEAD MAGNET -->
+        <section class="py-24 bg-[var(--cream)] text-center border-t border-[var(--border-color)]" id="free-sample">
+            <div class="max-w-3xl mx-auto px-6 reveal-node">
+                <span class="text-xs uppercase tracking-[0.3em] text-amber-700 mb-4 block font-bold" data-i18n="free_tag">Complimentary Gift</span>
+                <h2 class="text-3xl md:text-4xl serif italic mb-6 text-clay" data-i18n="free_title">Try the feeling before you collect</h2>
+                <p class="text-sm md:text-base text-gray-500 font-light mb-10 max-w-lg mx-auto" data-i18n="free_desc">Get a complimentary, high-resolution digital download pack delivered instantly in exchange for joining our collector circle.</p>
+                <form id="lead-magnet-form" class="max-w-md mx-auto space-y-4 text-left">
+                    <label for="lead-email" class="sr-only">Email address</label>
+                    <input type="email" id="lead-email" placeholder="Your primary email address" required
+                        class="w-full p-5 bg-white border border-[var(--border-color)] rounded-2xl outline-none focus:border-amber-600 transition-all text-[var(--clay)] font-light text-[16px] min-h-[54px] accent-amber-600">
+                    <button type="submit" class="w-full py-5 bg-amber-600 text-white rounded-2xl uppercase tracking-[0.2em] font-semibold text-xs hover:bg-amber-500 transition-all duration-300 min-h-[52px]" data-i18n="free_submit_btn">
+                        Get Free Sample Set
+                    </button>
+                </form>
+                <div id="lead-success" aria-live="polite" class="hidden py-8 text-amber-700 serif italic text-xl" data-i18n="free_success">
+                    Thank you! Your downloads are now unlocked.
+                </div>
+                <p class="text-xs uppercase tracking-widest text-gray-400 mt-6 font-medium" data-i18n="free_footer">Includes print guide &amp; 5 standardized ratios</p>
+            </div>
+        </section>
+
+        <!-- TEXTURE BLOCK -->
+        <section id="texture" class="py-24 md:py-32 px-6 overflow-hidden bg-[#FAF7F0] cv-lazy">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                <div class="img-zoom reveal-node rounded-[2rem] shadow-lg relative group aspect-[4/3]">
+                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1000&fm=webp" 
+                         srcset="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600&fm=webp 1x,
+                                 https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1200&fm=webp 2x"
+                         alt="Macro texture of heavy impasto oil paint showing DPI clarity" 
+                         class="w-full h-full object-cover"
+                         width="1000"
+                         height="750"
+                         loading="lazy"
+                         decoding="async">
+                </div>
+                <div class="reveal-node space-y-6 text-left">
+                    <span class="text-xs uppercase tracking-widest text-amber-700 font-bold block" data-i18n="texture_tag">Materiality and Sculptural Depth</span>
+                    <h2 class="text-3xl md:text-4xl serif italic leading-tight text-clay" data-i18n="texture_title">Tangible paint strokes <br>re-imagined for paper.</h2>
+                    <p class="text-sm md:text-base text-gray-500 font-light leading-relaxed" data-i18n="texture_desc">
+                        We capture the thick, sculptural ridges of heavy palette-knife impasto using high-end macro optics. When printed on fine-art paper, the illusion of dimensional oil texture is absolutely striking.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-6 bg-white/60 rounded-2xl border border-[var(--border-color)]">
+                            <span class="block font-bold text-lg text-[var(--clay)] mb-1">300 DPI</span>
+                            <span class="text-xs uppercase tracking-wider text-gray-400" data-i18n="texture_stat1">Crisp, Grainless Prints</span>
+                        </div>
+                        <div class="p-6 bg-white/60 rounded-2xl border border-[var(--border-color)]">
+                            <span class="block font-bold text-lg text-[var(--clay)] mb-1" data-i18n="texture_stat2_head">Impasto</span>
+                            <span class="text-xs uppercase tracking-wider text-gray-400" data-i18n="texture_stat2">Authentic Oil Details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT COLLECTION -->
+        <section id="shop" class="py-24 md:py-32 bg-white px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal-node text-left">
+                    <div class="space-y-2">
+                        <h2 class="text-3xl md:text-4xl serif italic text-clay" data-i18n="catalog_title">Signature Collection</h2>
+                        <p class="text-gray-400 text-xs md:text-sm font-light uppercase tracking-widest" data-i18n="catalog_subtitle">Digital Download Packs &bull; Premium 300 DPI Quality</p>
+                    </div>
+                </div>
+
+                <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+                    <!-- Product Card 1 -->
+                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-golden" style="transition-delay: 50ms;">
+                        <div>
+                            <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
+                                <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800&fm=webp" 
+                                     srcset="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=500&fm=webp 1x,
+                                             https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=1000&fm=webp 2x"
+                                     alt="Golden Shoreline minimalist impasto wall art" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
+                            </div>
+                            <div class="flex justify-between items-baseline mb-4">
+                                <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_golden">Golden Shoreline</h3>
+                                <div class="text-right">
+                                    <span class="text-xs text-gray-300 line-through mr-1.5">$29</span>
+                                    <span class="text-lg md:text-xl font-bold text-amber-700">$9</span>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4 mb-6 text-left">
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_feature_header">What you get:</p>
+                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
+                                        <li data-i18n="card_feature_1">&bull; 5 print sizes (A1-A4)</li>
+                                        <li>&bull; 300 DPI quality</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_bestfor_header">Works best for:</p>
+                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
+                                        <li data-i18n="card_bestfor_living">&bull; living rooms</li>
+                                        <li data-i18n="card_bestfor_calm">&bull; calm interiors</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2.5">
+                            <button data-action="add-to-cart" data-id="prod-golden" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
+                            <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy Golden Shoreline on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-lavender" style="transition-delay: 150ms;">
+                        <div>
+                            <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
+                                <img src="https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=800&fm=webp" 
+                                     srcset="https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=500&fm=webp 1x,
+                                             https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=1000&fm=webp 2x"
+                                     alt="Lavender Dusk calm modern painting print" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
+                            </div>
+                            <div class="flex justify-between items-baseline mb-4">
+                                <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_lavender">Lavender Dusk</h3>
+                                <div class="text-right">
+                                    <span class="text-xs text-gray-300 line-through mr-1.5">$35</span>
+                                    <span class="text-lg md:text-xl font-bold text-amber-700">$14</span>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4 mb-6 text-left">
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_feature_header">What you get:</p>
+                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
+                                        <li data-i18n="card_feature_1">&bull; 5 print sizes (A1-A4)</li>
+                                        <li>&bull; 300 DPI quality</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_bestfor_header">Works best for:</p>
+                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
+                                        <li data-i18n="card_bestfor_bedrooms">&bull; bedrooms</li>
+                                        <li data-i18n="card_bestfor_zenspaces">&bull; zen spaces</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2.5">
+                            <button data-action="add-to-cart" data-id="prod-lavender" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
+                            <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy Lavender Dusk on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-mist" style="transition-delay: 250ms;">
+                        <div>
+                            <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
+                                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=800&fm=webp" 
+                                     srcset="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=500&fm=webp 1x,
+                                             https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=1000&fm=webp 2x"
+                                     alt="Morning Mist minimal textured oil art" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
+                            </div>
+                            <div class="flex justify-between items-baseline mb-4">
+                                <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_mist">Morning Mist</h3>
+                                <div class="text-right">
+                                    <span class="text-xs text-gray-300 line-through mr-1.5">$45</span>
+                                    <span class="text-lg md:text-xl font-bold text-amber-700">$19</span>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4 mb-6 text-left">
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_feature_header">What you get:</p>
+                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
+                                        <li data-i18n="card_feature_1">&bull; 5 print sizes (A1-A4)</li>
+                                        <li>&bull; 300 DPI quality</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_bestfor_header">Works best for:</p>
+                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
+                                        <li data-i18n="card_bestfor_offices">&bull; home offices</li>
+                                        <li data-i18n="card_bestfor_walls">&bull; minimalist walls</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2.5">
+                            <button data-action="add-to-cart" data-id="prod-mist" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
+                            <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy Morning Mist on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Complete Horizon Bundle Offer -->
+                <div class="mt-24 p-8 md:p-12 bg-[#F2EDE4] rounded-[2rem] flex flex-col lg:flex-row items-center justify-between reveal-node border border-[var(--border-color)] gap-8">
+                    <div class="space-y-4 text-center lg:text-left max-w-2xl">
+                        <span class="text-[11px] uppercase tracking-widest bg-white/70 px-4 py-1.5 rounded-full inline-block font-semibold text-amber-800 animate-pulse" data-i18n="bundle_tag">Collector's Selection</span>
+                        <h3 class="text-2xl md:text-3xl serif italic mb-2 text-clay" data-i18n="bundle_title">The Complete Horizon Set</h3>
+                        <p class="text-xs md:text-sm text-gray-500 font-light leading-relaxed" data-i18n="bundle_desc">Secure all three premium digital print sets (15 high-res files) plus our exclusive digital styling &amp; framing companion guide at an exceptional bundle rate.</p>
+                    </div>
+                    <div class="flex items-center gap-6 md:gap-8 flex-col sm:flex-row w-full lg:w-auto justify-center">
+                        <div class="text-center sm:text-right">
+                            <span class="block text-xs text-gray-400 line-through font-semibold">$109</span>
+                            <span class="text-3xl md:text-4xl font-bold text-amber-700">$29</span>
+                        </div>
+                        <button data-action="add-to-cart" data-id="prod-bundle" class="btn-primary w-full sm:w-auto text-center min-h-[52px]" data-i18n="bundle_submit_btn">Collect All for $29</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLLECTOR LIST -->
+        <section id="collector" class="py-24 md:py-32 px-6 bg-[#1A1814] text-white cv-lazy">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-node relative">
+                    <div class="rounded-3xl overflow-hidden aspect-square border border-white/10 max-w-md mx-auto">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800&fm=webp" 
+                             srcset="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=500&fm=webp 1x,
+                                     https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=1000&fm=webp 2x"
+                             alt="Artist's fine art workstation layout" class="w-full h-full object-cover grayscale opacity-60" width="800" height="800" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                <div class="reveal-node space-y-8 text-left">
+                    <span class="text-xs uppercase tracking-widest text-amber-500 font-semibold block" data-i18n="collector_tag">Early Access &amp; Drop Alerts</span>
+                    <h2 class="text-3xl md:text-5xl serif italic text-amber-100" data-i18n="collector_title">The Collector List</h2>
+                    <p class="text-sm md:text-base text-gray-400 font-light leading-relaxed" data-i18n="collector_desc">Subscribe to receive early notifications on limited seasonal drop editions, free curated mini-prints, and organic home-styling advice.</p>
+                    <form id="collector-form" class="space-y-4">
+                        <div class="relative">
+                            <input type="email" id="collector-email" placeholder="Your primary email address" required
+                                class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl outline-none focus:border-amber-500 transition-all text-white font-light text-[16px] accent-amber-500">
+                        </div>
+                        <button type="submit" class="w-full py-5 bg-amber-600 text-white rounded-2xl uppercase tracking-[0.2em] font-semibold text-xs hover:bg-amber-500 transition-all duration-300 min-h-[52px]" data-i18n="collector_submit_btn">Join the List</button>
+                    </form>
+                    <div id="collector-success" class="hidden py-8 text-amber-500 serif italic text-xl" data-i18n="collector_success">
+                        Welcome. The custom KayaVox Printing & Styling Guide has been dispatched to your inbox.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER (Restored Legal Links) -->
+    <footer class="bg-white border-t border-[var(--border-color)] py-20 px-6 text-center text-xs tracking-widest uppercase">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-12">
+            
+            <div class="flex-1">
+                <div class="text-2xl font-bold serif italic text-amber-700 mb-4">KayaVox</div>
+                <p class="text-gray-400 normal-case tracking-normal italic serif text-sm mb-4" data-i18n="footer_sub">Premium Digital Art Curation</p>
+                <p class="text-[10px] tracking-[0.2em] text-gray-400">&copy; 2026 KayaVox. All Rights Reserved.</p>
+            </div>
+
+            <div class="flex-1">
+                <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-6 text-[var(--clay)]" data-i18n="mobile_nav_title">Navigation</h4>
+                <div class="flex flex-col gap-4 text-[10px] text-gray-500">
+                    <a href="#shop" class="hover:text-amber-600 transition-colors" data-i18n="nav_shop">Prints</a>
+                    <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="hover:text-amber-600 transition-colors" data-i18n="nav_lava">Lava Top</a>
+                    <a href="https://pinterest.com/" target="_blank" rel="noopener" class="hover:text-amber-600 transition-colors">Pinterest</a>
+                </div>
+            </div>
+
+            <div class="flex-1">
+                <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-6 text-[var(--clay)]" data-i18n="footer_legal">Trust & Safety</h4>
+                <div class="flex flex-col gap-4 text-[10px] text-gray-500">
+                    <button onclick="openModal('modal-privacy')" class="hover:text-amber-600 transition-colors text-left uppercase tracking-widest font-semibold" data-i18n="footer_privacy">Privacy Policy</button>
+                    <button onclick="openModal('modal-terms')" class="hover:text-amber-600 transition-colors text-left uppercase tracking-widest font-semibold mt-1" data-i18n="footer_terms">Terms of Service</button>
+                    <button onclick="openModal('modal-contact')" class="hover:text-amber-600 transition-colors text-left uppercase tracking-widest font-semibold mt-1" data-i18n="footer_contact">Contact Us</button>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile Action Bar -->
+    <div class="lg:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-[var(--border-color)] z-40 px-4 pt-3 pb-[max(0.75rem,calc(env(safe-area-inset-bottom)+0.75rem))] flex items-center justify-between shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+        <div class="text-left pl-1">
+            <span class="block text-[9px] uppercase tracking-wider text-gray-400 font-bold leading-none mb-1">KayaVox Studio</span>
+            <span class="text-xs serif italic text-[var(--clay)] font-semibold" data-i18n="mobile_sticky_status">Quiet Luxury Prints</span>
+        </div>
+        <div class="flex gap-2">
+            <a href="#free-sample" class="px-4 py-3 rounded-full text-[10px] uppercase tracking-widest border border-amber-600/30 bg-amber-50 text-amber-800 hover:bg-amber-100 transition-all font-semibold min-h-[48px] flex items-center justify-center" data-i18n="mobile_sticky_free">Free Gift</a>
+            <a href="#shop" class="px-5 py-3 rounded-full text-[10px] uppercase tracking-widest bg-amber-600 text-white hover:bg-amber-700 transition-all font-semibold min-h-[48px] flex items-center justify-center" data-i18n="mobile_sticky_shop">Shop Prints</a>
+        </div>
+    </div>
+
+    <!-- CART DRAWER -->
+    <div id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transform translate-x-full transition-transform duration-500 ease-out flex justify-end">
+        <div class="w-full max-w-sm bg-[var(--cream)] h-[100dvh] shadow-2xl p-8 pt-[max(2rem,env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center border-b border-[var(--border-color)] pb-6 mb-6">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-700"></i>
+                        <h3 id="cart-title" class="text-lg serif italic text-[var(--clay)] font-bold" data-i18n="cart_drawer_title">Your Collection Cart</h3>
+                    </div>
+                    <button data-action="toggle-cart" data-state="false" class="p-3 hover:bg-[var(--sand)] rounded-full transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center text-clay" aria-label="Close cart">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <div id="cart-items" class="space-y-4 overflow-y-auto max-h-[50vh] pr-2 text-left">
+                    <!-- Updated by JS Proxy state -->
+                </div>
+            </div>
+
+            <div class="border-t border-[var(--border-color)] pt-6 space-y-6">
+                <div class="flex justify-between items-baseline font-medium text-sm">
+                    <span class="text-[var(--clay)]" data-i18n="cart_total_count">Total Artworks:</span>
+                    <span id="cart-total-qty" class="text-amber-700 font-bold text-lg">0</span>
+                </div>
+                <div class="flex justify-between items-baseline font-medium text-sm">
+                    <span class="text-[var(--clay)]" data-i18n="cart_subtotal">Subtotal:</span>
+                    <span id="cart-total-price" class="text-amber-700 font-bold text-xl">$0</span>
+                </div>
+                
+                <button data-action="initiate-checkout" class="btn-primary w-full text-center block shadow-md hover:shadow-lg min-h-[52px]" data-i18n="cart_proceed">
+                    Proceed to Vault
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL TOAST -->
+    <div id="toast" role="alert" aria-live="assertive" class="fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-[max(1.5rem,env(safe-area-inset-left))] z-[60] transform translate-y-20 opacity-0 bg-white/95 backdrop-blur-md shadow-2xl border border-[var(--border-color)] px-6 py-4 rounded-2xl flex items-center gap-3 transition-all duration-500 ease-out pointer-events-none">
+        <div class="bg-green-100 p-1.5 rounded-full" id="toast-icon-bg">
+            <i data-lucide="check" class="w-4 h-4 text-green-700" id="toast-icon"></i>
+        </div>
+        <p id="toast-message" class="text-xs font-semibold uppercase tracking-widest text-[var(--clay)]">Success</p>
+    </div>
+
+    <!-- STATIC MODALS OVERLAY (Privacy, Terms, Contact) -->
+    <div id="legal-modals-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        
+        <!-- Privacy Policy Modal -->
+        <div id="modal-privacy" class="modal-content hidden bg-[var(--cream)] max-w-2xl w-full max-h-[85vh] overflow-y-auto rounded-[2rem] p-8 md:p-12 shadow-2xl relative border border-[var(--border-color)]">
+            <button onclick="closeModals()" class="absolute top-6 right-6 p-3 bg-white/50 hover:bg-white rounded-full transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center text-clay" aria-label="Close modal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h2 class="text-3xl serif italic text-[var(--clay)] mb-6" data-i18n="footer_privacy">Privacy Policy</h2>
+            <div class="text-sm text-gray-600 space-y-4 text-left leading-relaxed font-light">
+                <p class="font-semibold text-gray-800">Last updated: June 2026</p>
+                <p>Welcome to KayaVox. We respect your privacy and are committed to protecting any personal data you share with us. This Privacy Policy details how we handle the information collected from our landing page.</p>
+                <h3 class="font-bold text-gray-800 text-base font-serif mt-6">1. Information We Collect</h3>
+                <p>We only collect information that you explicitly provide, such as your email address when subscribing to the Collector List, downloading complimentary digital assets, or contacting us through the form.</p>
+                <h3 class="font-bold text-gray-800 text-base font-serif mt-4">2. Cookies and Local Storage</h3>
+                <p>We utilize browser Local Storage to remember the items in your shopping cart and your preferred language. No third-party tracking scripts are active without your prior, explicit consent.</p>
+                <h3 class="font-bold text-gray-800 text-base font-serif mt-4">3. Data Security</h3>
+                <p>Since KayaVox offers instant digital downloads, we do not process or store credit card details on our hosting server. Any email submissions for marketing lists are stored securely and used exclusively to send your purchased files or drop alerts.</p>
+            </div>
+        </div>
+
+        <!-- Terms of Service Modal -->
+        <div id="modal-terms" class="modal-content hidden bg-[var(--cream)] max-w-2xl w-full max-h-[85vh] overflow-y-auto rounded-[2rem] p-8 md:p-12 shadow-2xl relative border border-[var(--border-color)]">
+            <button onclick="closeModals()" class="absolute top-6 right-6 p-3 bg-white/50 hover:bg-white rounded-full transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center text-clay" aria-label="Close modal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h2 class="text-3xl serif italic text-[var(--clay)] mb-6" data-i18n="footer_terms">Terms of Service</h2>
+            <div class="text-sm text-gray-600 space-y-4 text-left leading-relaxed font-light">
+                <p class="font-semibold text-gray-800">Last updated: June 2026</p>
+                <h3 class="font-bold text-gray-800 text-base font-serif mt-6">1. Digital Products and Licensing</h3>
+                <p>All items available for download on KayaVox are high-resolution, instant digital assets. Upon purchasing, you are granted a non-exclusive, personal use license to print and frame these files for home decor or personal gifting.</p>
+                <h3 class="font-bold text-gray-800 text-base font-serif mt-4">2. No Commercial Reselling</h3>
+                <p>Under no circumstances are you allowed to resell, redistribute, sub-license, or upload the raw digital files to public image hosting portals or print-on-demand marketplaces.</p>
+                <h3 class="font-bold text-gray-800 text-base font-serif mt-4 text-amber-800">3. Absolute Refund Policy</h3>
+                <p class="text-amber-900 font-medium bg-amber-50/50 p-4 rounded-xl border border-amber-200">Due to the immediate, non-returnable nature of electronic, downloadable media, all digital art package transactions are final and non-refundable. Please review scaling, ratio visualizers, and visual parameters carefully prior to final checkout.</p>
+            </div>
+        </div>
+
+        <!-- Contact Us Modal -->
+        <div id="modal-contact" class="modal-content hidden bg-[var(--cream)] max-w-md w-full rounded-[2rem] p-8 md:p-12 shadow-2xl relative border border-[var(--border-color)]">
+            <button onclick="closeModals()" class="absolute top-6 right-6 p-3 bg-white/50 hover:bg-white rounded-full transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center text-clay" aria-label="Close modal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h2 class="text-3xl serif italic text-[var(--clay)] mb-2" data-i18n="footer_contact">Contact Us</h2>
+            <p class="text-xs text-gray-500 mb-6 leading-relaxed" data-i18n="contact_subtitle">Have a question about dimensions or custom printing? Write us a message below and we will get back to you.</p>
+            
+            <form id="contactForm" class="space-y-4 text-left" onsubmit="handleContactSubmit(event)">
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5" data-i18n="contact_name">Name</label>
+                    <input type="text" id="contact-name" required class="w-full px-4 py-3 bg-white border border-[var(--border-color)] rounded-xl focus:outline-none focus:border-amber-600 text-sm text-[var(--clay)] min-h-[48px]">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5" data-i18n="contact_email">Email</label>
+                    <input type="email" id="contact-email" required class="w-full px-4 py-3 bg-white border border-[var(--border-color)] rounded-xl focus:outline-none focus:border-amber-600 text-sm text-[var(--clay)] min-h-[48px]">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5" data-i18n="contact_message">Message</label>
+                    <textarea id="contact-msg" required rows="4" class="w-full px-4 py-3 bg-white border border-[var(--border-color)] rounded-xl focus:outline-none focus:border-amber-600 text-sm text-[var(--clay)] resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full btn-primary font-bold py-4 mt-2" data-i18n="contact_send_btn">Send Message</button>
+            </form>
+            <div id="contact-success" class="hidden py-8 text-center text-amber-700 serif italic text-xl">
+                Thank you! Your message has been received. We will reply within 24 hours.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SECURE DOWNLOAD VAULT MODAL WITH UNBOXING -->
+    <div id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading" aria-hidden="true" class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-[var(--cream)] max-w-2xl w-full rounded-[2.5rem] p-8 md:p-12 relative shadow-2xl overflow-hidden min-h-[550px] flex flex-col justify-center border border-[var(--border-color)]">
+            
+            <button data-action="close-modal" class="absolute top-6 right-6 p-3 bg-white/50 hover:bg-white rounded-full transition-colors min-h-[48px] min-w-[48px] flex items-center justify-center z-30 text-clay" aria-label="Close checkout modal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- PHASE 1: DIGITAL UNBOXING ENVELOPE -->
+            <div id="unboxing-view" class="absolute inset-0 flex flex-col items-center justify-center bg-[#FAF7F0] z-20 transition-all duration-1000">
+                <div class="text-center mb-12">
+                    <span class="text-xs uppercase tracking-widest text-amber-700 font-bold block mb-2" data-i18n="unboxing_status">Your Collection is Ready</span>
+                    <p class="serif italic text-2xl text-[var(--clay)]" data-i18n="unboxing_click_prompt">Tap the wax seal to open</p>
+                </div>
+                
+                <div class="envelope-wrapper" id="envelope" data-action="open-envelope" aria-label="Open digital envelope">
+                    <div class="envelope-back"></div>
+                    <div class="letter-content text-center">
+                        <div class="w-10 h-10 mb-3 border border-amber-600 rounded-full flex items-center justify-center text-amber-700 serif italic text-xl mx-auto">K</div>
+                        <h4 class="serif italic text-lg text-clay" data-i18n="certificate_title">Certificate of Authenticity</h4>
+                        <p class="text-[9px] text-gray-400 mt-2 uppercase tracking-widest font-semibold" id="cert-date-anim">Date</p>
+                    </div>
+                    <div class="envelope-front"></div>
+                    <div class="wax-seal">KV</div>
+                </div>
+            </div>
+
+            <!-- PHASE 2: DOWNLOADS VAULT -->
+            <div id="downloads-view" class="opacity-0 translate-y-8 transition-all duration-1000 ease-out pointer-events-none w-full h-full pt-4">
+                <div class="text-center space-y-4 mb-8">
+                    <div class="inline-flex p-3 bg-amber-50 rounded-full text-amber-700">
+                        <i data-lucide="award" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl serif italic text-[var(--clay)]" id="modal-heading" data-i18n="vault_title">Authentic Collection</h3>
+                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold" id="certificate-date">Issued: ...</p>
+                    <p class="text-sm text-gray-500 mt-2" id="modal-subheading" data-i18n="vault_desc">Your digital art vault is unlocked. Save these certified archives to your local device.</p>
+                </div>
+
+                <div class="border-y border-[var(--border-color)] py-6 space-y-4 text-left max-h-[40vh] overflow-y-auto pr-2">
+                    <span class="text-xs uppercase tracking-widest text-gray-400 block font-bold" data-i18n="vault_locker_header">Your Artifact Locker:</span>
+                    
+                    <div class="flex items-center justify-between p-3.5 bg-amber-50/50 rounded-xl border border-amber-200/50">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="file-text" class="w-5 h-5 text-amber-700"></i>
+                            <div>
+                                <span class="block text-xs font-bold text-[var(--clay)] uppercase tracking-wider" data-i18n="vault_guide_title">KayaVox Custom Framing Companion Guide</span>
+                                <span class="text-[10px] text-gray-400">PDF Document &bull; 1.2 MB</span>
+                            </div>
+                        </div>
+                        <button data-action="download-item" data-file="KayaVox_Framing_Guide.pdf" class="text-xs text-amber-700 hover:text-amber-800 font-bold uppercase tracking-widest border-b border-amber-700/30" data-i18n="vault_get_pdf">Get PDF</button>
+                    </div>
+
+                    <div id="downloads-list" class="space-y-3">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+
+                <div class="bg-[#FBF9F4] p-4 rounded-xl flex gap-3 text-left mt-6">
+                    <i data-lucide="info" class="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                    <p class="text-xs text-gray-500 leading-relaxed italic" data-i18n="vault_disclaimer">
+                        Advisory: For the most luxurious finish, request 210g/m&sup2; matte fine art paper or soft matte photo rag from your printing partner to preserve the deep brush textures.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GDPR COOKIE CONSENT BANNER (Restored Granular Options & Fixed Colors) -->
+    <div id="cookie-banner" role="region" aria-label="Cookie Consent" class="fixed bottom-6 right-6 z-50 max-w-sm bg-white border border-[var(--border-color)] rounded-2xl p-6 shadow-2xl translate-y-20 opacity-0 pointer-events-none transition-all duration-500">
+        <div class="flex items-start gap-4 text-left">
+            <div class="bg-amber-50 p-2 rounded-xl text-amber-700">
+                <i data-lucide="cookie" class="w-5 h-5"></i>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-[var(--clay)] uppercase tracking-wider mb-1" data-i18n="cookie_title">Cookie Curation</h4>
+                <p class="text-xs text-gray-500 leading-relaxed" data-i18n="cookie_desc">We use cookies to enhance your experience. You can choose to accept all cookies, decline them, or allow only essential cookies required for the site to function. Read our <a href="#privacy" class="underline hover:text-amber-600">Privacy Policy</a>.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <button id="cookie-accept" class="px-4 py-2 bg-[var(--clay)] text-white text-[10px] font-semibold uppercase tracking-widest rounded-lg hover:bg-amber-700 transition-colors" data-i18n="cookie_accept">Accept All</button>
+                    <button id="cookie-essential" class="px-4 py-2 border border-gray-200 text-gray-500 text-[10px] font-semibold uppercase tracking-widest rounded-lg hover:text-clay hover:border-clay transition-colors" data-i18n="cookie_essential">Only Essential</button>
+                    <button id="cookie-decline" class="px-4 py-2 border border-gray-200 text-gray-400 text-[10px] font-semibold uppercase tracking-widest rounded-lg hover:text-clay hover:border-clay transition-colors" data-i18n="cookie_decline">Decline</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Declarative Internationalization maps (i18n)
+        const TRANSLATIONS = {
+            en: {
+                skip_to_content: "Skip to main content",
+                nav_shop: "Shop Prints",
+                nav_lava: "Lava Store",
+                nav_process: "The Process",
+                nav_cart: "Cart",
+                nav_staging: "Virtual Preview",
+                mobile_nav_title: "Navigation",
+                mobile_settings: "Quick Settings",
+                mobile_support_header: "Support & Licensing",
+                hero_tag: "Quiet Luxury • Framed in 60 seconds",
+                hero_title: "Quiet luxury that feels<br>like stillness itself.",
+                hero_price_sub: "High-resolution digital downloads from $9",
+                hero_format_sub: "Instant access • Formatted for US Standard Frames",
+                hero_description: "Download, print, and frame museum-grade printable wall art designed to restore soft light, organic texture, and visual stillness to your home.",
+                hero_btn_shop: "Shop the Prints",
+                hero_btn_catalog: "Full Catalog",
+                hero_visual_tag: "In-room visualization:",
+                preview_tag: "Interactive Wall Staging",
+                preview_title: "See it styled in your home",
+                preview_desc: "Select a space below, upload your own wall, and toggle different pieces to watch how perfectly KayaVox art ties the room together.",
+                preview_step1: "1. Select Space:",
+                room_living: "Living Room",
+                room_bedroom: "Bedroom",
+                room_office: "Home Office",
+                room_upload: "Your Wall",
+                preview_step2: "2. Choose Artwork to Stage:",
+                art_series_tag: "Signature Series",
+                art_title_golden: "Golden Shoreline",
+                art_title_lavender: "Lavender Dusk",
+                art_title_mist: "Morning Mist",
+                preview_staged_status: "Staged Artwork:",
+                size_tag: "Interactive Scale Guide",
+                size_title: "Find your perfect proportion",
+                size_desc: "Eliminate the guesswork. Use our visualizer to see exactly how our standard print sizes look above a typical 84-inch sofa.",
+                size_footer_tag: "Visualizer scale visually calibrated to a standard 84\" (213cm) 3-seater sofa",
+                size_bespoke_tag: "Atelier White-Glove Service",
+                size_bespoke_title: "Bespoke Monumental Scaling",
+                size_bespoke_desc: "Need a grand architectural statement? Every collection purchase includes complimentary bespoke AI-upscaling up to 60\"×90\" (152×228cm) at ultra-sharp 300 DPI. Just reply to your delivery email with your required dimensions.",
+                free_tag: "Complimentary Gift",
+                free_title: "Try the feeling before you collect",
+                free_desc: "Get a complimentary, high-resolution digital download pack delivered instantly in exchange for joining our collector circle.",
+                free_submit_btn: "Get Free Sample Set",
+                free_success: "Thank you! Your downloads are now unlocked.",
+                free_footer: "Includes print guide & 5 standardized ratios",
+                texture_tag: "Materiality and Sculptural Depth",
+                texture_title: "Tangible paint strokes <br>re-imagined for paper.",
+                texture_desc: "We capture the thick, sculptural ridges of heavy palette-knife impasto using high-end macro optics. When printed on fine-art paper, the illusion of dimensional oil texture is absolutely striking.",
+                texture_stat1: "Crisp, Grainless Prints",
+                texture_stat2_head: "Impasto",
+                texture_stat2: "Authentic Oil Details",
+                catalog_title: "Signature Collection",
+                catalog_subtitle: "Digital Download Packs • Premium 300 DPI Quality",
+                card_feature_header: "What you get:",
+                card_feature_1: "• 5 print sizes (A1-A4)",
+                card_bestfor_header: "Works best for:",
+                card_bestfor_living: "• living rooms",
+                card_bestfor_calm: "• calm interiors",
+                card_bestfor_bedrooms: "• bedrooms",
+                card_bestfor_zenspaces: "• zen spaces",
+                card_bestfor_offices: "• home offices",
+                card_bestfor_walls: "• minimalist walls",
+                card_add_to_bag: "Add to Bag",
+                bundle_tag: "Collector's Selection",
+                bundle_title: "The Complete Horizon Set",
+                bundle_desc: "Secure all three premium digital print sets (15 high-res files) plus our exclusive digital styling & framing companion guide at an exceptional bundle rate.",
+                bundle_submit_btn: "Collect All for $29",
+                collector_tag: "Early Access & Drop Alerts",
+                collector_title: "The Collector List",
+                collector_desc: "Subscribe to receive early notifications on limited seasonal drop editions, free curated mini-prints, and organic home-styling advice.",
+                collector_submit_btn: "Join the List",
+                collector_success: "Welcome. The custom KayaVox Printing & Styling Guide has been dispatched to your inbox.",
+                footer_sub: "Premium Digital Art Curation",
+                footer_legal: "Trust & Safety",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                footer_contact: "Contact Us",
+                contact_subtitle: "Have a question about dimensions or custom printing? Write us a message below and we will get back to you.",
+                contact_name: "Name",
+                contact_email: "Email",
+                contact_message: "Message",
+                contact_send_btn: "Send Message",
+                mobile_sticky_status: "Quiet Luxury Prints",
+                mobile_sticky_free: "Free Gift",
+                mobile_sticky_shop: "Shop Prints",
+                cart_drawer_title: "Your Collection Cart",
+                cart_total_count: "Total Artworks:",
+                cart_subtotal: "Subtotal:",
+                cart_proceed: "Proceed to Vault",
+                unboxing_status: "Your Collection is Ready",
+                unboxing_click_prompt: "Tap the wax seal to open",
+                certificate_title: "Certificate of Authenticity",
+                vault_title: "Authentic Collection",
+                vault_desc: "Your digital art vault is unlocked. Save these certified archives to your local device.",
+                vault_locker_header: "Your Artifact Locker:",
+                vault_guide_title: "KayaVox Custom Framing Companion Guide",
+                vault_get_pdf: "Get PDF",
+                vault_disclaimer: "Advisory: For the most luxurious finish, request 210g/m² matte fine art paper or soft matte photo rag from your printing partner to preserve the deep brush textures.",
+                cookie_title: "Cookie Curation",
+                cookie_desc: "We use cookies to enhance your experience. You can choose to accept all cookies, decline them, or allow only essential cookies required for the site to function. Read our <a href='#privacy' class='underline hover:text-amber-600'>Privacy Policy</a>.",
+                cookie_accept: "Accept All",
+                cookie_essential: "Only Essential",
+                cookie_decline: "Decline"
+            },
+            ru: {
+                skip_to_content: "Перейти к основному контенту",
+                nav_shop: "Магазин",
+                nav_lava: "Бутик Lava",
+                nav_process: "Технология",
+                nav_cart: "Корзина",
+                nav_staging: "Примерка",
+                mobile_nav_title: "Навигация",
+                mobile_settings: "Настройки",
+                mobile_support_header: "Поддержка и лицензии",
+                hero_tag: "Тихая роскошь • Оформление за 60 секунд",
+                hero_title: "Тихая роскошь,<br>несущая умиротворение.",
+                hero_price_sub: "Цифровые постеры высокого качества от $9",
+                hero_format_sub: "Мгновенный доступ • Формат под стандартные рамы",
+                hero_description: "Скачивайте, печатайте и оформляйте постеры музейного уровня, созданные для воссоздания мягкого света, органических текстур и визуального покоя в вашем доме.",
+                hero_btn_shop: "Купить постеры",
+                hero_btn_catalog: "Весь каталог",
+                hero_visual_tag: "Визуализация в интерьере:",
+                preview_tag: "Интерактивная примерка",
+                preview_title: "Оцените искусство в интерьере",
+                preview_desc: "Выберите пространство, загрузите фото своей стены и примеряйте различные картины, чтобы увидеть, как идеально искусство KayaVox связывает интерьер воедино.",
+                preview_step1: "1. Выберите комнату:",
+                room_living: "Гостиная",
+                room_bedroom: "Спальня",
+                room_office: "Кабинет",
+                room_upload: "Ваша стена",
+                preview_step2: "2. Выберите картину:",
+                art_series_tag: "Лимитированная серия",
+                art_title_golden: "Золотой Берег",
+                art_title_lavender: "Лавандовый Закат",
+                art_title_mist: "Утренний Туман",
+                preview_staged_status: "Выбранный постер:",
+                size_tag: "Интерактивный гид по размерам",
+                size_title: "Найдите идеальные пропорции",
+                size_desc: "Никаких догадок. Используйте визуализатор, чтобы оценить, как стандартные размеры картин смотрятся над классическим 3-местным диваном.",
+                size_footer_tag: "Масштаб визуализатора откалиброван по стандартному дивану шириной 213 см",
+                size_bespoke_tag: "Премиальный консьерж-сервис",
+                size_bespoke_title: "Индивидуальный монументальный масштаб",
+                size_bespoke_desc: "Нужен гигантский формат для лофта или загородного дома? Каждая покупка включает бесплатное ручное AI-масштабирование до 150×225 см (300 DPI) под ваши размеры. Просто напишите нам в ответ на письмо с заказом.",
+                free_tag: "Подарок коллекционеру",
+                free_title: "Почувствуйте эстетику до покупки",
+                free_desc: "Получите бесплатный ознакомительный набор высокого разрешения на вашу почту, присоединившись к нашему кругу коллекционеров.",
+                free_submit_btn: "Получить подарок",
+                free_success: "Спасибо! Ссылка на скачивание разблокирована.",
+                free_footer: "Включает руководство по печати и 5 стандартных пропорций",
+                texture_tag: "Материальность и объём",
+                texture_title: "Осязаемые мазки масла, <br>воссозданные на бумаге.",
+                texture_desc: "Мы фиксируем объёмные рельефы мастихина с помощью макрооптики высокого разрешения. При печати на художественной бумаге иллюзия объемной текстуры масляной краски выглядит абсолютно поразительно.",
+                texture_stat1: "Четкая печать без пикселей",
+                texture_stat2_head: "Импасто",
+                texture_stat2: "Подлинная текстура масла",
+                catalog_title: "Авторская коллекция",
+                catalog_subtitle: "Пакеты цифровых файлов • Превосходное качество 300 DPI",
+                card_feature_header: "Что вы получаете:",
+                card_feature_1: "• 5 форматов печати (A1-A4)",
+                card_bestfor_header: "Идеально подходит для:",
+                card_bestfor_living: "• гостиных комнат",
+                card_bestfor_calm: "• тихих интерьеров",
+                card_bestfor_bedrooms: "• спален",
+                card_bestfor_zenspaces: "• дзен-зон",
+                card_bestfor_offices: "• домашних кабинетов",
+                card_bestfor_walls: "• минималистичных стен",
+                card_add_to_bag: "В корзину",
+                bundle_tag: "Выбор коллекционера",
+                bundle_title: "Полный набор Horizon",
+                bundle_desc: "Получите все три премиальных набора постеров (15 файлов высокого разрешения) плюс эксклюзивный цифровой гид по стилю и оформлению по специальной выгодной цене.",
+                bundle_submit_btn: "Забрать всё за $29",
+                collector_tag: "Ранний доступ и анонсы дропов",
+                collector_title: "Клуб коллекционеров",
+                collector_desc: "Подпишитесь, чтобы первыми получать уведомления о сезонных лимитированных тиражах, бесплатные кураторские мини-постеры и советы по оформлению интерьера.",
+                collector_submit_btn: "Вступить в клуб",
+                collector_success: "Добро пожаловать. Руководство по печати и стилю KayaVox отправлено на ваш почтовый ящик.",
+                footer_sub: "Премиальное цифровое искусство",
+                footer_legal: "Правовая информация",
+                footer_privacy: "Политика конфиденциальности",
+                footer_terms: "Условия использования",
+                footer_refund: "Политика возвратов",
+                mobile_sticky_status: "Постеры Тихой Роскоши",
+                mobile_sticky_free: "Подарок",
+                mobile_sticky_shop: "Магазин",
+                cart_drawer_title: "Ваша арт-корзина",
+                cart_total_count: "Всего произведений:",
+                cart_subtotal: "Промежуточный итог:",
+                cart_proceed: "Открыть хранилище",
+                unboxing_status: "Ваша коллекция готова к выдаче",
+                unboxing_click_prompt: "Нажмите на восковую печать, чтобы открыть",
+                certificate_title: "Сертификат подлинности",
+                vault_title: "Сертифицированная коллекция",
+                vault_desc: "Ваш цифровой арт-сейф разблокирован. Сохраните эти архивы на своё локальное устройство.",
+                vault_locker_header: "Ваше защищенное хранилище:",
+                vault_guide_title: "Гид KayaVox по подбору и оформлению рам",
+                vault_get_pdf: "Скачать PDF",
+                vault_disclaimer: "Совет: Для максимально роскошного вида закажите печать на матовой бумаге плотностью от 210 г/м² для сохранения глубоких мазков краски.",
+                cookie_title: "Файлы Cookie",
+                cookie_desc: "Мы используем файлы cookie для улучшения вашего опыта. Вы можете принять все файлы cookie, отклонить их или разрешить только те, что необходимы для работы сайта. Читайте нашу <a href='#privacy' class='underline hover:text-amber-600'>Политику</a>.",
+                cookie_accept: "Принять всё",
+                cookie_essential: "Только необходимые",
+                cookie_decline: "Отклонить"
+            },
+            fr: {
+                skip_to_content: "Passer au contenu principal",
+                nav_shop: "Acheter des impressions",
+                nav_lava: "Boutique Lava",
+                nav_process: "Le Processus",
+                nav_cart: "Panier",
+                nav_staging: "Mise en scène",
+                mobile_nav_title: "Navigation",
+                mobile_settings: "Réglages rapides",
+                mobile_support_header: "Assistance & Licence",
+                hero_tag: "Luxe Discret • Encadré en 60 secondes",
+                hero_title: "Un luxe tranquille qui ressemble<br>à l'immobilité même.",
+                hero_price_sub: "Téléchargements numériques haute résolution à partir de $9",
+                hero_format_sub: "Accès instantané • Formaté pour les cadres standard US",
+                hero_description: "Téléchargez, imprimez et encadrez des œuvres d'art mural de qualité musée, conçues pour restaurer une lumière douce, une texture organique et un calme visuel dans votre maison.",
+                hero_btn_shop: "Acheter les Œuvres",
+                hero_btn_catalog: "Catalogue Complet",
+                hero_visual_tag: "Visualisation dans la pièce :",
+                preview_tag: "Mise en Scène Interactive",
+                preview_title: "Visualisez-le chez vous",
+                preview_desc: "Sélectionnez un espace ci-dessous, téléchargez votre propre mur, et alternez entre les différentes pièces pour voir comment l'art de KayaVox harmonise la pièce.",
+                preview_step1: "1. Sélectionner l'espace :",
+                room_living: "Salon",
+                room_bedroom: "Chambre à coucher",
+                room_office: "Bureau",
+                room_upload: "Votre Mur",
+                preview_step2: "2. Choisir l'œuvre à afficher :",
+                art_series_tag: "Série Signature",
+                art_title_golden: "Rivage Doré",
+                art_title_lavender: "Crépuscule de Lavande",
+                art_title_mist: "Brume Matinale",
+                preview_staged_status: "Œuvre d'art mise en scène :",
+                size_tag: "Guide d'Échelle Interactif",
+                size_title: "Trouvez votre proportion idéale",
+                size_desc: "Éliminez les doutes. Utilisez notre visualiseur pour voir exactement à quoi ressemblent nos tailles d'impression standard au-dessus d'un canapé typique de 84 pouces.",
+                size_footer_tag: "Échelle visuelle calibrée par rapport à un canapé standard de 84\" (213 cm)",
+                size_bespoke_tag: "Service Conciergerie de l'Atelier",
+                size_bespoke_title: "Mise à l'échelle monumentale sur mesure",
+                size_bespoke_desc: "Besoin d'un format monumental pour un projet d'architecte ? Chaque achat comprend une mise à l'échelle personnalisée gratuite par IA jusqu'à 152×228cm à 300 DPI. Répondez simplement à votre e-mail de livraison.",
+                free_tag: "Cadeau Complémentaire",
+                free_title: "Essayez l'émotion avant d'acheter",
+                free_desc: "Obtenez un pack d'échantillons haute résolution livré instantanément dans votre boîte de réception en rejoignant notre cercle.",
+                free_submit_btn: "Obtenir l'échantillon gratuit",
+                free_success: "Merci ! Vos téléchargements sont maintenant déverrouillés.",
+                free_footer: "Comprend un guide d'impression et 5 ratios standardisés",
+                texture_tag: "Matérialité et Profondeur Sculpturale",
+                texture_title: "Coups de pinceau tangibles <br>réinventés pour le papier.",
+                texture_desc: "Nous capturons les reliefs épais et sculpturaux de l'impasto au couteau à l'aide d'optiques macro haut de gamme. Imprimé sur du papier d'art, l'illusion de la texture tridimensionnelle de l'huile est saisissante.",
+                texture_stat1: "Impressions nettes et sans grain",
+                texture_stat2_head: "Impasto",
+                texture_stat2: "Détails d'Huile Authentiques",
+                catalog_title: "Collection Signature",
+                catalog_subtitle: "Packs de téléchargement numérique • Qualité Premium 300 DPI",
+                card_feature_header: "Ce que vous obtenez :",
+                card_feature_1: "• 5 tailles d'impression (A1-A4)",
+                card_bestfor_header: "Idéal pour :",
+                card_bestfor_living: "• salons",
+                card_bestfor_calm: "• intérieurs calmes",
+                card_bestfor_bedrooms: "• chambres",
+                card_bestfor_zenspaces: "• espaces zen",
+                card_bestfor_offices: "• bureaux à domicile",
+                card_bestfor_walls: "• murs minimalistes",
+                card_add_to_bag: "Ajouter au Panier",
+                bundle_tag: "Sélection du Collectionneur",
+                bundle_title: "Le Set Horizon Complet",
+                bundle_desc: "Obtenez les trois ensembles d'impressions (15 fichiers haute résolution) ainsi que notre guide exclusif d'encadrement à un tarif exceptionnel.",
+                bundle_submit_btn: "Tout obtenir pour $29",
+                collector_tag: "Accès Anticipé & Alertes de Drops",
+                collector_title: "La Liste des Collectionneurs",
+                collector_desc: "Inscrivez-vous pour recevoir des notifications en avant-première sur les éditions saisonnières limitées, des mini-impressions gratuites et des conseils de décoration organique.",
+                collector_submit_btn: "Rejoindre la Liste",
+                collector_success: "Bienvenue. Le guide d'impression et de mise en scène KayaVox a été envoyé dans votre boîte de réception.",
+                footer_sub: "Curateur d'Art Numérique Premium",
+                footer_legal: "Mentions Légales",
+                footer_privacy: "Politique de confidentialité",
+                footer_terms: "Conditions d'utilisation",
+                footer_refund: "Politique de remboursement",
+                mobile_sticky_status: "Impressions Luxe Discret",
+                mobile_sticky_free: "Cadeau",
+                mobile_sticky_shop: "Boutique",
+                cart_drawer_title: "Votre Panier d'Art",
+                cart_total_count: "Total des Œuvres :",
+                cart_subtotal: "Sous-total :",
+                cart_proceed: "Accéder au Coffre-fort",
+                unboxing_status: "Votre Collection est Prête",
+                unboxing_click_prompt: "Appuyez sur le sceau de cire pour l'ouvrir",
+                certificate_title: "Certificat d'Authenticité",
+                vault_title: "Collection Authentique",
+                vault_desc: "Votre coffre-fort d'art numérique est déverrouillé. Enregistrez ces archives certifiées sur votre appareil local.",
+                vault_locker_header: "Votre casier d'artefacts sécurisé :",
+                vault_guide_title: "Guide de cadrage d'art KayaVox",
+                vault_get_pdf: "Obtenir le PDF",
+                vault_disclaimer: "Conseil : Pour une finition luxueuse, demandez un papier d'art mat de 210g/m² pour préserver les textures.",
+                cookie_title: "Gestion des Cookies",
+                cookie_desc: "We use cookies to enhance your experience. You can choose to accept all cookies, decline them, or allow only essential cookies required for the site to function. Read our <a href='#privacy' class='underline hover:text-amber-600'>Privacy Policy</a>.",
+                cookie_accept: "Tout accepter",
+                cookie_essential: "Uniquement essentiels",
+                cookie_decline: "Refuser"
+            }
+        };
+
+        // Catalog configuration
+        const catalogProducts = [
+            { id: 'prod-golden', name: 'Golden Shoreline', price: 9, oldPrice: 29, imageUrl: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800&fm=webp' },
+            { id: 'prod-lavender', name: 'Lavender Dusk', price: 14, oldPrice: 35, imageUrl: 'https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=800&fm=webp' },
+            { id: 'prod-mist', name: 'Morning Mist', price: 19, oldPrice: 45, imageUrl: 'https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=800&fm=webp' },
+            { id: 'prod-bundle', name: 'The Complete Horizon Set', price: 29, oldPrice: 109, imageUrl: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=150&fm=webp' }
+        ];
+
+        const roomBackgrounds = {
+            'living': {
+                src: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800&fm=webp',
+                srcset: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800&fm=webp 1x, https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1600&fm=webp 2x'
+            },
+            'bedroom': {
+                src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=800&fm=webp',
+                srcset: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=800&fm=webp 1x, https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=1600&fm=webp 2x'
+            },
+            'office': {
+                src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=800&fm=webp',
+                srcset: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=800&fm=webp 1x, https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1600&fm=webp 2x'
+            }
+        };
+
+        const artImages = {
+            'art-golden': {
+                src: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=400&fm=webp',
+                srcset: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=400&fm=webp 1x, https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800&fm=webp 2x'
+            },
+            'art-lavender': {
+                src: 'https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=400&fm=webp',
+                srcset: 'https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=400&fm=webp 1x, https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=800&fm=webp 2x'
+            },
+            'art-mist': {
+                src: 'https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=400&fm=webp',
+                srcset: 'https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=400&fm=webp 1x, https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=800&fm=webp 2x'
+            }
+        };
+
+        const getLocalStorageCart = () => {
+            try {
+                return JSON.parse(localStorage.getItem('kayavox_cart') || '[]');
+            } catch {
+                return [];
+            }
+        };
+
+        let lastFocusedElement = null;
+        let focusTrapTarget = null;
+
+        // Reactive State Engine
+        const state = new Proxy({
+            cart: getLocalStorageCart(),
+            isCartOpen: false,
+            isMenuOpen: false,
+            locale: localStorage.getItem('kayavox_locale') || 'en'
+        }, {
+            set(target, property, value) {
+                target[property] = value;
+                
+                if (property === 'cart') {
+                    try {
+                        localStorage.setItem('kayavox_cart', JSON.stringify(value));
+                    } catch (e) {
+                        console.error("Storage error:", e);
+                    }
+                    if (document.startViewTransition) {
+                        document.startViewTransition(() => updateCartUI(value));
+                    } else {
+                        updateCartUI(value);
+                    }
+                }
+                
+                if (property === 'isCartOpen') {
+                    const drawer = document.getElementById('cart-drawer');
+                    if (drawer) {
+                        value ? drawer.classList.remove('translate-x-full') : drawer.classList.add('translate-x-full');
+                        drawer.setAttribute('aria-hidden', !value);
+                        value ? captureFocus(drawer) : releaseFocus();
+                    }
+                }
+
+                if (property === 'isMenuOpen') {
+                    const menu = document.getElementById('mobile-menu');
+                    if (menu) {
+                        value ? menu.classList.remove('translate-x-full') : menu.classList.add('translate-x-full');
+                        menu.setAttribute('aria-hidden', !value);
+                        value ? captureFocus(menu) : releaseFocus();
+                    }
+                }
+
+                if (property === 'locale') {
+                    localStorage.setItem('kayavox_locale', value);
+                    applyTranslations(value);
+                }
+
+                return true;
+            }
+        });
+
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'kayavox_cart') {
+                try { state.cart = JSON.parse(e.newValue || '[]'); } catch {}
+            }
+        });
+
+        function captureFocus(element) {
+            lastFocusedElement = document.activeElement;
+            focusTrapTarget = element;
+            const focusables = element.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusables.length > 0) focusables[0].focus();
+            element.addEventListener('keydown', trapKeyEvents);
+        }
+
+        function releaseFocus() {
+            if (focusTrapTarget) focusTrapTarget.removeEventListener('keydown', trapKeyEvents);
+            if (lastFocusedElement) lastFocusedElement.focus();
+            focusTrapTarget = null;
+        }
+
+        function trapKeyEvents(e) {
+            if (e.key !== 'Tab') return;
+            const focusables = focusTrapTarget.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+
+            if (e.shiftKey) {
+                if (document.activeElement === first) { last.focus(); e.preventDefault(); }
+            } else {
+                if (document.activeElement === last) { first.focus(); e.preventDefault(); }
+            }
+        }
+
+        function applyTranslations(lang) {
+            const strings = TRANSLATIONS[lang] || TRANSLATIONS.en;
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (strings[key]) {
+                    element.innerHTML = strings[key];
+                }
+            });
+        }
+
+        function updateCartUI(cartData) {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartCounter = document.getElementById('cart-counter');
+            const cartTotalQty = document.getElementById('cart-total-qty');
+            const cartTotalPrice = document.getElementById('cart-total-price');
+
+            if (!cartItemsContainer) return;
+
+            cartCounter.innerText = cartData.length;
+            cartCounter.classList.toggle('opacity-0', cartData.length === 0);
+            if (cartTotalQty) cartTotalQty.innerText = cartData.length;
+
+            if (cartData.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-16 space-y-4">
+                        <i data-lucide="archive" class="w-10 h-10 text-gray-300 mx-auto"></i>
+                        <p class="text-sm text-gray-400 italic" data-i18n="cart_empty">Your collection is empty.</p>
+                    </div>
+                `;
+                if (cartTotalPrice) cartTotalPrice.innerText = "$0";
+                applyTranslations(state.locale);
+                lucide.createIcons();
+                return;
+            }
+
+            let totalPrice = 0;
+            const fragment = document.createDocumentFragment();
+            const parser = new DOMParser();
+
+            cartData.forEach(item => {
+                totalPrice += item.price;
+                const template = `
+                    <div class="flex items-center justify-between gap-4 p-4 bg-gray-50 rounded-2xl mb-3">
+                        <div class="flex items-center gap-4">
+                            <img src="${item.imageUrl}" class="w-12 h-16 object-cover rounded-lg shadow-sm" alt="${item.name}">
+                            <div class="text-left">
+                                <span class="block text-[10px] uppercase tracking-wider text-gray-400 font-bold" data-i18n="cart_item_label">Digital Download</span>
+                                <span class="text-xs font-bold text-[var(--clay)]">${item.name}</span>
+                                <span class="block text-xs font-semibold text-amber-700 mt-1">$${item.price}</span>
+                            </div>
+                        </div>
+                        <button data-action="remove-item" data-id="${item.id}" class="p-3 hover:bg-red-50 hover:text-red-600 rounded-full text-gray-400 transition-colors" aria-label="Remove item">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+                const documentNode = parser.parseFromString(template, 'text/html');
+                fragment.appendChild(documentNode.body.firstChild);
+            });
+
+            cartItemsContainer.innerHTML = '';
+            cartItemsContainer.appendChild(fragment);
+
+            if (cartTotalPrice) cartTotalPrice.innerText = `$${totalPrice}`;
+            applyTranslations(state.locale);
+            lucide.createIcons();
+        }
+
+        function handleCheckoutInitiation() {
+            if (state.cart.length === 0) {
+                showToast("Your cart is empty.", true);
+                return;
+            }
+
+            state.isCartOpen = false;
+
+            const downloadsListEl = document.getElementById('downloads-list');
+            if (!downloadsListEl) return;
+
+            downloadsListEl.innerHTML = '';
+            const fragment = document.createDocumentFragment();
+            const parser = new DOMParser();
+
+            state.cart.forEach(item => {
+                const itemFileName = `${item.name.replace(/\s+/g, '_')}_300DPI_Pack.zip`;
+                const template = `
+                    <div class="flex items-center justify-between p-3.5 bg-gray-50 rounded-xl border border-[var(--border-color)]">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="archive" class="w-5 h-5 text-amber-700"></i>
+                            <div>
+                                <span class="block text-xs font-bold text-[var(--clay)] uppercase tracking-wider">${item.name} Set</span>
+                                <span class="text-[10px] text-gray-400">High-Res Print Package &bull; 48.2 MB</span>
+                            </div>
+                        </div>
+                        <button data-action="download-item" data-file="${itemFileName}" class="text-xs text-amber-700 hover:text-amber-800 font-bold uppercase tracking-widest border-b border-amber-700/30" data-i18n="vault_get_pdf">Get Files</button>
+                    </div>
+                `;
+                const docNode = parser.parseFromString(template, 'text/html');
+                fragment.appendChild(docNode.body.firstChild);
+            });
+
+            downloadsListEl.appendChild(fragment);
+            applyTranslations(state.locale);
+            lucide.createIcons();
+
+            prepareUnboxingExperience();
+
+            const checkoutModal = document.getElementById('checkout-modal');
+            if (checkoutModal) {
+                checkoutModal.classList.remove('opacity-0', 'pointer-events-none');
+                captureFocus(checkoutModal);
+            }
+
+            state.cart = [];
+            showToast("Simulated order complete. Vault opening...");
+        }
+
+        function prepareUnboxingExperience() {
+            const envelope = document.getElementById('envelope');
+            const unboxingView = document.getElementById('unboxing-view');
+            const downloadsView = document.getElementById('downloads-view');
+            
+            if (envelope) {
+                envelope.classList.remove('open');
+                unboxingView.style.display = 'flex';
+                void unboxingView.offsetWidth;
+                unboxingView.style.opacity = '1';
+                downloadsView.classList.add('opacity-0', 'translate-y-8', 'pointer-events-none');
+                
+                const dateStr = new Date().toLocaleDateString(state.locale === 'ru' ? 'ru-RU' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('cert-date-anim').innerText = dateStr;
+                document.getElementById('certificate-date').innerText = 'Issued: ' + dateStr;
+            }
+        }
+
+        function showToast(message, isAlert = false) {
+            const toast = document.getElementById('toast');
+            const messageEl = document.getElementById('toast-message');
+            const iconBg = document.getElementById('toast-icon-bg');
+            const icon = document.getElementById('toast-icon');
+
+            if (!toast || !messageEl) return;
+
+            messageEl.innerText = message;
+            
+            if (isAlert) {
+                iconBg.className = "bg-amber-100 p-1.5 rounded-full";
+                icon.className = "w-4 h-4 text-amber-700";
+                icon.setAttribute('data-lucide', 'info');
+            } else {
+                iconBg.className = "bg-green-100 p-1.5 rounded-full";
+                icon.className = "w-4 h-4 text-green-700";
+                icon.setAttribute('data-lucide', 'check');
+            }
+
+            lucide.createIcons();
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+
+        let roomChangeFallbackTimer = null;
+        let artChangeFallbackTimer = null;
+
+        function applySeamlessTransition(element, newSrc, newSrcset) {
+            if (document.startViewTransition) {
+                document.startViewTransition(() => {
+                    element.src = newSrc;
+                    if (newSrcset) element.srcset = newSrcset;
+                });
+            } else {
+                element.style.opacity = '0';
+                
+                const fallbackTimer = element.id === 'room-background' ? roomChangeFallbackTimer : artChangeFallbackTimer;
+                if (fallbackTimer) clearTimeout(fallbackTimer);
+
+                const activeTimer = setTimeout(() => {
+                    element.src = newSrc;
+                    if (newSrcset) element.srcset = newSrcset;
+                    element.style.opacity = '1';
+                }, 200);
+
+                if (element.id === 'room-background') {
+                    roomChangeFallbackTimer = activeTimer;
+                } else {
+                    artChangeFallbackTimer = activeTimer;
+                }
+            }
+        }
+
+        // Modal triggers for Trust & Safety links
+        const legalOverlay = document.getElementById('legal-modals-overlay');
+        
+        function openModal(modalId) {
+            if (!legalOverlay) return;
+            
+            // Hide all modal contents inside overlay first
+            document.querySelectorAll('.modal-content').forEach(modal => modal.classList.add('hidden'));
+            
+            // Show the specific modal content
+            const targetModal = document.getElementById(modalId);
+            if (targetModal) {
+                targetModal.classList.remove('hidden');
+            }
+            
+            // Show overlay with animations
+            legalOverlay.classList.remove('hidden');
+            legalOverlay.classList.add('flex');
+            
+            setTimeout(() => {
+                legalOverlay.classList.remove('opacity-0');
+                legalOverlay.classList.add('opacity-100');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+
+        function closeModals() {
+            if (!legalOverlay) return;
+            
+            legalOverlay.classList.remove('opacity-100');
+            legalOverlay.classList.add('opacity-0');
+            
+            setTimeout(() => {
+                legalOverlay.classList.add('hidden');
+                legalOverlay.classList.remove('flex');
+                document.querySelectorAll('.modal-content').forEach(modal => modal.classList.add('hidden'));
+                document.body.style.overflow = ''; // Restore scroll
+                
+                // Reset form on close
+                const contactForm = document.getElementById('contactForm');
+                if (contactForm) {
+                    contactForm.style.display = 'block';
+                    contactForm.reset();
+                }
+                const successMsg = document.getElementById('contact-success');
+                if (successMsg) successMsg.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close on overlay clicks
+        if (legalOverlay) {
+            legalOverlay.addEventListener('click', (e) => {
+                if (e.target === legalOverlay) {
+                    closeModals();
+                }
+            });
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const successMsg = document.getElementById('contact-success');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'Sending...';
+            }
+
+            // Simulate server-side post success
+            setTimeout(() => {
+                form.style.display = 'none';
+                successMsg.classList.remove('hidden');
+                showToast("Message sent successfully!");
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Send Message';
+                }
+            }, 1200);
+        }
+
+        function setupInteractiveSpeculator() {
+            const prefetchingLinks = new Set();
+            document.body.addEventListener('mouseover', function(e) {
+                const anchor = e.target.closest('a[data-intent="prefetch"]');
+                if (anchor && anchor.href && !prefetchingLinks.has(anchor.href)) {
+                    prefetchingLinks.add(anchor.href);
+                    const specLink = document.createElement('link');
+                    specLink.rel = 'prefetch';
+                    specLink.href = anchor.href;
+                    document.head.appendChild(specLink);
+                }
+            }, { passive: true });
+        }
+
+        function setupUniversalEventBus() {
+            document.body.addEventListener('click', function(e) {
+                
+                const addToCartBtn = e.target.closest('[data-action="add-to-cart"]');
+                if (addToCartBtn) {
+                    const id = addToCartBtn.getAttribute('data-id');
+                    const product = catalogProducts.find(p => p.id === id);
+                    if (product) {
+                        const isInCart = state.cart.some(item => item.id === id);
+                        if (isInCart) {
+                            showToast(`${product.name} is already in your bag.`, true);
+                        } else {
+                            state.cart = [...state.cart, product];
+                            state.isCartOpen = true;
+                            showToast(`${product.name} added to your collection.`);
+                        }
+                    }
+                    return;
+                }
+
+                const removeBtn = e.target.closest('[data-action="remove-item"]');
+                if (removeBtn) {
+                    const id = removeBtn.getAttribute('data-id');
+                    state.cart = state.cart.filter(item => item.id !== id);
+                    showToast("Item removed.");
+                    return;
+                }
+
+                const cartToggle = e.target.closest('[data-action="toggle-cart"]');
+                if (cartToggle) {
+                    state.isCartOpen = cartToggle.getAttribute('data-state') === 'true';
+                    return;
+                }
+
+                const menuToggle = e.target.closest('[data-action="toggle-menu"]');
+                if (menuToggle) {
+                    state.isMenuOpen = menuToggle.getAttribute('data-state') === 'true';
+                    return;
+                }
+
+                if (e.target.closest('[data-action="link-close-menu"]')) {
+                    state.isMenuOpen = false;
+                    return;
+                }
+
+                const closeModalBtn = e.target.closest('[data-action="close-modal"]');
+                if (closeModalBtn) {
+                    const checkoutModal = document.getElementById('checkout-modal');
+                    if (checkoutModal) {
+                        checkoutModal.classList.add('opacity-0', 'pointer-events-none');
+                        releaseFocus();
+                    }
+                    return;
+                }
+
+                const downloadBtn = e.target.closest('[data-action="download-item"]');
+                if (downloadBtn) {
+                    const filename = downloadBtn.getAttribute('data-file');
+                    showToast(`Simulated download: ${filename}`);
+                    return;
+                }
+
+                const checkoutBtn = e.target.closest('[data-action="initiate-checkout"]');
+                if (checkoutBtn) {
+                    handleCheckoutInitiation();
+                    return;
+                }
+
+                const roomTabBtn = e.target.closest('[data-room]');
+                if (roomTabBtn) {
+                    const roomId = roomTabBtn.getAttribute('data-room');
+                    document.querySelectorAll('.room-tab').forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-pressed', 'false');
+                    });
+                    roomTabBtn.classList.add('active');
+                    roomTabBtn.setAttribute('aria-pressed', 'true');
+
+                    const roomImgEl = document.getElementById('room-background');
+                    if (roomImgEl && roomBackgrounds[roomId]) {
+                        applySeamlessTransition(roomImgEl, roomBackgrounds[roomId].src, roomBackgrounds[roomId].srcset);
+                    }
+                    return;
+                }
+
+                const artSelectorBtn = e.target.closest('[data-art]');
+                if (artSelectorBtn) {
+                    const artId = artSelectorBtn.getAttribute('data-art');
+                    const title = artSelectorBtn.getAttribute('data-title');
+
+                    const artImgEl = document.getElementById('previewer-art-image');
+                    const titleDisplayEl = document.getElementById('active-layout-title');
+
+                    if (titleDisplayEl) titleDisplayEl.innerText = title;
+
+                    if (artImgEl && artImages[artId]) {
+                        applySeamlessTransition(artImgEl, artImages[artId].src, artImages[artId].srcset);
+                    }
+                    return;
+                }
+
+                const sizeBtn = e.target.closest('.size-btn');
+                if (sizeBtn) {
+                    document.querySelectorAll('.size-btn').forEach(btn => {
+                        btn.classList.remove('bg-amber-50', 'border-amber-600', 'text-amber-800');
+                        btn.classList.add('border-gray-200', 'text-[var(--clay)]');
+                    });
+                    sizeBtn.classList.remove('border-gray-200', 'text-[var(--clay)]');
+                    sizeBtn.classList.add('bg-amber-50', 'border-amber-600', 'text-amber-800');
+
+                    const width = sizeBtn.getAttribute('data-size-width');
+                    const height = sizeBtn.getAttribute('data-size-height');
+                    const frame = document.getElementById('visualizer-frame');
+                    
+                    if (frame) {
+                        frame.style.width = width + 'px';
+                        frame.style.height = height + 'px';
+                    }
+                    return;
+                }
+
+                const envelopeTrigger = e.target.closest('[data-action="open-envelope"]');
+                if (envelopeTrigger) {
+                    const envelope = document.getElementById('envelope');
+                    const unboxingView = document.getElementById('unboxing-view');
+                    const downloadsView = document.getElementById('downloads-view');
+                    
+                    if (!envelope.classList.contains('open')) {
+                        envelope.classList.add('open');
+                        setTimeout(() => {
+                            unboxingView.style.opacity = '0';
+                            downloadsView.classList.remove('opacity-0', 'translate-y-8', 'pointer-events-none');
+                            setTimeout(() => {
+                                unboxingView.style.display = 'none';
+                            }, 1000);
+                        }, 1600);
+                    }
+                    return;
+                }
+            });
+
+            const fileUploadInput = document.getElementById('room-upload');
+            if (fileUploadInput) {
+                fileUploadInput.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            document.querySelectorAll('.room-tab').forEach(btn => {
+                                btn.classList.remove('active');
+                                btn.setAttribute('aria-pressed', 'false');
+                            });
+                            document.getElementById('upload-tab-label').classList.add('active');
+                            
+                            const roomImgEl = document.getElementById('room-background');
+                            if (roomImgEl) {
+                                applySeamlessTransition(roomImgEl, event.target.result, '');
+                            }
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+
+            const selectLang = document.getElementById('lang-selector');
+            const selectLangMob = document.getElementById('lang-selector-mobile');
+            if (selectLang) {
+                selectLang.value = state.locale;
+                selectLang.addEventListener('change', (e) => state.locale = e.target.value);
+            }
+            if (selectLangMob) {
+                selectLangMob.value = state.locale;
+                selectLangMob.addEventListener('change', (e) => state.locale = e.target.value);
+            }
+
+            const leadForm = document.getElementById('lead-magnet-form');
+            if (leadForm) {
+                leadForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const emailInput = document.getElementById('lead-email');
+                    const submitBtn = leadForm.querySelector('button[type="submit"]');
+                    if (!emailInput || !submitBtn) return;
+
+                    const originalBtnText = submitBtn.innerText;
+                    submitBtn.innerText = 'Syncing...';
+                    submitBtn.disabled = true;
+
+                    const cleanEmail = emailInput.value.replace(/[<>'"&]/g, "");
+                    const formData = new FormData();
+                    formData.append('email', cleanEmail);
+                    formData.append('date', new Date().toLocaleString());
+
+                    const networkController = new AbortController();
+                    const networkTimeoutId = setTimeout(() => networkController.abort(), 8000);
+
+                    try {
+                        await fetch('https://script.google.com/macros/s/AKfycbyxaDRq35ddflE07iEDirgMMuQ0aJRCq1WXohUmrktHC90pUBAuPlDW5oxNIEgMVW132w/exec', {
+                            method: 'POST', body: formData, mode: 'no-cors', signal: networkController.signal
+                        });
+                        clearTimeout(networkTimeoutId);
+                        completeLeadVerification();
+                    } catch (err) {
+                        clearTimeout(networkTimeoutId);
+                        completeLeadVerification();
+                    } finally {
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+
+            function completeLeadVerification() {
+                document.getElementById('lead-magnet-form').classList.add('hidden');
+                document.getElementById('lead-success').classList.remove('hidden');
+                
+                const downloadsListEl = document.getElementById('downloads-list');
+                if (downloadsListEl) {
+                    downloadsListEl.innerHTML = `
+                        <div class="flex items-center justify-between p-3.5 bg-gray-50 rounded-xl border border-black/5">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="image" class="w-5 h-5 text-amber-700"></i>
+                                <div>
+                                    <span class="block text-xs font-bold text-clay uppercase tracking-wider">Golden Shoreline Freebie Pack</span>
+                                    <span class="text-[10px] text-gray-400">High-Res Sample Print &bull; 18.2 MB</span>
+                                </div>
+                            </div>
+                            <button data-action="download-item" data-file="KayaVox_GoldenShoreline_FreeSample.zip" class="text-xs text-amber-700 hover:text-amber-800 font-bold uppercase tracking-widest border-b border-amber-700/30">Get ZIP</button>
+                        </div>
+                    `;
+                }
+                prepareUnboxingExperience();
+                const checkoutModal = document.getElementById('checkout-modal');
+                if (checkoutModal) {
+                    checkoutModal.classList.remove('opacity-0', 'pointer-events-none');
+                    captureFocus(checkoutModal);
+                }
+            }
+
+            const collectorForm = document.getElementById('collector-form');
+            if (collectorForm) {
+                collectorForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const emailInput = document.getElementById('collector-email');
+                    const submitBtn = collectorForm.querySelector('button[type="submit"]');
+                    if (!emailInput || !submitBtn) return;
+
+                    const originalBtnText = submitBtn.innerText;
+                    submitBtn.innerText = 'Registering...';
+                    submitBtn.disabled = true;
+
+                    const cleanEmail = emailInput.value.replace(/[<>'"&]/g, "");
+                    const formData = new FormData();
+                    formData.append('email', cleanEmail);
+                    formData.append('date', new Date().toLocaleString());
+
+                    try {
+                        await fetch('https://script.google.com/macros/s/AKfycbyxaDRq35ddflE07iEDirgMMuQ0aJRCq1WXohUmrktHC90pUBAuPlDW5oxNIEgMVW132w/exec', {
+                            method: 'POST', body: formData, mode: 'no-cors'
+                        });
+                        collectorForm.classList.add('hidden');
+                        document.getElementById('collector-success').classList.remove('hidden');
+                        showToast("Successfully subscribed!");
+                    } catch (err) {
+                        collectorForm.classList.add('hidden');
+                        document.getElementById('collector-success').classList.remove('hidden');
+                        showToast("Connection fallback. Welcome inside!");
+                    } finally {
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+        }
+
+        // Cookie Consent Banner Controls
+        function setupCookieConsent() {
+            const banner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('cookie-accept');
+            const essentialBtn = document.getElementById('cookie-essential');
+            const declineBtn = document.getElementById('cookie-decline');
+
+            if (!banner) return;
+
+            const consentStatus = localStorage.getItem('kayavox_cookies');
+            if (!consentStatus) {
+                setTimeout(() => {
+                    banner.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+                    banner.classList.add('translate-y-0', 'opacity-100');
+                }, 2000);
+            }
+
+            if(acceptBtn) acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('kayavox_cookies', 'all');
+                closeBanner();
+                showToast("All cookies accepted.");
+            });
+
+            if(essentialBtn) essentialBtn.addEventListener('click', () => {
+                localStorage.setItem('kayavox_cookies', 'essential');
+                closeBanner();
+                showToast("Only essential cookies accepted.");
+            });
+
+            if(declineBtn) declineBtn.addEventListener('click', () => {
+                localStorage.setItem('kayavox_cookies', 'declined');
+                closeBanner();
+                showToast("Cookies declined.");
+            });
+
+            function closeBanner() {
+                banner.classList.remove('translate-y-0', 'opacity-100');
+                banner.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            applyTranslations(state.locale);
+            updateCartUI(state.cart);
+            setupUniversalEventBus();
+            setupInteractiveSpeculator();
+            setupCookieConsent();
+
+            const revealNodes = document.querySelectorAll('.reveal-node');
+            const observerOptions = { root: null, rootMargin: "0px 0px -50px 0px", threshold: 0.1 };
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            revealNodes.forEach(node => revealObserver.observe(node));
+        });
+
+        let lastKnownScrollPosition = 0;
+        let ticking = false;
+        const heroImg = document.getElementById('heroImage');
+
+        window.addEventListener('scroll', function() {
+            lastKnownScrollPosition = window.pageYOffset;
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    if (window.innerWidth > 1024 && heroImg) {
+                        heroImg.style.transform = `translate3d(0, ${lastKnownScrollPosition * 0.08}px, 0)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Large image assets (not referenced in HTML)
+*.png
+!index.html
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
