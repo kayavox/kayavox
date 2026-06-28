@@ -15,10 +15,16 @@ Thumbs.db
 # Logs
 *.log
 
-# Build tools (not needed for deployment)
+# Dependencies
 node_modules/
-package.json
-package-lock.json
+
+# Test artifacts
+playwright-report/
+test-results/
+coverage/
+
+# Build config
 tailwind.config.js
 lib/input.css
 .mimocode/
+НЕ РАБОТАЕТ/
