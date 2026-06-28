@@ -1617,7 +1617,7 @@
                                     ${allSlides.map((_, si) => `<div class="bar${si === 0 ? ' active' : ''}"><div class="fill"></div></div>`).join('')}
                                 </div>
                                 <div class="stories-track">
-                                    ${allSlides.map(s => `<img src="${s}" alt="${name}" loading="lazy" decoding="async">`).join('')}
+                                    ${allSlides.map((s, si) => `<img src="${s}" alt="${name}"${si === 0 ? ' fetchpriority="high"' : ''} decoding="async">`).join('')}
                                 </div>
                                 <div class="stories-nav-zone prev" data-dir="prev"></div>
                                 <div class="stories-nav-zone next" data-dir="next"></div>
