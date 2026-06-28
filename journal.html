@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/webp" href="assets/logo.webp">
-    <title>The KayaVox Journal</title>
+    <title>The KayaVox Journal — Stories of Light & Stillness</title>
+    <meta name="description" content="Art, technique, and the philosophy of quiet luxury. Explore the world of impasto coastal art prints and interior design.">
+    <link rel="canonical" href="https://kayavox.art/journal.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The KayaVox Journal">
+    <meta property="og:description" content="Art, technique, and the philosophy of quiet luxury.">
+    <meta property="og:image" content="https://kayavox.art/assets/products/impasto-01.webp">
+    <meta property="og:url" content="https://kayavox.art/journal.html">
     <link rel="stylesheet" href="lib/fonts.css">
     <style>
         :root { --cream:#FAF7F0; --clay:#1A1814; --gold:#C5A059; --border:rgba(26,24,20,0.06); }
@@ -30,8 +37,8 @@
         @media(min-width:1024px) { .grid { grid-template-columns:repeat(3,1fr); } }
 
         .card { display:block; }
-        .card-img { overflow:hidden; border-radius:12px; background:#E5DED0; margin-bottom:12px; }
-        .card-img img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; transition:transform 0.5s ease; }
+        .card-img { overflow:hidden; border-radius:12px; background:#E5DED0; margin-bottom:12px; position:relative; }
+        .card-img img { width:100%; aspect-ratio:3/2; object-fit:cover; display:block; transition:transform 0.5s ease; }
         .card:hover .card-img img { transform:scale(1.04); }
         .card-cat { font-size:9px; text-transform:uppercase; letter-spacing:0.2em; color:var(--gold); font-weight:600; }
         .card-title { font-size:1.15rem; line-height:1.3; margin:4px 0 6px; }
@@ -72,7 +79,7 @@
     <div class="grid" id="grid">
 
         <a href="journal/the-art-of-stillness.html" class="card reveal" data-cat="inspiration">
-            <div class="card-img"><img src="assets/soft-coastal-dawn.webp" alt="" loading="lazy"></div>
+            <div class="card-img"><img src="assets/products/interior-sea-01.webp" alt="Quiet coastal interior with soft morning light" width="800" height="533" loading="lazy"></div>
             <span class="card-cat">Inspiration</span>
             <h2 class="card-title serif">The Art of Stillness</h2>
             <p class="card-excerpt">Why silence is the most powerful element in art and interior design.</p>
@@ -80,7 +87,7 @@
         </a>
 
         <a href="journal/impasto-technique.html" class="card reveal" data-cat="technique" style="transition-delay:60ms">
-            <div class="card-img"><img src="assets/golden-tide-reflection.webp" alt="" loading="lazy"></div>
+            <div class="card-img"><img src="assets/products/impasto-01.webp" alt="Close-up of heavy impasto oil paint texture" width="800" height="533" loading="lazy"></div>
             <span class="card-cat">Technique</span>
             <h2 class="card-title serif">Impasto: Painting with Texture</h2>
             <p class="card-excerpt">How palette knife creates three-dimensional texture you can almost touch.</p>
@@ -88,7 +95,7 @@
         </a>
 
         <a href="journal/coastal-light-guide.html" class="card reveal" data-cat="collecting" style="transition-delay:120ms">
-            <div class="card-img"><img src="assets/mist-horizon.webp" alt="" loading="lazy"></div>
+            <div class="card-img"><img src="assets/products/coastal-horizon-01.webp" alt="Coastal horizon at dawn with soft atmospheric tones" width="800" height="533" loading="lazy"></div>
             <span class="card-cat">Collecting</span>
             <h2 class="card-title serif">Coastal Light: A Collector's Guide</h2>
             <p class="card-excerpt">How to choose, place, and illuminate coastal art in your home.</p>
@@ -99,7 +106,7 @@
 
     <footer class="footer">
         <img src="assets/logo.webp" style="width:24px;height:24px;border-radius:6px;object-fit:cover;margin:0 auto 8px;display:block" alt="KayaVox">
-        <p style="font-size:11px;color:#bbb">© 2026 KayaVox</p>
+        <p style="font-size:11px;color:#bbb">&copy; 2026 KayaVox</p>
     </footer>
 
     <script>
