@@ -13,3 +13,11 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Build tools (not needed for deployment)
+node_modules/
+package.json
+package-lock.json
+tailwind.config.js
+lib/input.css
+.mimocode/

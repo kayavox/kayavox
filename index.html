@@ -3,39 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    
+    <link rel="icon" type="image/webp" href="assets/logo.webp">
+
     <!-- SEO & Metadata Optimization -->
-    <title>KayaVox — Minimalist Premium Digital Art Prints</title>
-    <meta name="description" content="Elevate your space in 60 seconds. Museum-grade minimalist digital art prints designed for quiet luxury and coastal interiors. Scalable to standard US framing ratios.">
-    <meta name="keywords" content="minimalist home decor, digital art download, printable wall art, impasto oil painting, coastal chic style, organic modern living room, printable digital art, luxury wall decor">
+    <title>KayaVox | Impasto Oil Art Prints — Download & Frame in 60s | From $9</title>
+    <meta name="description" content="Download museum-grade impasto oil prints in 60 seconds. 300 DPI, formatted for standard US frames. Quiet luxury coastal art from $9. Free sample pack available.">
+    <meta name="keywords" content="impasto oil painting, digital art download, printable wall art, coastal art prints, luxury home decor, 300 DPI art, palette knife texture, museum grade prints">
     <meta name="author" content="KayaVox">
+    <link rel="canonical" href="https://kayavox.art/">
+
+    <!-- Hreflang for multilingual SEO -->
+    <link rel="alternate" hreflang="en" href="https://kayavox.art/">
+    <link rel="alternate" hreflang="ru" href="https://kayavox.art/">
+    <link rel="alternate" hreflang="fr" href="https://kayavox.art/">
+    <link rel="alternate" hreflang="x-default" href="https://kayavox.art/">
 
     <!-- Open Graph & Pinterest Optimization -->
     <meta property="og:type" content="product">
-    <meta property="og:title" content="KayaVox — Minimalist Premium Digital Art Prints">
-    <meta property="og:description" content="Bringing quiet luxury into your home. Instantly download high-resolution (300 DPI) digital files featuring realistic palette-knife oil textures.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=1000&h=1500&fm=webp">
-    <meta property="og:image:width" content="1000">
-    <meta property="og:image:height" content="1500">
+    <meta property="og:title" content="KayaVox | Impasto Oil Art Prints — Download & Frame in 60s">
+    <meta property="og:description" content="Museum-grade impasto oil prints with visible palette-knife texture. Download, print, and frame in 60 seconds. 300 DPI. From $9.">
+    <meta property="og:image" content="assets/soft-coastal-dawn.webp">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="1000">
     <meta property="og:url" content="https://kayavox.art">
+    <meta property="og:site_name" content="KayaVox">
 
     <!-- Pinterest Rich Pin Metadata -->
     <meta name="pinterest-rich-pin" content="true">
     <meta name="pinterest:type" content="product">
-    <meta name="pinterest:name" content="KayaVox Premium Digital Wall Art">
+    <meta name="pinterest:name" content="KayaVox Impasto Oil Art Prints">
     <meta name="pinterest:price" content="9.00 USD">
     <meta name="pinterest:category" content="Art & Home Decor">
 
-    <!-- Structured Data JSON-LD for Search Engines -->
+    <!-- Google Analytics 4 — Measurement ID -->
+    <!-- TODO: Replace GA-XXXXX-Y with your real GA4 Measurement ID from https://analytics.google.com -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA-XXXXX-Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA-XXXXX-Y');
+    </script> -->
+
+    <!-- Google Search Console Verification -->
+    <!-- TODO: Replace with your real verification code from https://search.google.com/search-console -->
+    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE"> -->
+
+    <!-- Structured Data JSON-LD: Product -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
       "@type": "Product",
-      "name": "KayaVox Minimalist Premium Digital Art Prints",
+      "name": "KayaVox Quiet Atmospheres — Impressionist Impasto Coastal Art Prints",
       "image": [
-        "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=1000&h=1500&fm=webp"
+        "https://kayavox.art/assets/soft-coastal-dawn.webp",
+        "https://kayavox.art/assets/golden-tide-reflection.webp",
+        "https://kayavox.art/assets/mist-horizon.webp"
       ],
-      "description": "Museum-grade minimalist digital art prints with ultra-high resolution impasto oil painting textures. Scalable to standard US framing ratios.",
+      "description": "Museum-grade impressionist impasto coastal art prints with visible palette-knife oil textures. Scalable to standard US framing ratios. Each piece captures quiet atmospheres of light, shore, and stillness.",
       "brand": {
         "@type": "Brand",
         "name": "KayaVox"
@@ -45,20 +70,108 @@
         "priceCurrency": "USD",
         "lowPrice": "9.00",
         "highPrice": "29.00",
-        "offerCount": "4"
+        "offerCount": "4",
+        "availability": "https://schema.org/InStock",
+        "url": "https://kayavox.art"
       }
     }
     </script>
 
-    <!-- Preconnect hints for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800&fm=webp">
+    <!-- Structured Data JSON-LD: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is impasto art?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Impasto is a technique where paint is laid on a surface in very thick layers, usually thick enough that the brush or palette knife strokes are visible. KayaVox prints capture this texture at 300 DPI using high-end macro optics, creating a realistic illusion of dimensional oil painting when printed on fine-art paper."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I print digital art at home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After purchase, you receive high-resolution 300 DPI files formatted for standard US frame sizes (A1 through A4). Take the files to any local print shop or use an online printing service. For best results, request 210g/m² matte fine art paper or soft matte photo rag to preserve the deep brush textures."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What paper should I use for KayaVox prints?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For the most luxurious finish, we recommend 210g/m² matte fine art paper or soft matte photo rag. This weight and finish preserves the deep impasto brush textures and gives the print a museum-quality feel. Standard photo paper also works well for a glossy finish."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What file formats and sizes are included?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each purchase includes 5 print sizes (A1 through A4) at 300 DPI resolution. Files are delivered as high-resolution digital downloads, formatted for standard US framing ratios. A complimentary framing guide is included with every order."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a custom size for my print?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Every collection purchase includes complimentary bespoke AI-upscaling up to 60×90 inches (152×228cm) at ultra-sharp 300 DPI. Simply reply to your delivery email with your required dimensions."
+          }
+        }
+      ]
+    }
+    </script>
 
-    <!-- Fonts & Styling framework -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <!-- Structured Data JSON-LD: HowTo -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "HowTo",
+      "name": "How to Download and Frame Your KayaVox Art Print in 60 Seconds",
+      "description": "A step-by-step guide to purchasing, downloading, and framing museum-grade impasto art prints.",
+      "totalTime": "PT1H",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Choose Your Artwork",
+          "text": "Browse the KayaVox Signature Collection and select your preferred impasto coastal print. Use the interactive room visualizer to see how it looks in your space.",
+          "url": "https://kayavox.art/#shop"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Complete Your Purchase",
+          "text": "Add your selected prints to the cart and proceed to checkout. Payment is processed securely through our checkout partner.",
+          "url": "https://kayavox.art/#shop"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download Your Files",
+          "text": "After purchase, open your digital vault to download high-resolution 300 DPI files in 5 standard print sizes (A1-A4). A framing companion guide is included.",
+          "url": "https://kayavox.art"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Print and Frame",
+          "text": "Take the files to a local print shop or use an online service. Request 210g/m² matte fine art paper for best results. Frame using standard US frame sizes.",
+          "url": "https://kayavox.art/#texture"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Preconnect hints for performance -->
+    <!-- Preload local assets -->
+    <link rel="preload" as="image" href="assets/soft-coastal-dawn.webp">
+
+    <!-- Fonts & Styling (local) -->
+    <link rel="stylesheet" href="lib/fonts.css">
+    <link rel="stylesheet" href="lib/styles.css">
+    <script src="lib/lucide.min.js" defer></script>
 
     <style>
         :root {
@@ -140,12 +253,12 @@
             opacity: 0;
             transform: translateY(25px);
             transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: transform, opacity;
         }
 
         .reveal-node.revealed {
             opacity: 1;
             transform: translateY(0);
+            will-change: transform, opacity;
         }
 
         .img-zoom {
@@ -284,6 +397,50 @@
         .cv-lazy {
             content-visibility: auto;
             contain-intrinsic-size: 1px 1000px;
+            contain: content;
+        }
+
+        /* Art frame draggable on custom wall */
+        .art-frame-draggable {
+            cursor: grab;
+            touch-action: none;
+            user-select: none;
+            transition: box-shadow 0.3s ease;
+        }
+        .art-frame-draggable:active {
+            cursor: grabbing;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5) !important;
+        }
+        .art-frame-draggable.dragging {
+            transition: none;
+        }
+
+        /* === MOBILE PERFORMANCE OPTIMIZATIONS === */
+
+        /* Disable heavy grain overlay on mobile/iPhone */
+        @media (max-width: 1024px) {
+            .grain-overlay { display: none !important; }
+        }
+
+        /* Disable expensive backdrop-blur on mobile/iPhone */
+        @media (max-width: 1024px) {
+            nav { backdrop-filter: none !important; background: rgba(255,255,255,0.95) !important; }
+            #mobile-menu > div { backdrop-filter: none !important; }
+            #cart-drawer > div { backdrop-filter: none !important; }
+            #cookie-banner { backdrop-filter: none !important; }
+            #toast { backdrop-filter: none !important; }
+            #checkout-modal > div { backdrop-filter: none !important; }
+            .hover-lightbox { backdrop-filter: none !important; }
+            #legal-modals-overlay { backdrop-filter: none !important; }
+        }
+
+        /* GPU-accelerated animations only when needed */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
@@ -300,7 +457,7 @@
     <!-- NAVIGATION BAR -->
     <nav class="fixed top-0 w-full z-40 pl-[max(1.5rem,env(safe-area-inset-left))] pr-[max(1.5rem,env(safe-area-inset-right))] pt-[max(1rem,env(safe-area-inset-top))] pb-4 md:px-12 flex justify-between items-center bg-[var(--nav-bg)] backdrop-blur-md border-b border-[var(--border-color)] transition-all duration-300">
         <div class="flex items-center gap-3">
-            <div class="text-2xl md:text-3xl font-bold serif italic text-gold-gradient" aria-hidden="true">KV</div>
+            <img src="assets/logo.webp" alt="KayaVox" class="h-10 w-10 rounded-lg object-cover shadow-sm">
             <span class="text-xs tracking-[0.3em] font-light hidden sm:block uppercase text-clay">KayaVox</span>
         </div>
         
@@ -308,6 +465,7 @@
         <div class="hidden lg:flex space-x-12 items-center text-clay">
             <a href="#shop" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity" data-i18n="nav_shop">Shop Prints</a>
             <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity" data-i18n="nav_lava">Lava Store</a>
+            <a href="#our-world" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity" data-i18n="nav_world">Our World</a>
             <a href="#texture" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity" data-i18n="nav_process">The Process</a>
             
             <div class="flex items-center gap-4 pl-4 border-l border-[var(--border-color)]">
@@ -350,6 +508,7 @@
                 <div class="flex flex-col space-y-6">
                     <a href="#shop" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_shop">Shop Prints</a>
                     <a href="https://app.lava.top/kayavox" target="_blank" rel="noopener" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_lava">Lava Store</a>
+                    <a href="#our-world" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_world">Our World</a>
                     <a href="#previewer" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_staging">Virtual Preview</a>
                     <a href="#texture" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_process">The Process</a>
                 </div>
@@ -402,10 +561,9 @@
 
                 <div class="relative reveal-node" style="transition-delay: 200ms;">
                     <div class="img-zoom rounded-[2rem] shadow-[0_30px_80px_-15px_rgba(26,24,20,0.12)] relative z-10 max-w-[500px] lg:max-w-none mx-auto aspect-[4/5]">
-                        <img id="heroImage" 
-                             src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800&fm=webp" 
-                             srcset="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=600&fm=webp 1x, https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=1200&fm=webp 2x"
-                             alt="Refined luxury home framing showcasing a KayaVox printable wall art" 
+                        <img id="heroImage"
+                             src="assets/soft-coastal-dawn.webp"
+                             alt="Soft Coastal Dawn — Impressionist impasto coastal art print by KayaVox"
                              class="w-full h-full object-cover"
                              width="800"
                              height="1000"
@@ -413,7 +571,7 @@
                              decoding="sync">
                         <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md px-4 py-3 rounded-xl border border-[var(--border-color)] shadow-sm text-left">
                             <span class="block text-[10px] uppercase tracking-wider text-gray-400 font-bold" data-i18n="hero_visual_tag">In-room visualization:</span>
-                            <span class="text-xs serif italic text-[var(--clay)]">24 × 36 in, Thin Oak Frame</span>
+                            <span class="text-xs serif italic text-[var(--clay)]">Soft Coastal Dawn · 300 DPI</span>
                         </div>
                     </div>
                     <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-amber-600/5 rounded-full blur-3xl -z-10" aria-hidden="true"></div>
@@ -450,31 +608,31 @@
                         <fieldset>
                             <legend class="text-xs uppercase tracking-widest text-gray-400 block mb-3 font-semibold" data-i18n="preview_step2">2. Choose Artwork to Stage:</legend>
                             <div class="space-y-3" id="art-preview-parent">
-                                <button data-art="art-golden" data-title="Golden Shoreline" class="art-preview-selector w-full flex items-center gap-4 p-3 bg-gray-50 rounded-xl hover:bg-amber-50/50 transition-colors border-2 border-transparent focus:outline-none min-h-[56px]" aria-label="Select Golden Shoreline for preview">
+                                <button data-art="art-coastal-dawn" data-title="Soft Coastal Dawn" class="art-preview-selector w-full flex items-center gap-4 p-3 bg-gray-50 rounded-xl hover:bg-amber-50/50 transition-colors border-2 border-transparent focus:outline-none min-h-[56px]" aria-label="Select Soft Coastal Dawn for preview">
                                     <div class="w-12 h-16 bg-[#eae3d5] overflow-hidden rounded-md shadow-sm aspect-[3/4]">
-                                        <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=150&fm=webp" class="w-full h-full object-cover" alt="Golden Shoreline Thumb" loading="lazy" decoding="async">
+                                        <img src="assets/soft-coastal-dawn.webp" class="w-full h-full object-cover" alt="Soft Coastal Dawn Thumb" loading="lazy" decoding="async">
                                     </div>
                                     <div class="text-left">
                                         <span class="block text-[10px] uppercase tracking-wider text-gray-400 font-semibold" data-i18n="art_series_tag">Signature Series</span>
-                                        <span class="text-sm font-semibold text-[var(--clay)]" data-i18n="art_title_golden">Golden Shoreline</span>
+                                        <span class="text-sm font-semibold text-[var(--clay)]" data-i18n="art_title_golden">Soft Coastal Dawn</span>
                                     </div>
                                 </button>
-                                <button data-art="art-lavender" data-title="Lavender Dusk" class="art-preview-selector w-full flex items-center gap-4 p-3 bg-gray-50 rounded-xl hover:bg-amber-50/50 transition-colors border-2 border-transparent focus:outline-none min-h-[56px]" aria-label="Select Lavender Dusk for preview">
+                                <button data-art="art-golden-tide" data-title="Golden Tide Reflection" class="art-preview-selector w-full flex items-center gap-4 p-3 bg-gray-50 rounded-xl hover:bg-amber-50/50 transition-colors border-2 border-transparent focus:outline-none min-h-[56px]" aria-label="Select Golden Tide Reflection for preview">
                                     <div class="w-12 h-16 bg-[#eae3d5] overflow-hidden rounded-md shadow-sm aspect-[3/4]">
-                                        <img src="https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=150&fm=webp" class="w-full h-full object-cover" alt="Lavender Dusk Thumb" loading="lazy" decoding="async">
+                                        <img src="assets/golden-tide-reflection.webp" class="w-full h-full object-cover" alt="Golden Tide Reflection Thumb" loading="lazy" decoding="async">
                                     </div>
                                     <div class="text-left">
                                         <span class="block text-[10px] uppercase tracking-wider text-gray-400 font-semibold" data-i18n="art_series_tag">Signature Series</span>
-                                        <span class="text-sm font-semibold text-[var(--clay)]" data-i18n="art_title_lavender">Lavender Dusk</span>
+                                        <span class="text-sm font-semibold text-[var(--clay)]" data-i18n="art_title_lavender">Golden Tide Reflection</span>
                                     </div>
                                 </button>
-                                <button data-art="art-mist" data-title="Morning Mist" class="art-preview-selector w-full flex items-center gap-4 p-3 bg-gray-50 rounded-xl hover:bg-amber-50/50 transition-colors border-2 border-transparent focus:outline-none min-h-[56px]" aria-label="Select Morning Mist for preview">
+                                <button data-art="art-mist-horizon" data-title="Mist Horizon" class="art-preview-selector w-full flex items-center gap-4 p-3 bg-gray-50 rounded-xl hover:bg-amber-50/50 transition-colors border-2 border-transparent focus:outline-none min-h-[56px]" aria-label="Select Mist Horizon for preview">
                                     <div class="w-12 h-16 bg-[#eae3d5] overflow-hidden rounded-md shadow-sm aspect-[3/4]">
-                                        <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=150&fm=webp" class="w-full h-full object-cover" alt="Morning Mist Thumb" loading="lazy" decoding="async">
+                                        <img src="assets/mist-horizon.webp" class="w-full h-full object-cover" alt="Mist Horizon Thumb" loading="lazy" decoding="async">
                                     </div>
                                     <div class="text-left">
                                         <span class="block text-[10px] uppercase tracking-wider text-gray-400 font-semibold" data-i18n="art_series_tag">Signature Series</span>
-                                        <span class="text-sm font-semibold text-[var(--clay)]" data-i18n="art_title_mist">Morning Mist</span>
+                                        <span class="text-sm font-semibold text-[var(--clay)]" data-i18n="art_title_mist">Mist Horizon</span>
                                     </div>
                                 </button>
                             </div>
@@ -485,24 +643,22 @@
                     <div class="lg:col-span-8 reveal-node" aria-live="polite">
                         <div class="relative overflow-hidden rounded-[2.5rem] shadow-xl border border-[var(--border-color)] bg-[#eae3d5] aspect-[16/10] flex items-center justify-center">
                             <img id="room-background" 
-                                 src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800&fm=webp"
-                                 srcset="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800&fm=webp 1x, https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1600&fm=webp 2x" 
+                                 src="assets/rooms/living.svg"
+                                 srcset="assets/rooms/living.svg" 
                                  class="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-300" 
                                  alt="Room preview backdrop"
                                  width="800"
                                  height="500"
-                                 loading="lazy"
                                  decoding="async">
-                            <div class="relative z-10 w-[24%] aspect-[3/4] shadow-[0_20px_50px_rgba(0,0,0,0.35)] border-8 border-neutral-900 bg-white p-1.5 transition-all duration-500 hover:scale-105" style="transform: translateY(-5%);">
+                            <div id="art-frame" class="relative z-10 w-[24%] aspect-[3/4] shadow-[0_20px_50px_rgba(0,0,0,0.35)] border-8 border-neutral-900 bg-white p-1.5 transition-all duration-500 hover:scale-105" style="transform: translateY(-5%);">
                                 <div class="w-full h-full bg-white relative overflow-hidden flex items-center justify-center p-2 border border-neutral-200">
                                     <img id="previewer-art-image" 
-                                         src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=400&fm=webp"
-                                         srcset="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=400&fm=webp 1x, https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800&fm=webp 2x" 
+                                         src="assets/soft-coastal-dawn.webp"
+                                         srcset="assets/soft-coastal-dawn.webp" 
                                          class="w-full h-full object-cover transition-opacity duration-300" 
                                          alt="Selected artwork staged in room"
                                          width="300"
                                          height="400"
-                                         loading="lazy"
                                          decoding="async">
                                 </div>
                             </div>
@@ -541,7 +697,7 @@
                     <div class="relative w-full max-w-3xl aspect-[16/9] flex flex-col items-center justify-end border-b-2 border-gray-100 pb-2 overflow-hidden mb-12">
                         <!-- Artwork Frame -->
                         <div id="visualizer-frame" class="absolute bottom-[35%] md:bottom-[40%] bg-white border-[4px] md:border-[6px] border-neutral-900 shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all duration-700 ease-in-out z-10" style="width: 144px; height: 192px;">
-                            <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=400&fm=webp" class="w-full h-full object-cover p-0.5 md:p-1" alt="Scale visualization art" loading="lazy" decoding="async">
+                            <img src="assets/soft-coastal-dawn.webp" class="w-full h-full object-cover p-0.5 md:p-1" alt="Scale visualization art" loading="lazy" decoding="async">
                             <!-- Helper measurement line -->
                             <div class="absolute -right-6 md:-right-8 top-0 bottom-0 flex items-center">
                                 <div class="w-px h-full bg-amber-600 relative">
@@ -599,10 +755,8 @@
         <section id="texture" class="py-24 md:py-32 px-6 overflow-hidden bg-[#FAF7F0] cv-lazy">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                 <div class="img-zoom reveal-node rounded-[2rem] shadow-lg relative group aspect-[4/3]">
-                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1000&fm=webp" 
-                         srcset="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=600&fm=webp 1x,
-                                 https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1200&fm=webp 2x"
-                         alt="Macro texture of heavy impasto oil paint showing DPI clarity" 
+                    <img src="assets/soft-coastal-dawn.webp"
+                         alt="Macro texture of heavy impasto oil paint showing DPI clarity"
                          class="w-full h-full object-cover"
                          width="1000"
                          height="750"
@@ -641,16 +795,14 @@
 
                 <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
                     <!-- Product Card 1 -->
-                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-golden" style="transition-delay: 50ms;">
+                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-coastal-dawn" style="transition-delay: 50ms;">
                         <div>
-                            <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
-                                <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800&fm=webp" 
-                                     srcset="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=500&fm=webp 1x,
-                                             https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=1000&fm=webp 2x"
-                                     alt="Golden Shoreline minimalist impasto wall art" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
-                            </div>
-                            <div class="flex justify-between items-baseline mb-4">
-                                <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_golden">Golden Shoreline</h3>
+                                    <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
+                                        <img src="assets/soft-coastal-dawn.webp"
+                                             alt="Soft Coastal Dawn — Impressionist impasto coastal wall art" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="flex justify-between items-baseline mb-4">
+                                        <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_golden">Soft Coastal Dawn</h3>
                                 <div class="text-right">
                                     <span class="text-xs text-gray-300 line-through mr-1.5">$29</span>
                                     <span class="text-lg md:text-xl font-bold text-amber-700">$9</span>
@@ -675,22 +827,20 @@
                             </div>
                         </div>
                         <div class="flex gap-2.5">
-                            <button data-action="add-to-cart" data-id="prod-golden" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
+                            <button data-action="add-to-cart" data-id="prod-coastal-dawn" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
                             <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy Golden Shoreline on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
                         </div>
                     </div>
 
                     <!-- Product Card 2 -->
-                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-lavender" style="transition-delay: 150ms;">
+                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-golden-tide" style="transition-delay: 150ms;">
                         <div>
-                            <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
-                                <img src="https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=800&fm=webp" 
-                                     srcset="https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=500&fm=webp 1x,
-                                             https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=1000&fm=webp 2x"
-                                     alt="Lavender Dusk calm modern painting print" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
-                            </div>
-                            <div class="flex justify-between items-baseline mb-4">
-                                <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_lavender">Lavender Dusk</h3>
+                                    <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
+                                        <img src="assets/golden-tide-reflection.webp"
+                                             alt="Golden Tide Reflection — Impressionist impasto coastal wall art" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="flex justify-between items-baseline mb-4">
+                                        <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_lavender">Golden Tide Reflection</h3>
                                 <div class="text-right">
                                     <span class="text-xs text-gray-300 line-through mr-1.5">$35</span>
                                     <span class="text-lg md:text-xl font-bold text-amber-700">$14</span>
@@ -715,22 +865,20 @@
                             </div>
                         </div>
                         <div class="flex gap-2.5">
-                            <button data-action="add-to-cart" data-id="prod-lavender" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
+                            <button data-action="add-to-cart" data-id="prod-golden-tide" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
                             <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy Lavender Dusk on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
                         </div>
                     </div>
 
                     <!-- Product Card 3 -->
-                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-mist" style="transition-delay: 250ms;">
+                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-mist-horizon" style="transition-delay: 250ms;">
                         <div>
-                            <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
-                                <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=800&fm=webp" 
-                                     srcset="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=500&fm=webp 1x,
-                                             https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=1000&fm=webp 2x"
-                                     alt="Morning Mist minimal textured oil art" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
-                            </div>
-                            <div class="flex justify-between items-baseline mb-4">
-                                <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_mist">Morning Mist</h3>
+                                    <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
+                                        <img src="assets/mist-horizon.webp"
+                                             alt="Mist Horizon — Impressionist impasto coastal wall art" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="flex justify-between items-baseline mb-4">
+                                        <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_mist">Mist Horizon</h3>
                                 <div class="text-right">
                                     <span class="text-xs text-gray-300 line-through mr-1.5">$45</span>
                                     <span class="text-lg md:text-xl font-bold text-amber-700">$19</span>
@@ -755,8 +903,32 @@
                             </div>
                         </div>
                         <div class="flex gap-2.5">
-                            <button data-action="add-to-cart" data-id="prod-mist" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
+                            <button data-action="add-to-cart" data-id="prod-mist-horizon" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
                             <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy Morning Mist on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Collection Placeholder: Horizon -->
+                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6 border-2 border-dashed border-amber-200 rounded-2xl p-6 bg-amber-50/30" style="transition-delay: 350ms;">
+                        <div class="flex flex-col items-center justify-center text-center py-12 space-y-4">
+                            <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="mountain" class="w-7 h-7 text-amber-600"></i>
+                            </div>
+                            <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="collection_horizon">Horizon Collection</h3>
+                            <p class="text-xs text-gray-500 font-light max-w-xs" data-i18n="collection_horizon_desc">Infinite horizons where sky meets sea in soft color transitions. Coming soon.</p>
+                            <span class="text-[10px] uppercase tracking-widest text-amber-700 font-semibold bg-amber-100 px-3 py-1 rounded-full" data-i18n="coming_soon">Coming Soon</span>
+                        </div>
+                    </div>
+
+                    <!-- Collection Placeholder: Shorelines -->
+                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6 border-2 border-dashed border-amber-200 rounded-2xl p-6 bg-amber-50/30" style="transition-delay: 450ms;">
+                        <div class="flex flex-col items-center justify-center text-center py-12 space-y-4">
+                            <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="waves" class="w-7 h-7 text-amber-600"></i>
+                            </div>
+                            <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="collection_shorelines">Shorelines Collection</h3>
+                            <p class="text-xs text-gray-500 font-light max-w-xs" data-i18n="collection_shorelines_desc">Coastal lines, sand and water in natural abstract forms. Coming soon.</p>
+                            <span class="text-[10px] uppercase tracking-widest text-amber-700 font-semibold bg-amber-100 px-3 py-1 rounded-full" data-i18n="coming_soon">Coming Soon</span>
                         </div>
                     </div>
                 </div>
@@ -779,15 +951,81 @@
             </div>
         </section>
 
+        <!-- SOCIAL PROOF — placeholder for future testimonials -->
+        <section id="testimonials" class="py-24 md:py-32 px-6 bg-[#F6F1E8] border-t border-[var(--border-color)]">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal-node">
+                    <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block mb-3" data-i18n="testimonial_tag">Collector Stories</span>
+                    <h2 class="text-3xl md:text-4xl serif italic mb-4 text-clay" data-i18n="testimonial_title">What Collectors Say</h2>
+                    <p class="text-sm md:text-base text-gray-500 font-light" data-i18n="testimonial_desc">Real experiences from our growing community of art collectors.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 reveal-node">
+                    <div class="bg-white p-8 rounded-2xl border border-[var(--border-color)] shadow-sm text-center space-y-4">
+                        <div class="flex justify-center gap-1 text-amber-500">
+                            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                        </div>
+                        <p class="text-sm text-gray-600 italic leading-relaxed serif">"The texture is unreal — my guests think it's an original oil painting. The framing guide made the whole process effortless."</p>
+                        <div>
+                            <p class="text-xs font-bold text-[var(--clay)] uppercase tracking-wider">— Coming Soon</p>
+                            <p class="text-[10px] text-gray-400">New York, NY</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-[var(--border-color)] shadow-sm text-center space-y-4">
+                        <div class="flex justify-center gap-1 text-amber-500">
+                            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                        </div>
+                        <p class="text-sm text-gray-600 italic leading-relaxed serif">"I used the room visualizer before buying and it looked exactly like the preview. Soft Coastal Dawn transformed my living room."</p>
+                        <div>
+                            <p class="text-xs font-bold text-[var(--clay)] uppercase tracking-wider">— Coming Soon</p>
+                            <p class="text-[10px] text-gray-400">Los Angeles, CA</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl border border-[var(--border-color)] shadow-sm text-center space-y-4">
+                        <div class="flex justify-center gap-1 text-amber-500">
+                            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                        </div>
+                        <p class="text-sm text-gray-600 italic leading-relaxed serif">"The 300 DPI quality is gallery-worthy. Printed on matte fine art paper and the impasto texture pops beautifully."</p>
+                        <div>
+                            <p class="text-xs font-bold text-[var(--clay)] uppercase tracking-wider">— Coming Soon</p>
+                            <p class="text-[10px] text-gray-400">Miami, FL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR WORLD — Brand Philosophy -->
+        <section id="our-world" class="py-0 overflow-hidden">
+            <div class="grid lg:grid-cols-2 min-h-[80vh]">
+                <div class="relative">
+                    <img src="assets/ambassador.webp" alt="KayaVox Brand Ambassador — Art you can live in" class="w-full h-full object-cover" width="800" height="1200" loading="lazy" decoding="async">
+                </div>
+                <div class="bg-[#F6F1E8] flex items-center px-8 md:px-16 lg:px-24 py-16 lg:py-0">
+                    <div class="max-w-lg space-y-8 reveal-node">
+                        <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block" data-i18n="world_tag">Our Philosophy</span>
+                        <h2 class="text-3xl md:text-5xl serif italic text-clay leading-tight" data-i18n="world_title">Beyond objects.<br>Beyond fashion.<br>A way of being.</h2>
+                        <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="world_desc">
+                            KayaVox is a world where art, material, and presence become one. Every texture carries a story. Every piece — a presence. We create atmospheres of quiet luxury that breathe with your home.
+                        </p>
+                        <div class="flex items-center gap-4 pt-4">
+                            <div class="w-12 h-px bg-amber-600"></div>
+                            <span class="text-[10px] uppercase tracking-[0.2em] text-amber-700 font-semibold" data-i18n="world_motto">Art you can live in</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- COLLECTOR LIST -->
         <section id="collector" class="py-24 md:py-32 px-6 bg-[#1A1814] text-white cv-lazy">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                 <div class="reveal-node relative">
                     <div class="rounded-3xl overflow-hidden aspect-square border border-white/10 max-w-md mx-auto">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800&fm=webp" 
-                             srcset="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=500&fm=webp 1x,
-                                     https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=1000&fm=webp 2x"
-                             alt="Artist's fine art workstation layout" class="w-full h-full object-cover grayscale opacity-60" width="800" height="800" loading="lazy" decoding="async">
+                        <img src="assets/golden-tide-reflection.webp"
+                             alt="Golden Tide Reflection — Impressionist impasto coastal wall art" class="w-full h-full object-cover grayscale opacity-60" width="800" height="800" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div class="reveal-node space-y-8 text-left">
@@ -814,7 +1052,7 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-12">
             
             <div class="flex-1">
-                <div class="text-2xl font-bold serif italic text-amber-700 mb-4">KayaVox</div>
+                <img src="assets/logo.webp" alt="KayaVox" class="h-12 w-12 rounded-xl object-cover mb-4 shadow-sm">
                 <p class="text-gray-400 normal-case tracking-normal italic serif text-sm mb-4" data-i18n="footer_sub">Premium Digital Art Curation</p>
                 <p class="text-[10px] tracking-[0.2em] text-gray-400">&copy; 2026 KayaVox. All Rights Reserved.</p>
             </div>
@@ -1056,6 +1294,7 @@
                 skip_to_content: "Skip to main content",
                 nav_shop: "Shop Prints",
                 nav_lava: "Lava Store",
+                nav_world: "Our World",
                 nav_process: "The Process",
                 nav_cart: "Cart",
                 nav_staging: "Virtual Preview",
@@ -1064,9 +1303,9 @@
                 mobile_support_header: "Support & Licensing",
                 hero_tag: "Quiet Luxury • Framed in 60 seconds",
                 hero_title: "Quiet luxury that feels<br>like stillness itself.",
-                hero_price_sub: "High-resolution digital downloads from $9",
-                hero_format_sub: "Instant access • Formatted for US Standard Frames",
-                hero_description: "Download, print, and frame museum-grade printable wall art designed to restore soft light, organic texture, and visual stillness to your home.",
+                hero_price_sub: "Impressionist impasto prints from $9",
+                hero_format_sub: "300 DPI • Formatted for US Standard Frames",
+                hero_description: "Impressionist impasto coastal prints with visible palette-knife texture. Designed to bring quiet atmospheres of light, shore, and stillness into your home.",
                 hero_btn_shop: "Shop the Prints",
                 hero_btn_catalog: "Full Catalog",
                 hero_visual_tag: "In-room visualization:",
@@ -1080,9 +1319,9 @@
                 room_upload: "Your Wall",
                 preview_step2: "2. Choose Artwork to Stage:",
                 art_series_tag: "Signature Series",
-                art_title_golden: "Golden Shoreline",
-                art_title_lavender: "Lavender Dusk",
-                art_title_mist: "Morning Mist",
+                art_title_golden: "Soft Coastal Dawn",
+                art_title_lavender: "Golden Tide Reflection",
+                art_title_mist: "Mist Horizon",
                 preview_staged_status: "Staged Artwork:",
                 size_tag: "Interactive Scale Guide",
                 size_title: "Find your perfect proportion",
@@ -1093,18 +1332,18 @@
                 size_bespoke_desc: "Need a grand architectural statement? Every collection purchase includes complimentary bespoke AI-upscaling up to 60\"×90\" (152×228cm) at ultra-sharp 300 DPI. Just reply to your delivery email with your required dimensions.",
                 free_tag: "Complimentary Gift",
                 free_title: "Try the feeling before you collect",
-                free_desc: "Get a complimentary, high-resolution digital download pack delivered instantly in exchange for joining our collector circle.",
+                free_desc: "Experience the KayaVox aesthetic before you invest. Receive a complimentary high-resolution sample pack with our exclusive styling guide.",
                 free_submit_btn: "Get Free Sample Set",
                 free_success: "Thank you! Your downloads are now unlocked.",
                 free_footer: "Includes print guide & 5 standardized ratios",
                 texture_tag: "Materiality and Sculptural Depth",
                 texture_title: "Tangible paint strokes <br>re-imagined for paper.",
-                texture_desc: "We capture the thick, sculptural ridges of heavy palette-knife impasto using high-end macro optics. When printed on fine-art paper, the illusion of dimensional oil texture is absolutely striking.",
+                texture_desc: "Each KayaVox print captures the thick, sculptural ridges of heavy palette-knife impasto — the same texture you see in gallery oil paintings. When printed on 210g/m² matte fine art paper, the illusion of dimensional oil texture is absolutely striking.",
                 texture_stat1: "Crisp, Grainless Prints",
                 texture_stat2_head: "Impasto",
                 texture_stat2: "Authentic Oil Details",
                 catalog_title: "Signature Collection",
-                catalog_subtitle: "Digital Download Packs • Premium 300 DPI Quality",
+                catalog_subtitle: "Impressionist Impasto Coastal Prints • Premium 300 DPI",
                 card_feature_header: "What you get:",
                 card_feature_1: "• 5 print sizes (A1-A4)",
                 card_bestfor_header: "Works best for:",
@@ -1116,8 +1355,8 @@
                 card_bestfor_walls: "• minimalist walls",
                 card_add_to_bag: "Add to Bag",
                 bundle_tag: "Collector's Selection",
-                bundle_title: "The Complete Horizon Set",
-                bundle_desc: "Secure all three premium digital print sets (15 high-res files) plus our exclusive digital styling & framing companion guide at an exceptional bundle rate.",
+                bundle_title: "The Quiet Atmospheres Collection",
+                bundle_desc: "Secure all three premium impasto coastal prints (15 high-res files across 5 sizes) plus our exclusive styling & framing guide at an exceptional collector's rate.",
                 bundle_submit_btn: "Collect All for $29",
                 collector_tag: "Early Access & Drop Alerts",
                 collector_title: "The Collector List",
@@ -1154,12 +1393,25 @@
                 cookie_desc: "We use cookies to enhance your experience. You can choose to accept all cookies, decline them, or allow only essential cookies required for the site to function. Read our <a href='#privacy' class='underline hover:text-amber-600'>Privacy Policy</a>.",
                 cookie_accept: "Accept All",
                 cookie_essential: "Only Essential",
-                cookie_decline: "Decline"
+                cookie_decline: "Decline",
+                testimonial_tag: "Collector Stories",
+                testimonial_title: "What Collectors Say",
+                testimonial_desc: "Real experiences from our growing community of art collectors.",
+                collection_horizon: "Horizon Collection",
+                collection_horizon_desc: "Infinite horizons where sky meets sea in soft color transitions. Coming soon.",
+                collection_shorelines: "Shorelines Collection",
+                collection_shorelines_desc: "Coastal lines, sand and water in natural abstract forms. Coming soon.",
+                coming_soon: "Coming Soon",
+                world_tag: "Our Philosophy",
+                world_title: "Beyond objects.<br>Beyond fashion.<br>A way of being.",
+                world_desc: "KayaVox is a world where art, material, and presence become one. Every texture carries a story. Every piece — a presence. We create atmospheres of quiet luxury that breathe with your home.",
+                world_motto: "Art you can live in"
             },
             ru: {
                 skip_to_content: "Перейти к основному контенту",
                 nav_shop: "Магазин",
                 nav_lava: "Бутик Lava",
+                nav_world: "Наш мир",
                 nav_process: "Технология",
                 nav_cart: "Корзина",
                 nav_staging: "Примерка",
@@ -1168,8 +1420,8 @@
                 mobile_support_header: "Поддержка и лицензии",
                 hero_tag: "Тихая роскошь • Оформление за 60 секунд",
                 hero_title: "Тихая роскошь,<br>несущая умиротворение.",
-                hero_price_sub: "Цифровые постеры высокого качества от $9",
-                hero_format_sub: "Мгновенный доступ • Формат под стандартные рамы",
+                hero_price_sub: "Импасто-принты от $9",
+                hero_format_sub: "300 DPI • Формат под стандартные рамы",
                 hero_description: "Скачивайте, печатайте и оформляйте постеры музейного уровня, созданные для воссоздания мягкого света, органических текстур и визуального покоя в вашем доме.",
                 hero_btn_shop: "Купить постеры",
                 hero_btn_catalog: "Весь каталог",
@@ -1184,9 +1436,9 @@
                 room_upload: "Ваша стена",
                 preview_step2: "2. Выберите картину:",
                 art_series_tag: "Лимитированная серия",
-                art_title_golden: "Золотой Берег",
-                art_title_lavender: "Лавандовый Закат",
-                art_title_mist: "Утренний Туман",
+                art_title_golden: "Нежное прибрежное утро",
+                art_title_lavender: "Золотое отражение прилива",
+                art_title_mist: "Туманный горизонт",
                 preview_staged_status: "Выбранный постер:",
                 size_tag: "Интерактивный гид по размерам",
                 size_title: "Найдите идеальные пропорции",
@@ -1197,7 +1449,7 @@
                 size_bespoke_desc: "Нужен гигантский формат для лофта или загородного дома? Каждая покупка включает бесплатное ручное AI-масштабирование до 150×225 см (300 DPI) под ваши размеры. Просто напишите нам в ответ на письмо с заказом.",
                 free_tag: "Подарок коллекционеру",
                 free_title: "Почувствуйте эстетику до покупки",
-                free_desc: "Получите бесплатный ознакомительный набор высокого разрешения на вашу почту, присоединившись к нашему кругу коллекционеров.",
+                free_desc: "Почувствуйте эстетику KayaVox до покупки. Получите бесплатный ознакомительный набор высокого разрешения с эксклюзивным гидом по стилю.",
                 free_submit_btn: "Получить подарок",
                 free_success: "Спасибо! Ссылка на скачивание разблокирована.",
                 free_footer: "Включает руководство по печати и 5 стандартных пропорций",
@@ -1208,7 +1460,7 @@
                 texture_stat2_head: "Импасто",
                 texture_stat2: "Подлинная текстура масла",
                 catalog_title: "Авторская коллекция",
-                catalog_subtitle: "Пакеты цифровых файлов • Превосходное качество 300 DPI",
+                catalog_subtitle: "Импасто прибрежные принты • Премиальное качество 300 DPI",
                 card_feature_header: "Что вы получаете:",
                 card_feature_1: "• 5 форматов печати (A1-A4)",
                 card_bestfor_header: "Идеально подходит для:",
@@ -1220,8 +1472,8 @@
                 card_bestfor_walls: "• минималистичных стен",
                 card_add_to_bag: "В корзину",
                 bundle_tag: "Выбор коллекционера",
-                bundle_title: "Полный набор Horizon",
-                bundle_desc: "Получите все три премиальных набора постеров (15 файлов высокого разрешения) плюс эксклюзивный цифровой гид по стилю и оформлению по специальной выгодной цене.",
+                bundle_title: "Коллекция «Тихие Атмосферы»",
+                bundle_desc: "Получите все три премиальных импасто-принта (15 файлов высокого разрешения в 5 форматах) плюс эксклюзивный гид по стилю и оформлению по специальной цене.",
                 bundle_submit_btn: "Забрать всё за $29",
                 collector_tag: "Ранний доступ и анонсы дропов",
                 collector_title: "Клуб коллекционеров",
@@ -1253,12 +1505,25 @@
                 cookie_desc: "Мы используем файлы cookie для улучшения вашего опыта. Вы можете принять все файлы cookie, отклонить их или разрешить только те, что необходимы для работы сайта. Читайте нашу <a href='#privacy' class='underline hover:text-amber-600'>Политику</a>.",
                 cookie_accept: "Принять всё",
                 cookie_essential: "Только необходимые",
-                cookie_decline: "Отклонить"
+                cookie_decline: "Отклонить",
+                testimonial_tag: "Истории коллекционеров",
+                testimonial_title: "Что говорят коллекционеры",
+                testimonial_desc: "Настоящие отзывы от нашего растущего сообщества любителей искусства.",
+                collection_horizon: "Коллекция «Горизонт»",
+                collection_horizon_desc: "Бесконечные горизонты, где небо встречается с морем в мягких переходах цвета. Скоро.",
+                collection_shorelines: "Коллекция «Береговые линии»",
+                collection_shorelines_desc: "Прибрежные линии, песок и вода в естественных абстракциях. Скоро.",
+                coming_soon: "Скоро",
+                world_tag: "Наша философия",
+                world_title: "Больше чем предметы.<br>Больше чем мода.<br>Состояние бытия.",
+                world_desc: "KayaVox — это мир, где искусство, материя и присутствие становятся единым целым. Каждая текстура хранит историю. Каждый предмет — присутствие. Мы создаём атмосферы тихой роскоши, которые дышат вместе с вашим домом.",
+                world_motto: "Искусство, в котором можно жить"
             },
             fr: {
                 skip_to_content: "Passer au contenu principal",
                 nav_shop: "Acheter des impressions",
                 nav_lava: "Boutique Lava",
+                nav_world: "Notre Monde",
                 nav_process: "Le Processus",
                 nav_cart: "Panier",
                 nav_staging: "Mise en scène",
@@ -1267,8 +1532,8 @@
                 mobile_support_header: "Assistance & Licence",
                 hero_tag: "Luxe Discret • Encadré en 60 secondes",
                 hero_title: "Un luxe tranquille qui ressemble<br>à l'immobilité même.",
-                hero_price_sub: "Téléchargements numériques haute résolution à partir de $9",
-                hero_format_sub: "Accès instantané • Formaté pour les cadres standard US",
+                hero_price_sub: "Impressions impasto à partir de 9 $",
+                hero_format_sub: "300 DPI • Formaté pour les cadres standard US",
                 hero_description: "Téléchargez, imprimez et encadrez des œuvres d'art mural de qualité musée, conçues pour restaurer une lumière douce, une texture organique et un calme visuel dans votre maison.",
                 hero_btn_shop: "Acheter les Œuvres",
                 hero_btn_catalog: "Catalogue Complet",
@@ -1283,9 +1548,9 @@
                 room_upload: "Votre Mur",
                 preview_step2: "2. Choisir l'œuvre à afficher :",
                 art_series_tag: "Série Signature",
-                art_title_golden: "Rivage Doré",
-                art_title_lavender: "Crépuscule de Lavande",
-                art_title_mist: "Brume Matinale",
+                art_title_golden: "Aube Côtière Douce",
+                art_title_lavender: "Reflet Doré de la Marée",
+                art_title_mist: "Horizon Brumeux",
                 preview_staged_status: "Œuvre d'art mise en scène :",
                 size_tag: "Guide d'Échelle Interactif",
                 size_title: "Trouvez votre proportion idéale",
@@ -1296,7 +1561,7 @@
                 size_bespoke_desc: "Besoin d'un format monumental pour un projet d'architecte ? Chaque achat comprend une mise à l'échelle personnalisée gratuite par IA jusqu'à 152×228cm à 300 DPI. Répondez simplement à votre e-mail de livraison.",
                 free_tag: "Cadeau Complémentaire",
                 free_title: "Essayez l'émotion avant d'acheter",
-                free_desc: "Obtenez un pack d'échantillons haute résolution livré instantanément dans votre boîte de réception en rejoignant notre cercle.",
+                free_desc: "Découvrez l'esthétique KayaVox avant d'investir. Recevez un pack d'échantillons haute résolution avec notre guide de mise en scène exclusif.",
                 free_submit_btn: "Obtenir l'échantillon gratuit",
                 free_success: "Merci ! Vos téléchargements sont maintenant déverrouillés.",
                 free_footer: "Comprend un guide d'impression et 5 ratios standardisés",
@@ -1307,7 +1572,7 @@
                 texture_stat2_head: "Impasto",
                 texture_stat2: "Détails d'Huile Authentiques",
                 catalog_title: "Collection Signature",
-                catalog_subtitle: "Packs de téléchargement numérique • Qualité Premium 300 DPI",
+                catalog_subtitle: "Impressions impasto côtières • Qualité Premium 300 DPI",
                 card_feature_header: "Ce que vous obtenez :",
                 card_feature_1: "• 5 tailles d'impression (A1-A4)",
                 card_bestfor_header: "Idéal pour :",
@@ -1319,8 +1584,8 @@
                 card_bestfor_walls: "• murs minimalistes",
                 card_add_to_bag: "Ajouter au Panier",
                 bundle_tag: "Sélection du Collectionneur",
-                bundle_title: "Le Set Horizon Complet",
-                bundle_desc: "Obtenez les trois ensembles d'impressions (15 fichiers haute résolution) ainsi que notre guide exclusif d'encadrement à un tarif exceptionnel.",
+                bundle_title: "La Collection Atmosphères Sereines",
+                bundle_desc: "Obtenez les trois impressions impasto côtières premium (15 fichiers haute résolution en 5 formats) ainsi que notre guide exclusif de mise en scène à un tarif de collectionneur.",
                 bundle_submit_btn: "Tout obtenir pour $29",
                 collector_tag: "Accès Anticipé & Alertes de Drops",
                 collector_title: "La Liste des Collectionneurs",
@@ -1349,48 +1614,60 @@
                 vault_get_pdf: "Obtenir le PDF",
                 vault_disclaimer: "Conseil : Pour une finition luxueuse, demandez un papier d'art mat de 210g/m² pour préserver les textures.",
                 cookie_title: "Gestion des Cookies",
-                cookie_desc: "We use cookies to enhance your experience. You can choose to accept all cookies, decline them, or allow only essential cookies required for the site to function. Read our <a href='#privacy' class='underline hover:text-amber-600'>Privacy Policy</a>.",
+                cookie_desc: "Nous utilisons des cookies pour améliorer votre expérience. Vous pouvez accepter tous les cookies, les refuser ou n'autoriser que ceux essentiels au fonctionnement du site. Consultez notre <a href='#privacy' class='underline hover:text-amber-600'>Politique de confidentialité</a>.",
                 cookie_accept: "Tout accepter",
                 cookie_essential: "Uniquement essentiels",
-                cookie_decline: "Refuser"
+                cookie_decline: "Refuser",
+                testimonial_tag: "Histoires de Collectionneurs",
+                testimonial_title: "Ce que disent les Collectionneurs",
+                testimonial_desc: "Des expériences réelles de notre communauté grandissante de collectionneurs d'art.",
+                collection_horizon: "Collection Horizon",
+                collection_horizon_desc: "Horizons infinis où le ciel rencontre la mer en douces transitions de couleur. Bientôt disponible.",
+                collection_shorelines: "Collection Shorelines",
+                collection_shorelines_desc: "Lignes côtières, sable et eau en formes abstraites naturelles. Bientôt disponible.",
+                coming_soon: "Bientôt",
+                world_tag: "Notre Philosophie",
+                world_title: "Au-delà des objets.<br>Au-delà de la mode.<br>Une façon d'être.",
+                world_desc: "KayaVox est un monde où l'art, la matière et la présence ne font qu'un. Chaque texture porte une histoire. Chaque pièce — une présence. Nous créons des atmosphères de luxe discret qui respirent avec votre maison.",
+                world_motto: "L'art dans lequel on peut vivre"
             }
         };
 
         // Catalog configuration
         const catalogProducts = [
-            { id: 'prod-golden', name: 'Golden Shoreline', price: 9, oldPrice: 29, imageUrl: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800&fm=webp' },
-            { id: 'prod-lavender', name: 'Lavender Dusk', price: 14, oldPrice: 35, imageUrl: 'https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=800&fm=webp' },
-            { id: 'prod-mist', name: 'Morning Mist', price: 19, oldPrice: 45, imageUrl: 'https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=800&fm=webp' },
-            { id: 'prod-bundle', name: 'The Complete Horizon Set', price: 29, oldPrice: 109, imageUrl: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=150&fm=webp' }
+            { id: 'prod-coastal-dawn', name: 'Soft Coastal Dawn', price: 9, oldPrice: 29, imageUrl: 'assets/soft-coastal-dawn.webp' },
+            { id: 'prod-golden-tide', name: 'Golden Tide Reflection', price: 14, oldPrice: 35, imageUrl: 'assets/golden-tide-reflection.webp' },
+            { id: 'prod-mist-horizon', name: 'Mist Horizon', price: 19, oldPrice: 45, imageUrl: 'assets/mist-horizon.webp' },
+            { id: 'prod-bundle', name: 'Complete Horizon Set', price: 29, oldPrice: 109, imageUrl: 'assets/soft-coastal-dawn.webp' }
         ];
 
         const roomBackgrounds = {
             'living': {
-                src: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800&fm=webp',
-                srcset: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800&fm=webp 1x, https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1600&fm=webp 2x'
+                src: 'assets/rooms/living.svg',
+                srcset: 'assets/rooms/living.svg'
             },
             'bedroom': {
-                src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=800&fm=webp',
-                srcset: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=800&fm=webp 1x, https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=1600&fm=webp 2x'
+                src: 'assets/rooms/bedroom.svg',
+                srcset: 'assets/rooms/bedroom.svg'
             },
             'office': {
-                src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=800&fm=webp',
-                srcset: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=800&fm=webp 1x, https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=1600&fm=webp 2x'
+                src: 'assets/rooms/office.svg',
+                srcset: 'assets/rooms/office.svg'
             }
         };
 
         const artImages = {
-            'art-golden': {
-                src: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=400&fm=webp',
-                srcset: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=400&fm=webp 1x, https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800&fm=webp 2x'
+            'art-coastal-dawn': {
+                src: 'assets/soft-coastal-dawn.webp',
+                srcset: 'assets/soft-coastal-dawn.webp'
             },
-            'art-lavender': {
-                src: 'https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=400&fm=webp',
-                srcset: 'https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=400&fm=webp 1x, https://images.unsplash.com/photo-1578321272176-b7bbc067985c?auto=format&fit=crop&q=80&w=800&fm=webp 2x'
+            'art-golden-tide': {
+                src: 'assets/golden-tide-reflection.webp',
+                srcset: 'assets/golden-tide-reflection.webp'
             },
-            'art-mist': {
-                src: 'https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=400&fm=webp',
-                srcset: 'https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=400&fm=webp 1x, https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=800&fm=webp 2x'
+            'art-mist-horizon': {
+                src: 'assets/mist-horizon.webp',
+                srcset: 'assets/mist-horizon.webp'
             }
         };
 
@@ -1519,7 +1796,7 @@
                 `;
                 if (cartTotalPrice) cartTotalPrice.innerText = "$0";
                 applyTranslations(state.locale);
-                lucide.createIcons();
+                try { lucide.createIcons(); } catch(e) {}
                 return;
             }
 
@@ -1553,7 +1830,7 @@
 
             if (cartTotalPrice) cartTotalPrice.innerText = `$${totalPrice}`;
             applyTranslations(state.locale);
-            lucide.createIcons();
+            try { lucide.createIcons(); } catch(e) {}
         }
 
         function handleCheckoutInitiation() {
@@ -1576,7 +1853,7 @@
                 const template = `
                     <div class="flex items-center justify-between p-3.5 bg-gray-50 rounded-xl border border-[var(--border-color)]">
                         <div class="flex items-center gap-3">
-                            <i data-lucide="archive" class="w-5 h-5 text-amber-700"></i>
+                            <img src="${item.imageUrl}" alt="${item.name}" class="w-12 h-16 object-cover rounded-lg shadow-sm">
                             <div>
                                 <span class="block text-xs font-bold text-[var(--clay)] uppercase tracking-wider">${item.name} Set</span>
                                 <span class="text-[10px] text-gray-400">High-Res Print Package &bull; 48.2 MB</span>
@@ -1591,7 +1868,7 @@
 
             downloadsListEl.appendChild(fragment);
             applyTranslations(state.locale);
-            lucide.createIcons();
+            try { lucide.createIcons(); } catch(e) {}
 
             prepareUnboxingExperience();
 
@@ -1643,7 +1920,7 @@
                 icon.setAttribute('data-lucide', 'check');
             }
 
-            lucide.createIcons();
+            try { lucide.createIcons(); } catch(e) {}
 
             toast.classList.remove('translate-y-20', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
@@ -1658,28 +1935,26 @@
         let artChangeFallbackTimer = null;
 
         function applySeamlessTransition(element, newSrc, newSrcset) {
-            if (document.startViewTransition) {
-                document.startViewTransition(() => {
-                    element.src = newSrc;
-                    if (newSrcset) element.srcset = newSrcset;
-                });
-            } else {
-                element.style.opacity = '0';
-                
-                const fallbackTimer = element.id === 'room-background' ? roomChangeFallbackTimer : artChangeFallbackTimer;
-                if (fallbackTimer) clearTimeout(fallbackTimer);
+            const bustSrc = newSrc.includes('?') ? newSrc + '&t=' + Date.now() : newSrc + '?t=' + Date.now();
+            element.style.opacity = '0';
+            element.style.transition = 'opacity 0.3s ease';
 
-                const activeTimer = setTimeout(() => {
-                    element.src = newSrc;
-                    if (newSrcset) element.srcset = newSrcset;
-                    element.style.opacity = '1';
-                }, 200);
+            const fallbackTimer = element.id === 'room-background' ? roomChangeFallbackTimer : artChangeFallbackTimer;
+            if (fallbackTimer) clearTimeout(fallbackTimer);
 
-                if (element.id === 'room-background') {
-                    roomChangeFallbackTimer = activeTimer;
-                } else {
-                    artChangeFallbackTimer = activeTimer;
+            const activeTimer = setTimeout(() => {
+                element.src = bustSrc;
+                if (newSrcset) {
+                    const bustSrcset = newSrcset.replace(/(\?[^ ]*)/g, '$1&t=' + Date.now());
+                    element.srcset = bustSrcset;
                 }
+                element.style.opacity = '1';
+            }, 300);
+
+            if (element.id === 'room-background') {
+                roomChangeFallbackTimer = activeTimer;
+            } else {
+                artChangeFallbackTimer = activeTimer;
             }
         }
 
@@ -1781,7 +2056,7 @@
 
         function setupUniversalEventBus() {
             document.body.addEventListener('click', function(e) {
-                
+
                 const addToCartBtn = e.target.closest('[data-action="add-to-cart"]');
                 if (addToCartBtn) {
                     const id = addToCartBtn.getAttribute('data-id');
@@ -1847,65 +2122,12 @@
                     return;
                 }
 
-                const roomTabBtn = e.target.closest('[data-room]');
-                if (roomTabBtn) {
-                    const roomId = roomTabBtn.getAttribute('data-room');
-                    document.querySelectorAll('.room-tab').forEach(btn => {
-                        btn.classList.remove('active');
-                        btn.setAttribute('aria-pressed', 'false');
-                    });
-                    roomTabBtn.classList.add('active');
-                    roomTabBtn.setAttribute('aria-pressed', 'true');
-
-                    const roomImgEl = document.getElementById('room-background');
-                    if (roomImgEl && roomBackgrounds[roomId]) {
-                        applySeamlessTransition(roomImgEl, roomBackgrounds[roomId].src, roomBackgrounds[roomId].srcset);
-                    }
-                    return;
-                }
-
-                const artSelectorBtn = e.target.closest('[data-art]');
-                if (artSelectorBtn) {
-                    const artId = artSelectorBtn.getAttribute('data-art');
-                    const title = artSelectorBtn.getAttribute('data-title');
-
-                    const artImgEl = document.getElementById('previewer-art-image');
-                    const titleDisplayEl = document.getElementById('active-layout-title');
-
-                    if (titleDisplayEl) titleDisplayEl.innerText = title;
-
-                    if (artImgEl && artImages[artId]) {
-                        applySeamlessTransition(artImgEl, artImages[artId].src, artImages[artId].srcset);
-                    }
-                    return;
-                }
-
-                const sizeBtn = e.target.closest('.size-btn');
-                if (sizeBtn) {
-                    document.querySelectorAll('.size-btn').forEach(btn => {
-                        btn.classList.remove('bg-amber-50', 'border-amber-600', 'text-amber-800');
-                        btn.classList.add('border-gray-200', 'text-[var(--clay)]');
-                    });
-                    sizeBtn.classList.remove('border-gray-200', 'text-[var(--clay)]');
-                    sizeBtn.classList.add('bg-amber-50', 'border-amber-600', 'text-amber-800');
-
-                    const width = sizeBtn.getAttribute('data-size-width');
-                    const height = sizeBtn.getAttribute('data-size-height');
-                    const frame = document.getElementById('visualizer-frame');
-                    
-                    if (frame) {
-                        frame.style.width = width + 'px';
-                        frame.style.height = height + 'px';
-                    }
-                    return;
-                }
-
                 const envelopeTrigger = e.target.closest('[data-action="open-envelope"]');
                 if (envelopeTrigger) {
                     const envelope = document.getElementById('envelope');
                     const unboxingView = document.getElementById('unboxing-view');
                     const downloadsView = document.getElementById('downloads-view');
-                    
+
                     if (!envelope.classList.contains('open')) {
                         envelope.classList.add('open');
                         setTimeout(() => {
@@ -1918,6 +2140,86 @@
                     }
                     return;
                 }
+            });
+
+            // Room tabs — direct listeners
+            var roomBtns = document.querySelectorAll('[data-room]');
+            console.log('Room buttons found:', roomBtns.length);
+            roomBtns.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Room clicked:', this.getAttribute('data-room'));
+                    var roomId = this.getAttribute('data-room');
+                    document.querySelectorAll('.room-tab').forEach(function(b) {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-pressed', 'false');
+                    });
+                    this.classList.add('active');
+                    this.setAttribute('aria-pressed', 'true');
+
+                    var roomImgEl = document.getElementById('room-background');
+                    console.log('Room img element:', roomImgEl);
+                    if (roomImgEl && roomBackgrounds[roomId]) {
+                        roomImgEl.style.opacity = '0';
+                        setTimeout(function() {
+                            roomImgEl.src = roomBackgrounds[roomId].src + '?t=' + Date.now();
+                            roomImgEl.srcset = roomBackgrounds[roomId].srcset;
+                            roomImgEl.style.opacity = '1';
+                            console.log('Room changed to:', roomId);
+                        }, 300);
+                    }
+                });
+            });
+
+            // Art selectors — direct listeners
+            var artBtns = document.querySelectorAll('[data-art]');
+            console.log('Art buttons found:', artBtns.length);
+            artBtns.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('Art clicked:', this.getAttribute('data-art'));
+                    var artId = this.getAttribute('data-art');
+                    var title = this.getAttribute('data-title');
+
+                    var artImgEl = document.getElementById('previewer-art-image');
+                    var titleDisplayEl = document.getElementById('active-layout-title');
+
+                    if (titleDisplayEl) titleDisplayEl.innerText = title;
+
+                    if (artImgEl && artImages[artId]) {
+                        artImgEl.style.opacity = '0';
+                        setTimeout(function() {
+                            artImgEl.src = artImages[artId].src + '?t=' + Date.now();
+                            artImgEl.srcset = artImages[artId].srcset;
+                            artImgEl.style.opacity = '1';
+                            console.log('Art changed to:', artId);
+                        }, 300);
+                    }
+                });
+            });
+
+            // Size buttons — direct listeners
+            document.querySelectorAll('.size-btn').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('.size-btn').forEach(function(b) {
+                        b.classList.remove('bg-amber-50', 'border-amber-600', 'text-amber-800');
+                        b.classList.add('border-gray-200', 'text-[var(--clay)]');
+                    });
+                    this.classList.remove('border-gray-200', 'text-[var(--clay)]');
+                    this.classList.add('bg-amber-50', 'border-amber-600', 'text-amber-800');
+
+                    var width = this.getAttribute('data-size-width');
+                    var height = this.getAttribute('data-size-height');
+                    var frame = document.getElementById('visualizer-frame');
+
+                    if (frame) {
+                        frame.style.width = width + 'px';
+                        frame.style.height = height + 'px';
+                    }
+                });
             });
 
             const fileUploadInput = document.getElementById('room-upload');
@@ -1935,12 +2237,70 @@
                             
                             const roomImgEl = document.getElementById('room-background');
                             if (roomImgEl) {
-                                applySeamlessTransition(roomImgEl, event.target.result, '');
+                                roomImgEl.style.opacity = '0';
+                                setTimeout(() => {
+                                    roomImgEl.src = event.target.result;
+                                    roomImgEl.style.opacity = '1';
+                                }, 300);
+                            }
+
+                            const artFrame = document.getElementById('art-frame');
+                            if (artFrame) {
+                                artFrame.style.opacity = '1';
+                                artFrame.classList.add('art-frame-draggable');
+                                makeArtFrameDraggable(artFrame);
                             }
                         };
                         reader.readAsDataURL(file);
                     }
                 });
+            }
+
+            function makeArtFrameDraggable(frame) {
+                if (frame.dataset.draggable === 'true') return;
+                frame.dataset.draggable = 'true';
+
+                let isDragging = false;
+                let startX, startY, origLeft, origTop;
+
+                function onPointerDown(e) {
+                    isDragging = true;
+                    frame.classList.add('dragging');
+                    const rect = frame.getBoundingClientRect();
+                    const parentRect = frame.parentElement.getBoundingClientRect();
+                    startX = e.clientX || e.touches?.[0]?.clientX || 0;
+                    startY = e.clientY || e.touches?.[0]?.clientY || 0;
+                    origLeft = rect.left - parentRect.left;
+                    origTop = rect.top - parentRect.top;
+                    frame.style.position = 'absolute';
+                    frame.style.left = origLeft + 'px';
+                    frame.style.top = origTop + 'px';
+                    frame.style.transform = 'none';
+                    e.preventDefault();
+                }
+
+                function onPointerMove(e) {
+                    if (!isDragging) return;
+                    const clientX = e.clientX || e.touches?.[0]?.clientX || 0;
+                    const clientY = e.clientY || e.touches?.[0]?.clientY || 0;
+                    const dx = clientX - startX;
+                    const dy = clientY - startY;
+                    frame.style.left = (origLeft + dx) + 'px';
+                    frame.style.top = (origTop + dy) + 'px';
+                    e.preventDefault();
+                }
+
+                function onPointerUp() {
+                    isDragging = false;
+                    frame.classList.remove('dragging');
+                }
+
+                frame.addEventListener('pointerdown', onPointerDown);
+                window.addEventListener('pointermove', onPointerMove);
+                window.addEventListener('pointerup', onPointerUp);
+                frame.addEventListener('touchstart', onPointerDown, { passive: false });
+                window.addEventListener('touchmove', onPointerMove, { passive: false });
+                window.addEventListener('touchend', onPointerUp);
             }
 
             const selectLang = document.getElementById('lang-selector');
@@ -1999,7 +2359,7 @@
                     downloadsListEl.innerHTML = `
                         <div class="flex items-center justify-between p-3.5 bg-gray-50 rounded-xl border border-black/5">
                             <div class="flex items-center gap-3">
-                                <i data-lucide="image" class="w-5 h-5 text-amber-700"></i>
+                                <img src="assets/soft-coastal-dawn.webp" alt="Free Sample" class="w-12 h-16 object-cover rounded-lg shadow-sm">
                                 <div>
                                     <span class="block text-xs font-bold text-clay uppercase tracking-wider">Golden Shoreline Freebie Pack</span>
                                     <span class="text-[10px] text-gray-400">High-Res Sample Print &bull; 18.2 MB</span>
@@ -2095,8 +2455,10 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
+            console.log('DOMContentLoaded fired');
             applyTranslations(state.locale);
             updateCartUI(state.cart);
+            console.log('Calling setupUniversalEventBus');
             setupUniversalEventBus();
             setupInteractiveSpeculator();
             setupCookieConsent();
@@ -2131,6 +2493,10 @@
                 ticking = true;
             }
         }, { passive: true });
+
+        window.addEventListener('load', function() {
+            try { lucide.createIcons(); } catch(e) {}
+        });
     </script>
 </body>
 </html>

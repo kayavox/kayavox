@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kayavox.art/sitemap.xml
