@@ -201,6 +201,38 @@
     "bedroom": "assets/rooms/bedroom.svg",
     "office": "assets/rooms/office.svg"
   },
+  "journal": [
+    {
+      "id": "post-stillness",
+      "title": { "en": "The Art of Stillness", "ru": "Искусство тишины" },
+      "excerpt": { "en": "Why silence is the most powerful element in art and interior design.", "ru": "Почему тишина — главный элемент искусства и дизайна интерьера." },
+      "category": "inspiration",
+      "image": "assets/soft-coastal-dawn.webp",
+      "date": "2026-06-28",
+      "readTime": "5 min",
+      "content": "journal/the-art-of-stillness.html"
+    },
+    {
+      "id": "post-impasto",
+      "title": { "en": "Impasto: Painting with Texture", "ru": "Импасто: живопись текстурой" },
+      "excerpt": { "en": "How palette knife technique creates three-dimensional texture you can almost touch.", "ru": "Как техника мастихина создаёт трёхмерную текстуру, которую хочется потрогать." },
+      "category": "technique",
+      "image": "assets/golden-tide-reflection.webp",
+      "date": "2026-06-25",
+      "readTime": "7 min",
+      "content": "journal/impasto-technique.html"
+    },
+    {
+      "id": "post-collector",
+      "title": { "en": "Coastal Light: A Collector's Guide", "ru": "Прибрежный свет: гид коллекционера" },
+      "excerpt": { "en": "How to choose, place, and illuminate coastal art in your home.", "ru": "Как выбирать, размещать и освещать прибрежное искусство в вашем доме." },
+      "category": "collecting",
+      "image": "assets/mist-horizon.webp",
+      "date": "2026-06-20",
+      "readTime": "8 min",
+      "content": "journal/coastal-light-guide.html"
+    }
+  ],
   "meta": {
     "lastUpdated": "2026-06-28",
     "version": 1

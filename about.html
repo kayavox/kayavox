@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" type="image/webp" href="assets/logo.webp">
+    <title>About the Artist — KayaVox | Impasto Oil Art Prints</title>
+    <meta name="description" content="Meet the artist behind KayaVox. Discover the story of how palette-knife impasto technique became a signature style for quiet luxury coastal art.">
+    <link rel="canonical" href="https://kayavox.github.io/kayavox/about.html">
+    <link rel="stylesheet" href="lib/fonts.css">
+    <link rel="stylesheet" href="lib/styles.css">
+    <script src="lib/lucide.min.js" defer></script>
+    <style>
+        :root {
+            --cream: #FAF7F0;
+            --clay: #1A1814;
+            --gold: #C5A059;
+            --gold-muted: #B08D4B;
+            --sand: #E5DED0;
+            --border-color: rgba(26, 24, 20, 0.05);
+        }
+        body {
+            background-color: var(--cream);
+            color: var(--clay);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .serif {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.01em;
+        }
+        .reveal-node {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-node.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .img-zoom {
+            overflow: hidden;
+            border-radius: 1.5rem;
+            background-color: var(--sand);
+        }
+        .img-zoom img {
+            transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .img-zoom:hover img {
+            transform: scale(1.03);
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+        @media (max-width: 1024px) {
+            .grain-overlay { display: none !important; }
+        }
+        .timeline-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 3px solid var(--cream);
+            box-shadow: 0 0 0 2px var(--gold);
+            position: absolute;
+            left: -6px;
+            top: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-100 selection:text-amber-900">
+
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-40 pl-[max(1.5rem,env(safe-area-inset-left))] pr-[max(1.5rem,env(safe-area-inset-right))] pt-[max(1rem,env(safe-area-inset-top))] pb-4 md:px-12 flex justify-between items-center bg-[rgba(255,255,255,0.8)] backdrop-blur-md border-b border-[var(--border-color)]">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="assets/logo.webp" alt="KayaVox" class="h-10 w-10 rounded-lg object-cover shadow-sm">
+            <span class="text-xs tracking-[0.3em] font-light hidden sm:block uppercase">KayaVox</span>
+        </a>
+        <div class="hidden lg:flex space-x-12 items-center">
+            <a href="index.html#shop" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity">Shop</a>
+            <a href="about.html" class="text-xs uppercase tracking-widest font-medium opacity-100 border-b border-amber-600 pb-0.5">About</a>
+            <a href="journal.html" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity">Journal</a>
+            <a href="index.html#our-world" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity">Our World</a>
+        </div>
+        <a href="index.html" class="px-5 py-2.5 rounded-full text-[10px] uppercase tracking-widest bg-amber-600 text-white hover:bg-amber-700 transition-all font-semibold">Shop Prints</a>
+    </nav>
+
+    <!-- HERO: ARTIST PORTRAIT -->
+    <section class="min-h-[80vh] flex items-end relative overflow-hidden bg-[var(--clay)]">
+        <div class="absolute inset-0">
+            <img src="assets/ambassador.webp" alt="KayaVox Artist" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-[var(--clay)] via-transparent to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pb-16 md:pb-24 pt-32 w-full">
+            <div class="reveal-node max-w-2xl">
+                <span class="text-[11px] uppercase tracking-[0.3em] text-amber-400 font-semibold block mb-4">Coastal Light Artist</span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl serif italic text-white leading-tight mb-6">Creating quiet moments<br>between ocean, light,<br>and imagination.</h1>
+                <p class="text-base md:text-lg text-gray-300 font-light leading-relaxed max-w-xl">Welcome to KayaVox.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORY SECTION -->
+    <section class="py-24 md:py-32 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-node space-y-8">
+                    <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block">The Story</span>
+                    <h2 class="text-3xl md:text-4xl serif italic leading-tight">Where the world<br>becomes still.</h2>
+                    <div class="space-y-5 text-sm md:text-base text-gray-500 font-light leading-relaxed">
+                        <p>KayaVox was born from a fascination with the spaces where the world becomes still — the quiet horizon before sunrise, the glow of a distant lighthouse through the mist, and the subtle movement of light across water.</p>
+                        <p>Inspired by coastal landscapes, atmosphere, and the emotional connection between nature and home, KayaVox creates contemporary impasto artworks designed to bring calm, depth, and presence into everyday spaces.</p>
+                        <p>Each piece explores the relationship between texture, light, and memory — transforming imagined coastal moments into timeless visual experiences.</p>
+                    </div>
+                </div>
+                <div class="reveal-node img-zoom shadow-xl" style="transition-delay:200ms;">
+                    <img src="assets/soft-coastal-dawn.webp" alt="Palette knife impasto technique close-up" width="800" height="1000" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY: QUOTE BLOCK -->
+    <section class="py-24 md:py-32 bg-[var(--clay)] text-white px-6">
+        <div class="max-w-4xl mx-auto text-center reveal-node">
+            <div class="w-16 h-px bg-amber-500 mx-auto mb-10"></div>
+            <blockquote class="text-2xl md:text-4xl serif italic leading-snug mb-8">
+                "From peaceful morning shores to luminous ocean nights, every collection is created around one idea: art should not only decorate a space — it should change how the space feels."
+            </blockquote>
+            <p class="text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold">— KayaVox</p>
+            <div class="w-16 h-px bg-amber-500 mx-auto mt-10"></div>
+        </div>
+    </section>
+
+    <!-- PROCESS: HOW IT'S MADE -->
+    <section class="py-24 md:py-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal-node">
+                <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block mb-3">The Process</span>
+                <h2 class="text-3xl md:text-4xl serif italic mb-4">How impasto becomes print.</h2>
+                <p class="text-sm md:text-base text-gray-500 font-light">From heavy oil on canvas to museum-grade digital prints — a journey of texture preservation.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="reveal-node bg-white p-8 rounded-2xl border border-[var(--border-color)] shadow-sm text-center space-y-5" style="transition-delay:50ms;">
+                    <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto">
+                        <i data-lucide="palette" class="w-6 h-6 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-lg serif italic">1. Creation</h3>
+                    <p class="text-sm text-gray-500 font-light leading-relaxed">Each original is painted with heavy-body oil using palette knives. Layers build up to create genuine 3D texture — ridges, peaks, and valleys that catch light from every angle.</p>
+                </div>
+
+                <div class="reveal-node bg-white p-8 rounded-2xl border border-[var(--border-color)] shadow-sm text-center space-y-5" style="transition-delay:150ms;">
+                    <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto">
+                        <i data-lucide="scan" class="w-6 h-6 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-lg serif italic">2. Capture</h3>
+                    <p class="text-sm text-gray-500 font-light leading-relaxed">High-end macro optics photograph every millimeter at 300 DPI. The result preserves the sculptural quality — you can almost feel the paint through the paper.</p>
+                </div>
+
+                <div class="reveal-node bg-white p-8 rounded-2xl border border-[var(--border-color)] shadow-sm text-center space-y-5" style="transition-delay:250ms;">
+                    <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto">
+                        <i data-lucide="frame" class="w-6 h-6 text-amber-600"></i>
+                    </div>
+                    <h3 class="text-lg serif italic">3. Print & Frame</h3>
+                    <p class="text-sm text-gray-500 font-light leading-relaxed">Formatted for standard US frame sizes. Print on 210g/m² matte fine art paper for museum-quality results. Frame in 60 seconds with our included guide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEXTURE MACRO SHOWCASE -->
+    <section class="py-24 md:py-32 bg-[#F6F1E8] px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal-node img-zoom shadow-2xl rounded-[2rem]">
+                <img src="assets/golden-tide-reflection.webp" alt="Macro detail of impasto oil texture" width="800" height="1000" loading="lazy">
+            </div>
+            <div class="reveal-node space-y-8" style="transition-delay:150ms;">
+                <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block">Materiality</span>
+                <h2 class="text-3xl md:text-4xl serif italic leading-tight">Tangible strokes,<br>digital precision.</h2>
+                <p class="text-sm md:text-base text-gray-500 font-light leading-relaxed">The thick, sculptural ridges of heavy palette-knife impasto are captured with such clarity that prints create a genuine illusion of dimensional oil painting. This is not flat art — this is texture you can almost touch.</p>
+                <div class="grid grid-cols-3 gap-4 pt-4">
+                    <div class="text-center p-4 bg-white/60 rounded-xl border border-[var(--border-color)]">
+                        <span class="block font-bold text-2xl text-amber-700">300</span>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400">DPI Resolution</span>
+                    </div>
+                    <div class="text-center p-4 bg-white/60 rounded-xl border border-[var(--border-color)]">
+                        <span class="block font-bold text-2xl text-amber-700">5</span>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400">Print Sizes</span>
+                    </div>
+                    <div class="text-center p-4 bg-white/60 rounded-xl border border-[var(--border-color)]">
+                        <span class="block font-bold text-2xl text-amber-700">60s</span>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400">To Frame</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOURNEY TIMELINE -->
+    <section class="py-24 md:py-32 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16 reveal-node">
+                <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block mb-3">Timeline</span>
+                <h2 class="text-3xl md:text-4xl serif italic">The journey so far.</h2>
+            </div>
+
+            <div class="relative pl-8 border-l-2 border-amber-200 space-y-12">
+                <div class="reveal-node relative">
+                    <div class="timeline-dot"></div>
+                    <div class="ml-6">
+                        <span class="text-[10px] uppercase tracking-widest text-amber-600 font-bold">Origin</span>
+                        <h3 class="text-lg serif italic mt-1">First palette knife</h3>
+                        <p class="text-sm text-gray-500 font-light mt-2">The moment of discovery — heavy oil, palette knife, and the realization that texture speaks louder than color.</p>
+                    </div>
+                </div>
+
+                <div class="reveal-node relative">
+                    <div class="timeline-dot"></div>
+                    <div class="ml-6">
+                        <span class="text-[10px] uppercase tracking-widest text-amber-600 font-bold">Development</span>
+                        <h3 class="text-lg serif italic mt-1">Macro optics meets impasto</h3>
+                        <p class="text-sm text-gray-500 font-light mt-2">High-resolution macro photography captures every ridge and valley at 300 DPI — making digital prints indistinguishable from originals.</p>
+                    </div>
+                </div>
+
+                <div class="reveal-node relative">
+                    <div class="timeline-dot"></div>
+                    <div class="ml-6">
+                        <span class="text-[10px] uppercase tracking-widest text-amber-600 font-bold">Launch</span>
+                        <h3 class="text-lg serif italic mt-1">KayaVox is born</h3>
+                        <p class="text-sm text-gray-500 font-light mt-2">The Signature Collection launches — three coastal impasto pieces that capture quiet atmospheres of light, shore, and stillness.</p>
+                    </div>
+                </div>
+
+                <div class="reveal-node relative">
+                    <div class="timeline-dot"></div>
+                    <div class="ml-6">
+                        <span class="text-[10px] uppercase tracking-widest text-amber-600 font-bold">Future</span>
+                        <h3 class="text-lg serif italic mt-1">Horizon & Shorelines</h3>
+                        <p class="text-sm text-gray-500 font-light mt-2">New collections on the horizon — expanding the KayaVox universe with fresh textures, deeper palettes, and bolder compositions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="py-24 md:py-32 bg-[var(--clay)] text-white px-6 text-center">
+        <div class="max-w-2xl mx-auto reveal-node space-y-8">
+            <span class="text-[11px] uppercase tracking-[0.3em] text-amber-400 font-semibold block">Experience the Texture</span>
+            <h2 class="text-3xl md:text-5xl serif italic leading-tight">Bring quiet luxury<br>into your space.</h2>
+            <p class="text-sm md:text-base text-gray-400 font-light leading-relaxed">Every KayaVox print is a portal to stillness. Download, print, and frame in 60 seconds.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <a href="index.html#shop" class="inline-flex items-center justify-center px-10 py-4 rounded-full bg-amber-600 text-white text-xs uppercase tracking-widest font-semibold hover:bg-amber-700 transition-all min-h-[52px]">Shop the Prints</a>
+                <a href="journal.html" class="inline-flex items-center justify-center px-10 py-4 rounded-full border border-white/20 text-white text-xs uppercase tracking-widest font-semibold hover:bg-white/10 transition-all min-h-[52px]">Read the Journal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-[var(--border-color)] py-16 px-6 text-center text-xs tracking-widest uppercase">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.webp" alt="KayaVox" class="h-8 w-8 rounded-lg object-cover">
+                <span class="text-gray-400 normal-case tracking-normal italic serif text-sm">Premium Digital Art Curation</span>
+            </div>
+            <div class="flex gap-8 text-gray-500">
+                <a href="index.html" class="hover:text-amber-600 transition-colors">Shop</a>
+                <a href="about.html" class="hover:text-amber-600 transition-colors">About</a>
+                <a href="journal.html" class="hover:text-amber-600 transition-colors">Journal</a>
+                <a href="index.html#our-world" class="hover:text-amber-600 transition-colors">World</a>
+            </div>
+            <p class="text-gray-400">&copy; 2026 KayaVox</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const revealNodes = document.querySelectorAll('.reveal-node');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: "0px 0px -50px 0px", threshold: 0.1 });
+            revealNodes.forEach(node => observer.observe(node));
+
+            try { lucide.createIcons(); } catch(e) {}
+        });
+    </script>
+</body>
+</html>

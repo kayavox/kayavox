@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" type="image/webp" href="../assets/logo.webp">
+    <title>Coastal Light: A Collector's Guide — KayaVox Journal</title>
+    <meta name="description" content="How to choose, place, and illuminate coastal art in your home. A practical guide for building a collection that brings calm and depth to any space.">
+    <link rel="stylesheet" href="../lib/fonts.css">
+    <link rel="stylesheet" href="../lib/styles.css">
+    <script src="../lib/lucide.min.js" defer></script>
+    <style>
+        :root { --cream: #FAF7F0; --clay: #1A1814; --gold: #C5A059; --gold-muted: #B08D4B; --sand: #E5DED0; --border-color: rgba(26,24,20,0.05); }
+        body { background: var(--cream); color: var(--clay); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        h1,h2,h3,h4,.serif { font-family: 'Playfair Display', serif; letter-spacing: -0.01em; }
+        .progress-bar { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg, var(--gold), #E2C285); z-index:100; transition:width 0.05s linear; width:0%; }
+        .article-body { max-width:42rem; margin:0 auto; font-size:1.125rem; line-height:1.85; color:#555; }
+        .article-body p { margin-bottom:1.75rem; }
+        .article-body h2 { font-size:2rem; color:var(--clay); margin:3.5rem 0 1.5rem; line-height:1.2; }
+        .pull-quote { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(1.5rem,3vw,2rem); line-height:1.4; border-left:3px solid var(--gold); padding-left:1.5rem; margin:3rem 0; color:var(--clay); }
+        .image-full { width:100vw; margin-left:calc(-50vw + 50%); margin-right:calc(-50vw + 50%); }
+        .tip-card { background:white; border:1px solid var(--border-color); border-radius:1.5rem; padding:2rem; margin:2rem 0; }
+        .tip-card h4 { font-size:1rem; margin-bottom:0.75rem; }
+        .author-box { display:flex; align-items:center; gap:1rem; padding:2rem; background:white; border-radius:1.5rem; border:1px solid var(--border-color); margin:4rem 0; }
+        .lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:200; display:none; align-items:center; justify-content:center; cursor:zoom-out; opacity:0; transition:opacity 0.3s; }
+        .lightbox.active { display:flex; opacity:1; }
+        .lightbox img { max-width:90vw; max-height:90vh; object-fit:contain; border-radius:0.5rem; }
+        .reveal-node { opacity:0; transform:translateY(30px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+        .reveal-node.revealed { opacity:1; transform:translateY(0); }
+        .grain-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
+        @media(max-width:1024px){ .grain-overlay{display:none!important;} }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progress-bar"></div>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <nav class="fixed top-0 w-full z-40 pl-[max(1.5rem,env(safe-area-inset-left))] pr-[max(1.5rem,env(safe-area-inset-right))] pt-[max(1rem,env(safe-area-inset-top))] pb-4 md:px-12 flex justify-between items-center bg-[rgba(255,255,255,0.8)] backdrop-blur-md border-b border-[var(--border-color)]">
+        <a href="../index.html" class="flex items-center gap-3">
+            <img src="../assets/logo.webp" alt="KayaVox" class="h-10 w-10 rounded-lg object-cover shadow-sm">
+            <span class="text-xs tracking-[0.3em] font-light hidden sm:block uppercase">KayaVox</span>
+        </a>
+        <a href="../journal.html" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity flex items-center gap-2">
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Journal
+        </a>
+    </nav>
+
+    <section class="relative h-[70vh] md:h-[85vh] flex items-end overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="../assets/mist-horizon.webp" alt="Coastal light through window" class="w-full h-full object-cover scale-110" id="hero-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-[var(--clay)] via-[var(--clay)]/30 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 pb-12 md:pb-20 w-full">
+            <span class="text-[11px] uppercase tracking-[0.3em] text-amber-400 font-semibold block mb-4">Collecting</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl serif italic text-white leading-tight mb-6">Coastal Light:<br>A Collector's Guide</h1>
+            <div class="flex items-center gap-4 text-sm text-gray-300">
+                <span>June 20, 2026</span>
+                <span class="w-1 h-1 rounded-full bg-gray-500"></span>
+                <span>8 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <article class="py-16 md:py-24 px-6">
+        <div class="article-body">
+            <p class="reveal-node text-lg md:text-xl text-gray-600 font-light" style="font-size:1.3rem;">Collecting art is not about filling walls. It is about curating feelings — choosing pieces that transform the way a space breathes, and the way you feel within it.</p>
+
+            <p class="reveal-node">Whether you are building your first collection or deepening an existing one, this guide will help you choose, place, and care for coastal art with intention.</p>
+
+            <h2 class="reveal-node serif italic">1. Choosing with Intention</h2>
+
+            <p class="reveal-node">The best art collectors don't buy impulsively. They live with a question: <em>what feeling do I want this room to hold?</em></p>
+
+            <p class="reveal-node">Coastal art, specifically, offers a range of emotional registers. A dawn piece brings softness and new beginnings. A horizon piece creates depth and possibility. A mist piece evokes mystery and quiet contemplation.</p>
+
+            <div class="tip-card reveal-node">
+                <h4 class="serif italic">Collector's Tip</h4>
+                <p class="text-sm text-gray-500 font-light">Before purchasing, imagine the piece on your wall at 7 AM with morning light, and at 9 PM with a lamp. If it resonates in both moments, it belongs in your collection.</p>
+            </div>
+
+            <div class="reveal-node image-full my-12">
+                <img src="../assets/soft-coastal-dawn.webp" alt="Coastal art in interior setting" class="w-full rounded-none cursor-pointer" onclick="openLightbox(this)" loading="lazy">
+            </div>
+
+            <h2 class="reveal-node serif italic">2. The Art of Placement</h2>
+
+            <p class="reveal-node">Where you hang a piece matters as much as which piece you choose. A few principles that transform arrangement from arbitrary to intentional:</p>
+
+            <p class="reveal-node"><strong>Eye level is the golden rule.</strong> The center of the artwork should be at approximately 57-60 inches from the floor — the average human eye level. Museums use this standard for a reason: it feels natural, effortless, correct.</p>
+
+            <p class="reveal-node"><strong>Give it breathing room.</strong> A common mistake is hanging art too close to furniture or too close to other pieces. Leave at least 6-8 inches between the bottom of the frame and the top of a sofa or console. Let the wall around it be empty. Silence amplifies signal.</p>
+
+            <p class="reveal-node"><strong>Consider the room's light path.</strong> Where does natural light fall during the day? Where do lamps cast their glow? Position impasto art where light can interact with its texture — the ridges and valleys of the paint surface will catch and release light throughout the day, creating a living, breathing presence on the wall.</p>
+
+            <div class="tip-card reveal-node">
+                <h4 class="serif italic">Collector's Tip</h4>
+                <p class="text-sm text-gray-500 font-light">For rooms with limited natural light, use a picture light or track lighting angled at 30 degrees. This mimics the effect of natural light on impasto texture without the UV exposure.</p>
+            </div>
+
+            <h2 class="reveal-node serif italic">3. Framing for Presence</h2>
+
+            <p class="reveal-node">The frame is not an afterthought — it is the border between the art and the world. It tells the eye where to stop, and where the art begins.</p>
+
+            <p class="reveal-node">For coastal impasto prints, we recommend:</p>
+
+            <p class="reveal-node"><strong>Matte black or dark walnut frames</strong> for a grounding, museum-quality feel. These work especially well in minimalist or Scandinavian interiors.</p>
+
+            <p class="reveal-node"><strong>Natural wood or driftwood frames</strong> for a more organic, coastal vibe. These soften the presentation and connect the art to natural materials.</p>
+
+            <p class="reveal-node"><strong>Float frames</strong> for a contemporary look. The print appears to hover within the frame, creating depth and shadow that complement the impasto texture.</p>
+
+            <blockquote class="reveal-node pull-quote">
+                "The frame is the border between the art and the world. It tells the eye where to stop, and where the art begins."
+            </blockquote>
+
+            <div class="reveal-node image-full my-12">
+                <img src="../assets/golden-tide-reflection.webp" alt="Framed coastal art detail" class="w-full rounded-none cursor-pointer" onclick="openLightbox(this)" loading="lazy">
+            </div>
+
+            <h2 class="reveal-node serif italic">4. Paper & Print Quality</h2>
+
+            <p class="reveal-node">Not all prints are created equal. The paper you choose determines how the art feels — and how long it lasts.</p>
+
+            <p class="reveal-node">For impasto prints, we recommend <strong>210g/m² matte fine art paper</strong> or <strong>soft matte photo rag</strong>. This weight and finish preserves the deep brush textures and gives the print a museum-quality feel. The matte surface absorbs light rather than reflecting it, which enhances the illusion of texture.</p>
+
+            <p class="reveal-node">Avoid glossy paper for impasto art — the reflections compete with the texture rather than complementing it.</p>
+
+            <h2 class="reveal-node serif italic">5. Building a Collection Over Time</h2>
+
+            <p class="reveal-node">The most meaningful collections are built slowly, with intention. Start with one piece that resonates deeply. Live with it. Learn how it changes with the light, with the seasons, with your mood.</p>
+
+            <p class="reveal-node">Then, when the time is right, add a companion. Not a matching piece — a responding piece. Something that creates a dialogue across the room. A dawn piece on one wall, a dusk piece on another. A horizon on the left, a shoreline on the right.</p>
+
+            <p class="reveal-node">This is how collections become stories. Not a set of decorations, but a curated narrative of light, texture, and place.</p>
+
+            <div class="author-box reveal-node">
+                <img src="../assets/logo.webp" alt="KayaVox" class="w-16 h-16 rounded-full">
+                <div>
+                    <p class="font-semibold text-sm">KayaVox</p>
+                    <p class="text-xs text-gray-400">Coastal Light Artist — creating quiet moments between ocean, light, and imagination.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-12 border-t border-[var(--border-color)]">
+                <h3 class="text-xl serif italic mb-8">Continue Reading</h3>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <a href="the-art-of-stillness.html" class="group block">
+                        <div class="img-zoom mb-4 rounded-xl overflow-hidden"><img src="../assets/soft-coastal-dawn.webp" alt="" class="w-full aspect-[3/2] object-cover" loading="lazy"></div>
+                        <h4 class="text-lg serif italic group-hover:text-amber-700 transition-colors">The Art of Stillness</h4>
+                    </a>
+                    <a href="impasto-technique.html" class="group block">
+                        <div class="img-zoom mb-4 rounded-xl overflow-hidden"><img src="../assets/golden-tide-reflection.webp" alt="" class="w-full aspect-[3/2] object-cover" loading="lazy"></div>
+                        <h4 class="text-lg serif italic group-hover:text-amber-700 transition-colors">Impasto: Painting with Texture</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="bg-white border-t border-[var(--border-color)] py-16 px-6 text-center text-xs tracking-widest uppercase">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+                <img src="../assets/logo.webp" alt="KayaVox" class="h-8 w-8 rounded-lg object-cover">
+                <span class="text-gray-400 normal-case tracking-normal italic serif text-sm">Premium Digital Art Curation</span>
+            </div>
+            <p class="text-gray-400">&copy; 2026 KayaVox</p>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src="" alt=""></div>
+
+    <script>
+        window.addEventListener('scroll', () => { const h=document.documentElement; document.getElementById('progress-bar').style.width=((h.scrollTop/(h.scrollHeight-h.clientHeight))*100)+'%'; });
+        window.addEventListener('scroll', () => { const img=document.getElementById('hero-img'); if(img&&window.innerWidth>768) img.style.transform='scale(1.1) translateY('+(window.scrollY*0.15)+'px)'; }, {passive:true});
+        document.addEventListener('DOMContentLoaded', () => {
+            const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target);}});},{rootMargin:"0px 0px -60px 0px",threshold:0.1});
+            document.querySelectorAll('.reveal-node').forEach(n=>obs.observe(n));
+            try{lucide.createIcons();}catch(e){}
+        });
+        function openLightbox(el){document.getElementById('lightbox-img').src=el.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden';}
+        function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='';}
+        document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+    </script>
+</body>
+</html>
