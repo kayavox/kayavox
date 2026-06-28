@@ -6,38 +6,39 @@
     <link rel="icon" type="image/webp" href="../assets/logo.webp">
     <title>Coastal Light: A Collector's Guide — KayaVox Journal</title>
     <link rel="stylesheet" href="../lib/fonts.css">
-    <link rel="stylesheet" href="../lib/styles.css">
     <style>
         :root { --cream:#FAF7F0; --clay:#1A1814; --gold:#C5A059; --border:rgba(26,24,20,0.06); }
-        body { background:var(--cream); color:var(--clay); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+        body { background:var(--cream); color:var(--clay); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; margin:0; }
         .serif { font-family:'Playfair Display',serif; }
+        a { text-decoration:none; color:inherit; }
+        .nav { position:fixed; top:0; left:0; right:0; z-index:40; height:56px; padding:0 1.5rem; display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+        .nav a { font-size:11px; text-transform:uppercase; letter-spacing:0.1em; opacity:0.5; }
+        .nav a:hover { opacity:1; }
         .progress { position:fixed; top:0; left:0; height:2px; background:var(--gold); z-index:50; width:0%; }
-        article { max-width:38rem; margin:0 auto; padding:2rem 1.5rem 6rem; font-size:1.05rem; line-height:1.9; color:#555; }
-        article p { margin-bottom:1.5rem; }
-        article h2 { font-size:1.6rem; color:var(--clay); margin:3rem 0 1rem; line-height:1.3; }
-        .tip { background:white; border:1px solid var(--border); border-radius:1rem; padding:1.5rem; margin:2rem 0; }
-        .tip strong { color:var(--clay); }
-        .quote { font-family:'Playfair Display',serif; font-style:italic; font-size:1.4rem; line-height:1.4; border-left:3px solid var(--gold); padding-left:1.2rem; margin:2.5rem 0; color:var(--clay); }
-        .full-img { width:100vw; margin-left:calc(-50vw + 50%); margin-right:calc(-50vw + 50%); }
-        .full-img img { width:100%; display:block; }
-        .author { display:flex; align-items:center; gap:1rem; margin:3rem 0; padding:1.5rem; background:white; border-radius:1rem; border:1px solid var(--border); }
-        .author img { width:48px; height:48px; border-radius:50%; object-fit:cover; }
-        .nav-top { position:fixed; top:0; left:0; right:0; z-index:40; padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
-        .nav-top a { font-size:11px; text-transform:uppercase; letter-spacing:0.1em; opacity:0.6; text-decoration:none; color:var(--clay); }
-        .nav-top a:hover { opacity:1; }
+        .hero-img { width:100%; max-height:50vh; object-fit:cover; display:block; }
+        article { max-width:38rem; margin:0 auto; padding:2.5rem 1.5rem 5rem; font-size:1rem; line-height:1.85; color:#555; }
+        article p { margin-bottom:1.4rem; }
+        article h2 { font-size:1.5rem; color:var(--clay); margin:2.5rem 0 1rem; line-height:1.3; }
+        .tip { background:white; border:1px solid var(--border); border-radius:12px; padding:1.2rem; margin:1.5rem 0; }
+        .quote { font-family:'Playfair Display',serif; font-style:italic; font-size:1.3rem; line-height:1.4; border-left:3px solid var(--gold); padding-left:1rem; margin:2rem 0; color:var(--clay); }
+        .full-img { margin:2rem 0; }
+        .full-img img { width:100%; border-radius:8px; display:block; }
+        .author { display:flex; align-items:center; gap:12px; margin:2.5rem 0; padding:1.2rem; background:white; border-radius:12px; border:1px solid var(--border); }
+        .author img { width:40px; height:40px; border-radius:50%; object-fit:cover; }
+        .related { border-top:1px solid var(--border); padding-top:2rem; margin-top:2rem; }
+        .related-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+        .related-grid img { width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:8px; margin-bottom:6px; display:block; }
     </style>
 </head>
 <body>
     <div class="progress" id="progress"></div>
-    <div class="nav-top"><a href="../journal.html">← Journal</a><a href="../index.html">KayaVox</a></div>
+    <div class="nav"><a href="../journal.html">← Journal</a><a href="../index.html">KayaVox</a></div>
 
-    <header style="padding-top:5rem">
-        <div class="full-img"><img src="../assets/mist-horizon.webp" alt="Coastal light"></div>
-    </header>
+    <img src="../assets/mist-horizon.webp" alt="" class="hero-img" style="margin-top:56px">
 
     <article>
         <span style="font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);font-weight:600">Collecting · Jun 20, 2026</span>
-        <h1 class="serif" style="font-size:2.4rem;line-height:1.15;margin:1rem 0 2rem">Coastal Light: A Collector's Guide</h1>
+        <h1 class="serif" style="font-size:2rem;line-height:1.15;margin:0.5rem 0 1.5rem">Coastal Light: A Collector's Guide</h1>
 
         <p>Collecting art is not about filling walls. It is about curating feelings — choosing pieces that transform the way a space breathes.</p>
 
@@ -45,77 +46,50 @@
 
         <p>The best collectors don't buy impulsively. They live with a question: <em>what feeling do I want this room to hold?</em></p>
 
-        <p>A dawn piece brings softness and new beginnings. A horizon piece creates depth and possibility. A mist piece evokes mystery and quiet contemplation.</p>
+        <div class="tip"><strong>Tip:</strong> Before purchasing, imagine the piece at 7 AM with morning light, and at 9 PM with a lamp. If it resonates in both, it belongs.</div>
 
-        <div class="tip">
-            <strong>Collector's Tip:</strong> Before purchasing, imagine the piece on your wall at 7 AM with morning light, and at 9 PM with a lamp. If it resonates in both moments, it belongs.
-        </div>
+        <div class="full-img"><img src="../assets/soft-coastal-dawn.webp" alt=""></div>
 
-        <div class="full-img"><img src="../assets/soft-coastal-dawn.webp" alt="Coastal art in interior"></div>
+        <h2 class="serif">2. Placement</h2>
 
-        <h2 class="serif">2. The Art of Placement</h2>
+        <p><strong>Eye level is the golden rule.</strong> Center the artwork at 57-60 inches from the floor.</p>
 
-        <p><strong>Eye level is the golden rule.</strong> The center of the artwork should be at approximately 57-60 inches from the floor — the average human eye level.</p>
+        <p><strong>Give it breathing room.</strong> Leave 6-8 inches between the frame and furniture. Silence amplifies signal.</p>
 
-        <p><strong>Give it breathing room.</strong> Leave at least 6-8 inches between the bottom of the frame and the top of a sofa. Let the wall around it be empty. Silence amplifies signal.</p>
+        <p><strong>Consider the light path.</strong> Position impasto art where light can interact with its texture.</p>
 
-        <p><strong>Consider the light path.</strong> Position impasto art where light can interact with its texture — the ridges will catch and release light throughout the day.</p>
+        <div class="tip"><strong>Tip:</strong> For rooms with limited natural light, use a picture light angled at 30 degrees.</div>
 
-        <div class="tip">
-            <strong>Collector's Tip:</strong> For rooms with limited natural light, use a picture light angled at 30 degrees. This mimics natural light on impasto texture without UV exposure.
-        </div>
+        <h2 class="serif">3. Framing</h2>
 
-        <h2 class="serif">3. Framing for Presence</h2>
+        <p><strong>Matte black or walnut</strong> for museum-quality. <strong>Natural wood</strong> for organic coastal. <strong>Float frames</strong> for contemporary.</p>
 
-        <p><strong>Matte black or dark walnut</strong> for a grounding, museum-quality feel.</p>
+        <div class="quote">"The frame is the border between the art and the world."</div>
 
-        <p><strong>Natural wood or driftwood</strong> for a more organic, coastal vibe.</p>
+        <h2 class="serif">4. Paper Quality</h2>
 
-        <p><strong>Float frames</strong> for a contemporary look — the print appears to hover within the frame.</p>
+        <p>We recommend <strong>210g/m² matte fine art paper</strong>. The matte surface absorbs light, enhancing the illusion of texture. Avoid glossy paper.</p>
 
-        <div class="quote">
-            "The frame is the border between the art and the world."
-        </div>
-
-        <h2 class="serif">4. Paper & Print Quality</h2>
-
-        <p>We recommend <strong>210g/m² matte fine art paper</strong> or <strong>soft matte photo rag</strong>. The matte surface absorbs light rather than reflecting it, enhancing the illusion of texture.</p>
-
-        <p>Avoid glossy paper for impasto art — the reflections compete with the texture.</p>
-
-        <div class="full-img"><img src="../assets/golden-tide-reflection.webp" alt="Framed coastal art"></div>
+        <div class="full-img"><img src="../assets/golden-tide-reflection.webp" alt=""></div>
 
         <h2 class="serif">5. Building Over Time</h2>
 
-        <p>The most meaningful collections are built slowly. Start with one piece that resonates deeply. Live with it. Learn how it changes with the light, the seasons, your mood.</p>
-
-        <p>Then add a companion. Not a matching piece — a responding piece. A dawn on one wall, a dusk on another. This is how collections become stories.</p>
+        <p>Start with one piece that resonates. Live with it. Then add a companion — not matching, but responding. A dawn on one wall, a dusk on another.</p>
 
         <div class="author">
             <img src="../assets/logo.webp" alt="KayaVox">
-            <div><p style="font-weight:600;font-size:14px">KayaVox</p><p style="font-size:12px;color:#999">Coastal Light Artist</p></div>
+            <div><p style="font-weight:600;font-size:13px;margin:0">KayaVox</p><p style="font-size:11px;color:#999;margin:0">Coastal Light Artist</p></div>
         </div>
 
-        <div style="border-top:1px solid var(--border);padding-top:2rem;margin-top:3rem">
-            <p style="font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:#999;margin-bottom:1rem">Continue Reading</p>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
-                <a href="the-art-of-stillness.html" style="text-decoration:none;color:inherit">
-                    <img src="../assets/soft-coastal-dawn.webp" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:0.75rem;margin-bottom:0.5rem" loading="lazy">
-                    <span class="serif" style="font-size:0.95rem">The Art of Stillness</span>
-                </a>
-                <a href="impasto-technique.html" style="text-decoration:none;color:inherit">
-                    <img src="../assets/golden-tide-reflection.webp" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:0.75rem;margin-bottom:0.5rem" loading="lazy">
-                    <span class="serif" style="font-size:0.95rem">Impasto: Painting with Texture</span>
-                </a>
+        <div class="related">
+            <p style="font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:#999;margin-bottom:1rem">Continue Reading</p>
+            <div class="related-grid">
+                <a href="the-art-of-stillness.html"><img src="../assets/soft-coastal-dawn.webp" alt="" loading="lazy"><span class="serif" style="font-size:0.9rem">The Art of Stillness</span></a>
+                <a href="impasto-technique.html"><img src="../assets/golden-tide-reflection.webp" alt="" loading="lazy"><span class="serif" style="font-size:0.9rem">Impasto: Painting with Texture</span></a>
             </div>
         </div>
     </article>
 
-    <script>
-        window.addEventListener('scroll', () => {
-            const h = document.documentElement;
-            document.getElementById('progress').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
-        });
-    </script>
+    <script>window.addEventListener('scroll',()=>{const h=document.documentElement;document.getElementById('progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';});</script>
 </body>
 </html>
