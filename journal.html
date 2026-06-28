@@ -4,179 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="icon" type="image/webp" href="assets/logo.webp">
-    <title>The KayaVox Journal — Stories of Light, Texture & Stillness</title>
-    <meta name="description" content="Exploring the art of impasto, coastal light, and the philosophy of quiet luxury. Stories for collectors, dreamers, and design lovers.">
-    <link rel="canonical" href="https://kayavox.github.io/kayavox/journal.html">
+    <title>The KayaVox Journal</title>
+    <meta name="description" content="Stories about light, texture, and the art of stillness.">
     <link rel="stylesheet" href="lib/fonts.css">
     <link rel="stylesheet" href="lib/styles.css">
     <script src="lib/lucide.min.js" defer></script>
     <style>
-        :root { --cream: #FAF7F0; --clay: #1A1814; --gold: #C5A059; --gold-muted: #B08D4B; --sand: #E5DED0; --border-color: rgba(26,24,20,0.05); }
-        body { background: var(--cream); color: var(--clay); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        h1,h2,h3,h4,.serif { font-family: 'Playfair Display', serif; letter-spacing: -0.01em; }
-        .reveal-node { opacity:0; transform:translateY(30px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
-        .reveal-node.revealed { opacity:1; transform:translateY(0); }
-        .img-zoom { overflow:hidden; border-radius:1.5rem; background:var(--sand); }
-        .img-zoom img { transition: transform 1.8s cubic-bezier(0.16,1,0.3,1); display:block; width:100%; height:auto; }
-        .img-zoom:hover img { transform:scale(1.05); }
-        .grain-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E"); pointer-events:none; z-index:9999; }
-        @media(max-width:1024px){ .grain-overlay{display:none!important;} }
-        .article-card { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
-        .article-card:hover { transform: translateY(-8px); }
-        .category-pill { font-size:10px; text-transform:uppercase; letter-spacing:0.15em; font-weight:600; padding:6px 14px; border-radius:999px; border:1px solid var(--border-color); background:rgba(255,255,255,0.6); backdrop-filter:blur(8px); }
-        .category-pill.active { background:var(--gold); color:white; border-color:var(--gold); }
-        .category-pill:hover:not(.active) { border-color:var(--gold); color:var(--gold); }
-        .hero-title { font-size:clamp(3rem, 8vw, 6rem); line-height:1.05; }
+        :root { --cream: #FAF7F0; --clay: #1A1814; --gold: #C5A059; --border: rgba(26,24,20,0.06); }
+        body { background: var(--cream); color: var(--clay); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1,h2,h3,.serif { font-family: 'Playfair Display', serif; }
+        .reveal { opacity:0; transform:translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity:1; transform:translateY(0); }
     </style>
 </head>
-<body class="antialiased selection:bg-amber-100 selection:text-amber-900">
-    <div class="grain-overlay" aria-hidden="true"></div>
+<body>
 
-    <!-- NAVIGATION -->
-    <nav class="fixed top-0 w-full z-40 pl-[max(1.5rem,env(safe-area-inset-left))] pr-[max(1.5rem,env(safe-area-inset-right))] pt-[max(1rem,env(safe-area-inset-top))] pb-4 md:px-12 flex justify-between items-center bg-[rgba(255,255,255,0.8)] backdrop-blur-md border-b border-[var(--border-color)]">
+    <!-- NAV -->
+    <nav class="fixed top-0 w-full z-40 px-6 md:px-12 py-4 flex justify-between items-center bg-[rgba(255,255,255,0.85)] backdrop-blur-md border-b border-[var(--border)]">
         <a href="index.html" class="flex items-center gap-3">
-            <img src="assets/logo.webp" alt="KayaVox" class="h-10 w-10 rounded-lg object-cover shadow-sm">
-            <span class="text-xs tracking-[0.3em] font-light hidden sm:block uppercase">KayaVox</span>
+            <img src="assets/logo.webp" alt="KayaVox" class="h-9 w-9 rounded-lg object-cover">
+            <span class="text-[10px] tracking-[0.3em] font-medium hidden sm:block uppercase">KayaVox</span>
         </a>
-        <div class="hidden lg:flex space-x-12 items-center">
-            <a href="index.html#shop" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity">Shop</a>
-            <a href="about.html" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity">About</a>
-            <a href="journal.html" class="text-xs uppercase tracking-widest font-medium opacity-100 border-b border-amber-600 pb-0.5">Journal</a>
-            <a href="index.html#our-world" class="text-xs uppercase tracking-widest font-medium opacity-70 hover:opacity-100 transition-opacity">World</a>
+        <div class="hidden md:flex gap-8 items-center text-[11px] uppercase tracking-[0.15em] font-medium">
+            <a href="index.html" class="opacity-60 hover:opacity-100 transition-opacity">Shop</a>
+            <a href="about.html" class="opacity-60 hover:opacity-100 transition-opacity">About</a>
+            <a href="journal.html" class="opacity-100 border-b border-amber-600 pb-0.5">Journal</a>
         </div>
-        <a href="index.html#shop" class="px-5 py-2.5 rounded-full text-[10px] uppercase tracking-widest bg-amber-600 text-white hover:bg-amber-700 transition-all font-semibold">Shop Prints</a>
     </nav>
 
     <!-- HERO -->
-    <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-6">
-        <div class="max-w-5xl mx-auto text-center reveal-node">
-            <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block mb-6">The Journal</span>
-            <h1 class="hero-title serif italic mb-8">Stories of light,<br>texture & stillness.</h1>
-            <p class="text-base md:text-lg text-gray-500 font-light max-w-2xl mx-auto leading-relaxed">Exploring the art of impasto, coastal atmospheres, and the philosophy of quiet luxury. For collectors, dreamers, and design lovers.</p>
-        </div>
-    </section>
+    <header class="pt-28 pb-12 md:pt-36 md:pb-16 px-6 text-center">
+        <span class="text-[10px] uppercase tracking-[0.25em] text-amber-700 font-semibold block mb-4">The Journal</span>
+        <h1 class="text-3xl md:text-5xl serif italic mb-4">Stories of light & stillness</h1>
+        <p class="text-sm text-gray-500 max-w-md mx-auto">Art, technique, and the philosophy of quiet luxury.</p>
+    </header>
 
-    <!-- CATEGORIES -->
-    <section class="px-6 pb-12">
-        <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-3">
-            <button class="category-pill active" onclick="filterArticles('all', this)">All</button>
-            <button class="category-pill" onclick="filterArticles('technique', this)">Technique</button>
-            <button class="category-pill" onclick="filterArticles('inspiration', this)">Inspiration</button>
-            <button class="category-pill" onclick="filterArticles('collecting', this)">Collecting</button>
-            <button class="category-pill" onclick="filterArticles('interiors', this)">Interiors</button>
-        </div>
-    </section>
+    <!-- FILTERS -->
+    <div class="px-6 pb-10 flex justify-center gap-2" id="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="technique">Technique</button>
+        <button class="filter-btn" data-filter="inspiration">Inspiration</button>
+        <button class="filter-btn" data-filter="collecting">Collecting</button>
+    </div>
 
-    <!-- FEATURED ARTICLE -->
-    <section class="px-6 pb-20">
-        <div class="max-w-6xl mx-auto">
-            <a href="journal/the-art-of-stillness.html" class="article-card block reveal-node">
-                <div class="grid lg:grid-cols-5 gap-8 items-center">
-                    <div class="lg:col-span-3 img-zoom shadow-2xl rounded-[2rem]">
-                        <img src="assets/soft-coastal-dawn.webp" alt="The Art of Stillness" class="w-full aspect-[4/3] object-cover" loading="lazy">
-                    </div>
-                    <div class="lg:col-span-2 space-y-5">
-                        <span class="category-pill">Inspiration</span>
-                        <h2 class="text-3xl md:text-4xl serif italic leading-tight hover:text-amber-700 transition-colors">The Art of Stillness</h2>
-                        <p class="text-sm text-gray-500 font-light leading-relaxed">Why silence is the most powerful element in art and interior design. A meditation on how quiet spaces transform the way we feel, think, and live.</p>
-                        <div class="flex items-center gap-3 text-xs text-gray-400">
-                            <span>June 28, 2026</span>
-                            <span class="w-1 h-1 rounded-full bg-gray-300"></span>
-                            <span>5 min read</span>
-                        </div>
-                    </div>
+    <!-- ARTICLES GRID -->
+    <main class="px-6 pb-20 max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="grid">
+
+            <a href="journal/the-art-of-stillness.html" class="reveal group" data-cat="inspiration">
+                <div class="overflow-hidden rounded-xl mb-4 bg-[#E5DED0]">
+                    <img src="assets/soft-coastal-dawn.webp" alt="" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                 </div>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-amber-700 font-semibold">Inspiration</span>
+                <h2 class="text-xl serif italic mt-1 mb-2 group-hover:text-amber-700 transition-colors">The Art of Stillness</h2>
+                <p class="text-[13px] text-gray-500 leading-relaxed mb-3">Why silence is the most powerful element in art and interior design.</p>
+                <span class="text-[11px] text-gray-400">Jun 28 · 5 min</span>
             </a>
-        </div>
-    </section>
 
-    <!-- ARTICLE GRID -->
-    <section class="px-6 pb-24">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-10" id="article-grid">
-                <!-- Article 2 -->
-                <a href="journal/impasto-technique.html" class="article-card reveal-node" data-category="technique" style="transition-delay:100ms;">
-                    <div class="img-zoom shadow-lg mb-6 rounded-2xl">
-                        <img src="assets/golden-tide-reflection.webp" alt="Impasto Technique" class="w-full aspect-[4/3] object-cover" loading="lazy">
-                    </div>
-                    <span class="category-pill mb-3 inline-block">Technique</span>
-                    <h3 class="text-2xl serif italic mb-3 hover:text-amber-700 transition-colors">Impasto: Painting with Texture</h3>
-                    <p class="text-sm text-gray-500 font-light leading-relaxed mb-4">From heavy-body oil on canvas to museum-grade digital prints — how palette knife technique creates three-dimensional texture you can almost touch.</p>
-                    <div class="flex items-center gap-3 text-xs text-gray-400">
-                        <span>June 25, 2026</span>
-                        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
-                        <span>7 min read</span>
-                    </div>
-                </a>
+            <a href="journal/impasto-technique.html" class="reveal group" data-cat="technique" style="transition-delay:80ms">
+                <div class="overflow-hidden rounded-xl mb-4 bg-[#E5DED0]">
+                    <img src="assets/golden-tide-reflection.webp" alt="" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                </div>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-amber-700 font-semibold">Technique</span>
+                <h2 class="text-xl serif italic mt-1 mb-2 group-hover:text-amber-700 transition-colors">Impasto: Painting with Texture</h2>
+                <p class="text-[13px] text-gray-500 leading-relaxed mb-3">How palette knife creates three-dimensional texture you can almost touch.</p>
+                <span class="text-[11px] text-gray-400">Jun 25 · 7 min</span>
+            </a>
 
-                <!-- Article 3 -->
-                <a href="journal/coastal-light-guide.html" class="article-card reveal-node" data-category="collecting" style="transition-delay:200ms;">
-                    <div class="img-zoom shadow-lg mb-6 rounded-2xl">
-                        <img src="assets/mist-horizon.webp" alt="Coastal Light Guide" class="w-full aspect-[4/3] object-cover" loading="lazy">
-                    </div>
-                    <span class="category-pill mb-3 inline-block">Collecting</span>
-                    <h3 class="text-2xl serif italic mb-3 hover:text-amber-700 transition-colors">Coastal Light: A Collector's Guide</h3>
-                    <p class="text-sm text-gray-500 font-light leading-relaxed mb-4">How to choose, place, and illuminate coastal art in your home. A practical guide for building a collection that brings calm and depth to any space.</p>
-                    <div class="flex items-center gap-3 text-xs text-gray-400">
-                        <span>June 20, 2026</span>
-                        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
-                        <span>8 min read</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+            <a href="journal/coastal-light-guide.html" class="reveal group" data-cat="collecting" style="transition-delay:160ms">
+                <div class="overflow-hidden rounded-xl mb-4 bg-[#E5DED0]">
+                    <img src="assets/mist-horizon.webp" alt="" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                </div>
+                <span class="text-[9px] uppercase tracking-[0.2em] text-amber-700 font-semibold">Collecting</span>
+                <h2 class="text-xl serif italic mt-1 mb-2 group-hover:text-amber-700 transition-colors">Coastal Light: A Collector's Guide</h2>
+                <p class="text-[13px] text-gray-500 leading-relaxed mb-3">How to choose, place, and illuminate coastal art in your home.</p>
+                <span class="text-[11px] text-gray-400">Jun 20 · 8 min</span>
+            </a>
 
-    <!-- NEWSLETTER -->
-    <section class="py-24 bg-[var(--clay)] text-white px-6">
-        <div class="max-w-2xl mx-auto text-center reveal-node space-y-6">
-            <span class="text-[11px] uppercase tracking-[0.3em] text-amber-400 font-semibold block">Stay Inspired</span>
-            <h2 class="text-3xl md:text-4xl serif italic">Join the Journal.</h2>
-            <p class="text-sm text-gray-400 font-light leading-relaxed">Receive new stories about art, texture, and quiet luxury. No spam — just thoughtful content for design lovers.</p>
-            <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mt-8" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Welcome!'; this.querySelector('input').disabled=true;">
-                <input type="email" placeholder="Your email" required class="flex-1 px-5 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder-gray-500 outline-none focus:border-amber-500 transition-colors">
-                <button type="submit" class="px-8 py-3.5 bg-amber-600 text-white rounded-xl text-xs uppercase tracking-widest font-semibold hover:bg-amber-700 transition-colors whitespace-nowrap">Subscribe</button>
-            </form>
         </div>
-    </section>
+    </main>
 
     <!-- FOOTER -->
-    <footer class="bg-white border-t border-[var(--border-color)] py-16 px-6 text-center text-xs tracking-widest uppercase">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex items-center gap-3">
-                <img src="assets/logo.webp" alt="KayaVox" class="h-8 w-8 rounded-lg object-cover">
-                <span class="text-gray-400 normal-case tracking-normal italic serif text-sm">Premium Digital Art Curation</span>
-            </div>
-            <div class="flex gap-8 text-gray-500">
-                <a href="index.html" class="hover:text-amber-600 transition-colors">Shop</a>
-                <a href="about.html" class="hover:text-amber-600 transition-colors">About</a>
-                <a href="journal.html" class="hover:text-amber-600 transition-colors">Journal</a>
-                <a href="index.html#our-world" class="hover:text-amber-600 transition-colors">World</a>
-            </div>
-            <p class="text-gray-400">&copy; 2026 KayaVox</p>
+    <footer class="border-t border-[var(--border)] py-12 px-6 text-center">
+        <div class="flex items-center justify-center gap-3 mb-4">
+            <img src="assets/logo.webp" alt="KayaVox" class="h-7 w-7 rounded-lg object-cover">
         </div>
+        <p class="text-[11px] text-gray-400">&copy; 2026 KayaVox</p>
     </footer>
 
+    <style>
+        .filter-btn {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover { border-color: var(--gold); }
+        .filter-btn.active { background: var(--gold); color: white; border-color: var(--gold); }
+    </style>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); }});
-            }, { rootMargin: "0px 0px -50px 0px", threshold: 0.1 });
-            document.querySelectorAll('.reveal-node').forEach(n => observer.observe(n));
-            try { lucide.createIcons(); } catch(e) {}
+        // Filter
+        document.getElementById('filters').addEventListener('click', e => {
+            const btn = e.target.closest('.filter-btn');
+            if (!btn) return;
+            const cat = btn.dataset.filter;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('#grid a').forEach(card => {
+                card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+            });
         });
 
-        function filterArticles(category, btn) {
-            document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
-            btn.classList.add('active');
-            document.querySelectorAll('#article-grid a').forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+        // Reveal on scroll
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+        try { lucide.createIcons(); } catch(e) {}
     </script>
 </body>
 </html>
