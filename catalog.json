@@ -1,6 +1,99 @@
 {
   "collections": [
     {
+      "id": "coll-impasto",
+      "name": {
+        "en": "Impasto Collection",
+        "ru": "Коллекция «Импасто»",
+        "fr": "Collection Impasto"
+      },
+      "description": {
+        "en": "Thick sculptural paint on canvas. Museum-grade texture you can almost touch.",
+        "ru": "Толстая скульптурная краска на холсте. Текстура музейного уровня, которую хочется потрогать.",
+        "fr": "Peinture sculpturale épaisse sur toile. Texture de qualité musée que l'on veut presque toucher."
+      },
+      "products": [
+        {
+          "id": "prod-impasto-01",
+          "name": {
+            "en": "Midnight Ocean",
+            "ru": "Полночный океан",
+            "fr": "Océan de Minuit"
+          },
+          "price": 19,
+          "oldPrice": 45,
+          "image": "assets/products/impasto-01.webp",
+          "mockups": [
+            "assets/products/impasto-01-mockup-1.webp"
+          ],
+          "features": {
+            "en": ["5 print sizes (A1-A4)", "300 DPI quality", "Heavy impasto texture"],
+            "ru": ["5 форматов печати (A1-A4)", "Качество 300 DPI", "Выраженная текстура импасто"],
+            "fr": ["5 tailles d'impression (A1-A4)", "Qualité 300 DPI", "Texture impasto épaisse"]
+          },
+          "bestFor": {
+            "en": ["dramatic interiors", "gallery walls"],
+            "ru": ["драматичные интерьеры", "галерейные стены"],
+            "fr": ["intérieurs dramatiques", "murs galerie"]
+          },
+          "inStock": true
+        },
+        {
+          "id": "prod-impasto-02",
+          "name": {
+            "en": "Pearl Horizon",
+            "ru": "Жемчужный горизонт",
+            "fr": "Horizon de Perle"
+          },
+          "price": 19,
+          "oldPrice": 45,
+          "image": "assets/products/impasto-02.webp",
+          "mockups": [
+            "assets/products/impasto-02-mockup-1.webp",
+            "assets/products/impasto-02-mockup-2.webp"
+          ],
+          "features": {
+            "en": ["5 print sizes (A1-A4)", "300 DPI quality", "Heavy impasto texture"],
+            "ru": ["5 форматов печати (A1-A4)", "Качество 300 DPI", "Выраженная текстура импасто"],
+            "fr": ["5 tailles d'impression (A1-A4)", "Qualité 300 DPI", "Texture impasto épaisse"]
+          },
+          "bestFor": {
+            "en": ["luxury bedrooms", "boutique hotels"],
+            "ru": ["роскошные спальни", "бутик-отели"],
+            "fr": ["chambres de luxe", "hôtels-boutiques"]
+          },
+          "inStock": true
+        },
+        {
+          "id": "prod-impasto-03",
+          "name": {
+            "en": "Celestial Shore",
+            "ru": "Небесный берег",
+            "fr": "Rivage Céleste"
+          },
+          "price": 22,
+          "oldPrice": 55,
+          "image": "assets/products/impasto-03.webp",
+          "mockups": [
+            "assets/products/impasto-03-mockup-1.webp",
+            "assets/products/impasto-03-mockup-2.webp",
+            "assets/products/impasto-03-mockup-3.webp"
+          ],
+          "features": {
+            "en": ["5 print sizes (A1-A4)", "300 DPI quality", "Heavy impasto texture"],
+            "ru": ["5 форматов печати (A1-A4)", "Качество 300 DPI", "Выраженная текстура импасто"],
+            "fr": ["5 tailles d'impression (A1-A4)", "Qualité 300 DPI", "Texture impasto épaisse"]
+          },
+          "bestFor": {
+            "en": ["master bedrooms", "executive offices"],
+            "ru": ["спальни хозяев", "кабинеты руководителей"],
+            "fr": ["chambres principales", "bureaux directeurs"]
+          },
+          "inStock": true
+        }
+      ]
+    },
+    {
       "id": "coll-interiors",
       "name": {
         "en": "Quiet Interiors",
@@ -204,99 +297,6 @@
           "inStock": true
         }
       ]
-    },
-    {
-      "id": "coll-impasto",
-      "name": {
-        "en": "Impasto Collection",
-        "ru": "Коллекция «Импасто»",
-        "fr": "Collection Impasto"
-      },
-      "description": {
-        "en": "Thick sculptural paint on canvas. Museum-grade texture you can almost touch.",
-        "ru": "Толстая скульптурная краска на холсте. Текстура музейного уровня, которую хочется потрогать.",
-        "fr": "Peinture sculpturale épaisse sur toile. Texture de qualité musée que l'on veut presque toucher."
-      },
-      "products": [
-        {
-          "id": "prod-impasto-01",
-          "name": {
-            "en": "Midnight Ocean",
-            "ru": "Полночный океан",
-            "fr": "Océan de Minuit"
-          },
-          "price": 19,
-          "oldPrice": 45,
-          "image": "assets/products/impasto-01.webp",
-          "mockups": [
-            "assets/products/impasto-01-mockup-1.webp"
-          ],
-          "features": {
-            "en": ["5 print sizes (A1-A4)", "300 DPI quality", "Heavy impasto texture"],
-            "ru": ["5 форматов печати (A1-A4)", "Качество 300 DPI", "Выраженная текстура импасто"],
-            "fr": ["5 tailles d'impression (A1-A4)", "Qualité 300 DPI", "Texture impasto épaisse"]
-          },
-          "bestFor": {
-            "en": ["dramatic interiors", "gallery walls"],
-            "ru": ["драматичные интерьеры", "галерейные стены"],
-            "fr": ["intérieurs dramatiques", "murs galerie"]
-          },
-          "inStock": true
-        },
-        {
-          "id": "prod-impasto-02",
-          "name": {
-            "en": "Pearl Horizon",
-            "ru": "Жемчужный горизонт",
-            "fr": "Horizon de Perle"
-          },
-          "price": 19,
-          "oldPrice": 45,
-          "image": "assets/products/impasto-02.webp",
-          "mockups": [
-            "assets/products/impasto-02-mockup-1.webp",
-            "assets/products/impasto-02-mockup-2.webp"
-          ],
-          "features": {
-            "en": ["5 print sizes (A1-A4)", "300 DPI quality", "Heavy impasto texture"],
-            "ru": ["5 форматов печати (A1-A4)", "Качество 300 DPI", "Выраженная текстура импасто"],
-            "fr": ["5 tailles d'impression (A1-A4)", "Qualité 300 DPI", "Texture impasto épaisse"]
-          },
-          "bestFor": {
-            "en": ["luxury bedrooms", "boutique hotels"],
-            "ru": ["роскошные спальни", "бутик-отели"],
-            "fr": ["chambres de luxe", "hôtels-boutiques"]
-          },
-          "inStock": true
-        },
-        {
-          "id": "prod-impasto-03",
-          "name": {
-            "en": "Celestial Shore",
-            "ru": "Небесный берег",
-            "fr": "Rivage Céleste"
-          },
-          "price": 22,
-          "oldPrice": 55,
-          "image": "assets/products/impasto-03.webp",
-          "mockups": [
-            "assets/products/impasto-03-mockup-1.webp",
-            "assets/products/impasto-03-mockup-2.webp",
-            "assets/products/impasto-03-mockup-3.webp"
-          ],
-          "features": {
-            "en": ["5 print sizes (A1-A4)", "300 DPI quality", "Heavy impasto texture"],
-            "ru": ["5 форматов печати (A1-A4)", "Качество 300 DPI", "Выраженная текстура импасто"],
-            "fr": ["5 tailles d'impression (A1-A4)", "Qualité 300 DPI", "Texture impasto épaisse"]
-          },
-          "bestFor": {
-            "en": ["master bedrooms", "executive offices"],
-            "ru": ["спальни хозяев", "кабинеты руководителей"],
-            "fr": ["chambres principales", "bureaux directeurs"]
-          },
-          "inStock": true
-        }
-      ]
     }
   ],
   "bundle": {
@@ -313,7 +313,7 @@
       "ru": "Все 9 премиальных наборов (45 файлов высокого разрешения в 5 форматах) плюс эксклюзивный гид по стилю и оформлению по специальной цене.",
       "fr": "Les 9 ensembles premium (45 fichiers haute résolution en 5 formats) ainsi que notre guide exclusif à un tarif de collectionneur."
     },
-    "image": "assets/products/interior-sea-01.webp"
+    "image": "assets/products/impasto-01.webp"
   },
   "faq": [
     {
