@@ -12,10 +12,7 @@
     <meta name="author" content="KayaVox">
     <link rel="canonical" href="https://kayavox.art/">
 
-    <!-- Hreflang for multilingual SEO -->
-    <link rel="alternate" hreflang="en" href="https://kayavox.art/">
-    <link rel="alternate" hreflang="ru" href="https://kayavox.art/">
-    <link rel="alternate" hreflang="fr" href="https://kayavox.art/">
+    <!-- Hreflang: single-page JS i18n, only x-default needed -->
     <link rel="alternate" hreflang="x-default" href="https://kayavox.art/">
 
     <!-- Open Graph & Pinterest Optimization -->
@@ -25,7 +22,7 @@
     <meta property="og:image" content="assets/soft-coastal-dawn.webp">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="1000">
-    <meta property="og:url" content="https://kayavox.art">
+    <meta property="og:url" content="https://kayavox.art/">
     <meta property="og:site_name" content="KayaVox">
 
     <!-- Pinterest Rich Pin Metadata -->
@@ -36,18 +33,41 @@
     <meta name="pinterest:category" content="Art & Home Decor">
 
     <!-- Google Analytics 4 — Measurement ID -->
-    <!-- TODO: Replace GA-XXXXX-Y with your real GA4 Measurement ID from https://analytics.google.com -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA-XXXXX-Y"></script>
+    <!-- ШАГ 1: Зайди на https://analytics.google.com -->
+    <!-- ШАГ 2: Создай аккаунт и поток данных для kayavox.art -->
+    <!-- ШАГ 3: Скопируй Measurement ID (G-XXXXXXXXXX) и вставь вместо GA-XXXXX-Y ниже -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA-XXXXX-Y"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'GA-XXXXX-Y');
-    </script> -->
+    </script>
+    -->
 
     <!-- Google Search Console Verification -->
-    <!-- TODO: Replace with your real verification code from https://search.google.com/search-console -->
+    <!-- ШАГ 1: Зайди на https://search.google.com/search-console -->
+    <!-- ШАГ 2: Добавь свойство kayavox.art -->
+    <!-- ШАГ 3: Выбери "HTML tag" метод верификации -->
+    <!-- ШАГ 4: Скопируй content значение и вставь вместо YOUR_VERIFICATION_CODE_HERE -->
     <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE"> -->
+
+    <!-- Structured Data JSON-LD: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Organization",
+      "name": "KayaVox",
+      "url": "https://kayavox.art",
+      "logo": "https://kayavox.art/assets/logo.webp",
+      "description": "Premium digital art curation — museum-grade impasto oil prints delivered as instant downloads.",
+      "email": "hello@kayavox.art",
+      "sameAs": [
+        "https://pinterest.com/"
+      ]
+    }
+    </script>
 
     <!-- Structured Data JSON-LD: Product -->
     <script type="application/ld+json">
@@ -72,7 +92,7 @@
         "highPrice": "29.00",
         "offerCount": "4",
         "availability": "https://schema.org/InStock",
-        "url": "https://kayavox.art"
+        "url": "https://kayavox.art/"
       }
     }
     </script>
@@ -415,6 +435,76 @@
             transition: none;
         }
 
+        /* === STORIES CAROUSEL === */
+        .stories-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            aspect-ratio: 3/4;
+            background: #eae3d5;
+            touch-action: pan-y;
+        }
+        .stories-carousel .stories-track {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            will-change: transform;
+        }
+        .stories-carousel .stories-track img {
+            flex-shrink: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .stories-progress {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            display: flex;
+            gap: 4px;
+            z-index: 10;
+        }
+        .stories-progress .bar {
+            flex: 1;
+            height: 3px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .stories-progress .bar .fill {
+            height: 100%;
+            background: white;
+            border-radius: 2px;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+        .stories-progress .bar.active .fill {
+            width: 100%;
+        }
+        .stories-progress .bar.done .fill {
+            width: 100%;
+        }
+        .stories-nav-zone {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 40%;
+            z-index: 5;
+            cursor: pointer;
+        }
+        .stories-nav-zone.prev { left: 0; }
+        .stories-nav-zone.next { right: 0; width: 60%; }
+        .stories-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            z-index: 10;
+        }
+
         /* === MOBILE PERFORMANCE OPTIMIZATIONS === */
 
         /* Disable heavy grain overlay on mobile/iPhone */
@@ -508,9 +598,9 @@
                 </div>
                 <div class="flex flex-col space-y-6">
                     <a href="#shop" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_shop">Shop Prints</a>
-                    <a href="https://app.lava.top/kayavox" target="_blank" rel="noopener" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_lava">Lava Store</a>
+                    <a href="https://app.lava.top/kayavox" target="_blank" rel="noopener" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_lava">Lava Store</a>
                     <a href="#our-world" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_world">Our World</a>
-                    <a href="journal.html" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5">Journal</a>
+                    <a href="journal.html" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5">Journal</a>
                     <a href="#previewer" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_staging">Virtual Preview</a>
                     <a href="#texture" data-action="link-close-menu" class="text-lg serif italic text-[var(--clay)] hover:text-amber-600 transition-colors py-2.5" data-i18n="nav_process">The Process</a>
                 </div>
@@ -785,215 +875,32 @@
             </div>
         </section>
 
-        <!-- PRODUCT COLLECTION -->
+        <!-- PRODUCT COLLECTIONS -->
         <section id="shop" class="py-24 md:py-32 bg-white px-6">
             <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal-node text-left">
-                    <div class="space-y-2">
-                        <h2 class="text-3xl md:text-4xl serif italic text-clay" data-i18n="catalog_title">Signature Collection</h2>
-                        <p class="text-gray-400 text-xs md:text-sm font-light uppercase tracking-widest" data-i18n="catalog_subtitle">Digital Download Packs &bull; Premium 300 DPI Quality</p>
-                    </div>
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal-node">
+                    <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block mb-3" data-i18n="catalog_tag">Curated Artworks</span>
+                    <h2 class="text-3xl md:text-4xl serif italic mb-4 text-clay" data-i18n="catalog_title">Signature Collection</h2>
+                    <p class="text-sm md:text-base text-gray-500 font-light" data-i18n="catalog_subtitle">Digital Download Packs &bull; Premium 300 DPI Quality &bull; Swipe to explore mockups</p>
                 </div>
 
-                <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-                    <!-- Product Card 1 -->
-                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-coastal-dawn" style="transition-delay: 50ms;">
-                        <div>
-                                    <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
-                                        <img src="assets/soft-coastal-dawn.webp"
-                                             alt="Soft Coastal Dawn — Impressionist impasto coastal wall art" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
-                                    </div>
-                                    <div class="flex justify-between items-baseline mb-4">
-                                        <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_golden">Soft Coastal Dawn</h3>
-                                <div class="text-right">
-                                    <span class="text-xs text-gray-300 line-through mr-1.5">$29</span>
-                                    <span class="text-lg md:text-xl font-bold text-amber-700">$9</span>
-                                </div>
-                            </div>
-                            
-                            <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4 mb-6 text-left">
-                                <div>
-                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_feature_header">What you get:</p>
-                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
-                                        <li data-i18n="card_feature_1">&bull; 5 print sizes (A1-A4)</li>
-                                        <li>&bull; 300 DPI quality</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_bestfor_header">Works best for:</p>
-                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
-                                        <li data-i18n="card_bestfor_living">&bull; living rooms</li>
-                                        <li data-i18n="card_bestfor_calm">&bull; calm interiors</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex gap-2.5">
-                            <button data-action="add-to-cart" data-id="prod-coastal-dawn" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
-                            <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy Golden Shoreline on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 2 -->
-                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-golden-tide" style="transition-delay: 150ms;">
-                        <div>
-                                    <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
-                                        <img src="assets/golden-tide-reflection.webp"
-                                             alt="Golden Tide Reflection — Impressionist impasto coastal wall art" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
-                                    </div>
-                                    <div class="flex justify-between items-baseline mb-4">
-                                        <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_lavender">Golden Tide Reflection</h3>
-                                <div class="text-right">
-                                    <span class="text-xs text-gray-300 line-through mr-1.5">$35</span>
-                                    <span class="text-lg md:text-xl font-bold text-amber-700">$14</span>
-                                </div>
-                            </div>
-                            
-                            <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4 mb-6 text-left">
-                                <div>
-                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_feature_header">What you get:</p>
-                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
-                                        <li data-i18n="card_feature_1">&bull; 5 print sizes (A1-A4)</li>
-                                        <li>&bull; 300 DPI quality</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_bestfor_header">Works best for:</p>
-                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
-                                        <li data-i18n="card_bestfor_bedrooms">&bull; bedrooms</li>
-                                        <li data-i18n="card_bestfor_zenspaces">&bull; zen spaces</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex gap-2.5">
-                            <button data-action="add-to-cart" data-id="prod-golden-tide" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
-                            <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy Lavender Dusk on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 3 -->
-                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="prod-mist-horizon" style="transition-delay: 250ms;">
-                        <div>
-                                    <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
-                                        <img src="assets/mist-horizon.webp"
-                                             alt="Mist Horizon — Impressionist impasto coastal wall art" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
-                                    </div>
-                                    <div class="flex justify-between items-baseline mb-4">
-                                        <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="art_title_mist">Mist Horizon</h3>
-                                <div class="text-right">
-                                    <span class="text-xs text-gray-300 line-through mr-1.5">$45</span>
-                                    <span class="text-lg md:text-xl font-bold text-amber-700">$19</span>
-                                </div>
-                            </div>
-                            
-                            <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4 mb-6 text-left">
-                                <div>
-                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_feature_header">What you get:</p>
-                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
-                                        <li data-i18n="card_feature_1">&bull; 5 print sizes (A1-A4)</li>
-                                        <li>&bull; 300 DPI quality</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1" data-i18n="card_bestfor_header">Works best for:</p>
-                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">
-                                        <li data-i18n="card_bestfor_offices">&bull; home offices</li>
-                                        <li data-i18n="card_bestfor_walls">&bull; minimalist walls</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex gap-2.5">
-                            <button data-action="add-to-cart" data-id="prod-mist-horizon" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold" data-i18n="card_add_to_bag">Add to Bag</button>
-                            <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy Morning Mist on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Collection Placeholder: Horizon -->
-                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6 border-2 border-dashed border-amber-200 rounded-2xl p-6 bg-amber-50/30" style="transition-delay: 350ms;">
-                        <div class="flex flex-col items-center justify-center text-center py-12 space-y-4">
-                            <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="mountain" class="w-7 h-7 text-amber-600"></i>
-                            </div>
-                            <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="collection_horizon">Horizon Collection</h3>
-                            <p class="text-xs text-gray-500 font-light max-w-xs" data-i18n="collection_horizon_desc">Infinite horizons where sky meets sea in soft color transitions. Coming soon.</p>
-                            <span class="text-[10px] uppercase tracking-widest text-amber-700 font-semibold bg-amber-100 px-3 py-1 rounded-full" data-i18n="coming_soon">Coming Soon</span>
-                        </div>
-                    </div>
-
-                    <!-- Collection Placeholder: Shorelines -->
-                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6 border-2 border-dashed border-amber-200 rounded-2xl p-6 bg-amber-50/30" style="transition-delay: 450ms;">
-                        <div class="flex flex-col items-center justify-center text-center py-12 space-y-4">
-                            <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="waves" class="w-7 h-7 text-amber-600"></i>
-                            </div>
-                            <h3 class="text-xl md:text-2xl serif italic text-clay" data-i18n="collection_shorelines">Shorelines Collection</h3>
-                            <p class="text-xs text-gray-500 font-light max-w-xs" data-i18n="collection_shorelines_desc">Coastal lines, sand and water in natural abstract forms. Coming soon.</p>
-                            <span class="text-[10px] uppercase tracking-widest text-amber-700 font-semibold bg-amber-100 px-3 py-1 rounded-full" data-i18n="coming_soon">Coming Soon</span>
-                        </div>
-                    </div>
+                <div id="collections-container">
+                    <!-- Populated dynamically by JavaScript from catalog.json -->
                 </div>
 
-                <!-- Complete Horizon Bundle Offer -->
+                <!-- Complete Collection Bundle Offer -->
                 <div class="mt-24 p-8 md:p-12 bg-[#F2EDE4] rounded-[2rem] flex flex-col lg:flex-row items-center justify-between reveal-node border border-[var(--border-color)] gap-8">
                     <div class="space-y-4 text-center lg:text-left max-w-2xl">
                         <span class="text-[11px] uppercase tracking-widest bg-white/70 px-4 py-1.5 rounded-full inline-block font-semibold text-amber-800 animate-pulse" data-i18n="bundle_tag">Collector's Selection</span>
-                        <h3 class="text-2xl md:text-3xl serif italic mb-2 text-clay" data-i18n="bundle_title">The Complete Horizon Set</h3>
-                        <p class="text-xs md:text-sm text-gray-500 font-light leading-relaxed" data-i18n="bundle_desc">Secure all three premium digital print sets (15 high-res files) plus our exclusive digital styling &amp; framing companion guide at an exceptional bundle rate.</p>
+                        <h3 class="text-2xl md:text-3xl serif italic mb-2 text-clay" data-i18n="bundle_title">The Complete KayaVox Collection</h3>
+                        <p class="text-xs md:text-sm text-gray-500 font-light leading-relaxed" data-i18n="bundle_desc">All 9 premium digital print sets (45 high-res files) plus our exclusive styling &amp; framing guide at an exceptional collector's rate.</p>
                     </div>
                     <div class="flex items-center gap-6 md:gap-8 flex-col sm:flex-row w-full lg:w-auto justify-center">
                         <div class="text-center sm:text-right">
-                            <span class="block text-xs text-gray-400 line-through font-semibold">$109</span>
-                            <span class="text-3xl md:text-4xl font-bold text-amber-700">$29</span>
+                            <span class="block text-xs text-gray-400 line-through font-semibold">$149</span>
+                            <span class="text-3xl md:text-4xl font-bold text-amber-700">$49</span>
                         </div>
-                        <button data-action="add-to-cart" data-id="prod-bundle" class="btn-primary w-full sm:w-auto text-center min-h-[52px]" data-i18n="bundle_submit_btn">Collect All for $29</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SOCIAL PROOF — placeholder for future testimonials -->
-        <section id="testimonials" class="py-24 md:py-32 px-6 bg-[#F6F1E8] border-t border-[var(--border-color)]">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center max-w-2xl mx-auto mb-16 reveal-node">
-                    <span class="text-[11px] uppercase tracking-[0.3em] text-amber-700 font-semibold block mb-3" data-i18n="testimonial_tag">Collector Stories</span>
-                    <h2 class="text-3xl md:text-4xl serif italic mb-4 text-clay" data-i18n="testimonial_title">What Collectors Say</h2>
-                    <p class="text-sm md:text-base text-gray-500 font-light" data-i18n="testimonial_desc">Real experiences from our growing community of art collectors.</p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8 reveal-node">
-                    <div class="bg-white p-8 rounded-2xl border border-[var(--border-color)] shadow-sm text-center space-y-4">
-                        <div class="flex justify-center gap-1 text-amber-500">
-                            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-                        </div>
-                        <p class="text-sm text-gray-600 italic leading-relaxed serif">"The texture is unreal — my guests think it's an original oil painting. The framing guide made the whole process effortless."</p>
-                        <div>
-                            <p class="text-xs font-bold text-[var(--clay)] uppercase tracking-wider">— Coming Soon</p>
-                            <p class="text-[10px] text-gray-400">New York, NY</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-8 rounded-2xl border border-[var(--border-color)] shadow-sm text-center space-y-4">
-                        <div class="flex justify-center gap-1 text-amber-500">
-                            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-                        </div>
-                        <p class="text-sm text-gray-600 italic leading-relaxed serif">"I used the room visualizer before buying and it looked exactly like the preview. Soft Coastal Dawn transformed my living room."</p>
-                        <div>
-                            <p class="text-xs font-bold text-[var(--clay)] uppercase tracking-wider">— Coming Soon</p>
-                            <p class="text-[10px] text-gray-400">Los Angeles, CA</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-8 rounded-2xl border border-[var(--border-color)] shadow-sm text-center space-y-4">
-                        <div class="flex justify-center gap-1 text-amber-500">
-                            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-                        </div>
-                        <p class="text-sm text-gray-600 italic leading-relaxed serif">"The 300 DPI quality is gallery-worthy. Printed on matte fine art paper and the impasto texture pops beautifully."</p>
-                        <div>
-                            <p class="text-xs font-bold text-[var(--clay)] uppercase tracking-wider">— Coming Soon</p>
-                            <p class="text-[10px] text-gray-400">Miami, FL</p>
-                        </div>
+                        <button data-action="add-to-cart" data-id="prod-bundle" class="btn-primary w-full sm:w-auto text-center min-h-[52px]" data-i18n="bundle_submit_btn">Collect All for $49</button>
                     </div>
                 </div>
             </div>
@@ -1359,7 +1266,7 @@
                 bundle_tag: "Collector's Selection",
                 bundle_title: "The Quiet Atmospheres Collection",
                 bundle_desc: "Secure all three premium impasto coastal prints (15 high-res files across 5 sizes) plus our exclusive styling & framing guide at an exceptional collector's rate.",
-                bundle_submit_btn: "Collect All for $29",
+                bundle_submit_btn: "Collect All for $49",
                 collector_tag: "Early Access & Drop Alerts",
                 collector_title: "The Collector List",
                 collector_desc: "Subscribe to receive early notifications on limited seasonal drop editions, free curated mini-prints, and organic home-styling advice.",
@@ -1399,6 +1306,7 @@
                 testimonial_tag: "Collector Stories",
                 testimonial_title: "What Collectors Say",
                 testimonial_desc: "Real experiences from our growing community of art collectors.",
+                catalog_tag: "Curated Artworks",
                 collection_horizon: "Horizon Collection",
                 collection_horizon_desc: "Infinite horizons where sky meets sea in soft color transitions. Coming soon.",
                 collection_shorelines: "Shorelines Collection",
@@ -1476,7 +1384,7 @@
                 bundle_tag: "Выбор коллекционера",
                 bundle_title: "Коллекция «Тихие Атмосферы»",
                 bundle_desc: "Получите все три премиальных импасто-принта (15 файлов высокого разрешения в 5 форматах) плюс эксклюзивный гид по стилю и оформлению по специальной цене.",
-                bundle_submit_btn: "Забрать всё за $29",
+                bundle_submit_btn: "Забрать всё за $49",
                 collector_tag: "Ранний доступ и анонсы дропов",
                 collector_title: "Клуб коллекционеров",
                 collector_desc: "Подпишитесь, чтобы первыми получать уведомления о сезонных лимитированных тиражах, бесплатные кураторские мини-постеры и советы по оформлению интерьера.",
@@ -1511,6 +1419,7 @@
                 testimonial_tag: "Истории коллекционеров",
                 testimonial_title: "Что говорят коллекционеры",
                 testimonial_desc: "Настоящие отзывы от нашего растущего сообщества любителей искусства.",
+                catalog_tag: "Авторские работы",
                 collection_horizon: "Коллекция «Горизонт»",
                 collection_horizon_desc: "Бесконечные горизонты, где небо встречается с морем в мягких переходах цвета. Скоро.",
                 collection_shorelines: "Коллекция «Береговые линии»",
@@ -1588,7 +1497,7 @@
                 bundle_tag: "Sélection du Collectionneur",
                 bundle_title: "La Collection Atmosphères Sereines",
                 bundle_desc: "Obtenez les trois impressions impasto côtières premium (15 fichiers haute résolution en 5 formats) ainsi que notre guide exclusif de mise en scène à un tarif de collectionneur.",
-                bundle_submit_btn: "Tout obtenir pour $29",
+                bundle_submit_btn: "Tout obtenir pour $49",
                 collector_tag: "Accès Anticipé & Alertes de Drops",
                 collector_title: "La Liste des Collectionneurs",
                 collector_desc: "Inscrivez-vous pour recevoir des notifications en avant-première sur les éditions saisonnières limitées, des mini-impressions gratuites et des conseils de décoration organique.",
@@ -1623,6 +1532,7 @@
                 testimonial_tag: "Histoires de Collectionneurs",
                 testimonial_title: "Ce que disent les Collectionneurs",
                 testimonial_desc: "Des expériences réelles de notre communauté grandissante de collectionneurs d'art.",
+                catalog_tag: "Œuvres Sélectionnées",
                 collection_horizon: "Collection Horizon",
                 collection_horizon_desc: "Horizons infinis où le ciel rencontre la mer en douces transitions de couleur. Bientôt disponible.",
                 collection_shorelines: "Collection Shorelines",
@@ -1636,13 +1546,9 @@
         };
 
         // Catalog configuration — loaded from catalog.json
-        let catalogProducts = [
-            { id: 'prod-coastal-dawn', name: 'Soft Coastal Dawn', price: 9, oldPrice: 29, imageUrl: 'assets/soft-coastal-dawn.webp' },
-            { id: 'prod-golden-tide', name: 'Golden Tide Reflection', price: 14, oldPrice: 35, imageUrl: 'assets/golden-tide-reflection.webp' },
-            { id: 'prod-mist-horizon', name: 'Mist Horizon', price: 19, oldPrice: 45, imageUrl: 'assets/mist-horizon.webp' },
-            { id: 'prod-bundle', name: 'Complete Horizon Set', price: 29, oldPrice: 109, imageUrl: 'assets/soft-coastal-dawn.webp' }
-        ];
+        let catalogProducts = [];
         let catalogJSON = null;
+        let allProductsFlat = [];
 
         async function loadCatalogJSON() {
             try {
@@ -1650,15 +1556,22 @@
                 if (!res.ok) return;
                 catalogJSON = await res.json();
                 const lang = state.locale || 'en';
-                catalogProducts = catalogJSON.products.map(p => ({
-                    id: p.id,
-                    name: p.name[lang] || p.name.en,
-                    price: p.price,
-                    oldPrice: p.oldPrice,
-                    imageUrl: p.image
-                }));
+                allProductsFlat = [];
+                if (catalogJSON.collections) {
+                    catalogJSON.collections.forEach(col => {
+                        col.products.forEach(p => {
+                            allProductsFlat.push({
+                                id: p.id,
+                                name: p.name[lang] || p.name.en,
+                                price: p.price,
+                                oldPrice: p.oldPrice,
+                                imageUrl: p.image
+                            });
+                        });
+                    });
+                }
                 if (catalogJSON.bundle) {
-                    catalogProducts.push({
+                    allProductsFlat.push({
                         id: catalogJSON.bundle.id,
                         name: catalogJSON.bundle.name[lang] || catalogJSON.bundle.name.en,
                         price: catalogJSON.bundle.price,
@@ -1666,56 +1579,136 @@
                         imageUrl: catalogJSON.bundle.image
                     });
                 }
-                renderProductGrid();
+                catalogProducts = allProductsFlat;
+                renderCollections();
             } catch (e) { console.log('Catalog.json not loaded, using defaults'); }
         }
 
-        function renderProductGrid() {
-            if (!catalogJSON) return;
-            const grid = document.getElementById('product-grid');
-            if (!grid) return;
+        function renderCollections() {
+            if (!catalogJSON || !catalogJSON.collections) return;
+            const container = document.getElementById('collections-container');
+            if (!container) return;
             const lang = state.locale || 'en';
             let html = '';
-            catalogJSON.products.forEach((p, i) => {
-                const name = p.name[lang] || p.name.en;
-                const features = (p.features[lang] || p.features.en).map(f => '<li>&bull; ' + f + '</li>').join('');
-                const bestFor = (p.bestFor[lang] || p.bestFor.en).map(b => '<li>&bull; ' + b + '</li>').join('');
-                html += `
-                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="${p.id}" style="transition-delay: ${50 + i * 100}ms;">
-                        <div>
-                            <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
-                                <img src="${p.image}" alt="${name}" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
-                            </div>
-                            <div class="flex justify-between items-baseline mb-4">
-                                <h3 class="text-xl md:text-2xl serif italic text-clay">${name}</h3>
-                                <div class="text-right">
-                                    <span class="text-xs text-gray-300 line-through mr-1.5">$${p.oldPrice}</span>
-                                    <span class="text-lg md:text-xl font-bold text-amber-700">$${p.price}</span>
+
+            catalogJSON.collections.forEach((col, ci) => {
+                const colName = col.name[lang] || col.name.en;
+                const colDesc = col.description[lang] || col.description.en;
+                html += `<div class="mb-20 reveal-node">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 text-left">
+                        <div class="space-y-2">
+                            <h3 class="text-2xl md:text-3xl serif italic text-clay">${colName}</h3>
+                            <p class="text-gray-400 text-xs font-light max-w-lg">${colDesc}</p>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">`;
+
+                col.products.forEach((p, pi) => {
+                    const name = p.name[lang] || p.name.en;
+                    const allSlides = [p.image, ...(p.mockups || [])];
+                    const carouselId = `carousel-${p.id}`;
+                    const features = p.features ? (p.features[lang] || p.features.en).map(f => '<li>&bull; ' + f + '</li>').join('') : '';
+                    const bestFor = p.bestFor ? (p.bestFor[lang] || p.bestFor.en).map(b => '<li>&bull; ' + b + '</li>').join('') : '';
+
+                    html += `
+                        <div class="flex flex-col space-y-4" style="transition-delay: ${50 + pi * 100}ms;">
+                            <div class="stories-carousel" id="${carouselId}" data-slides='${JSON.stringify(allSlides)}' data-current="0">
+                                <div class="stories-progress" id="${carouselId}-progress">
+                                    ${allSlides.map((_, si) => `<div class="bar${si === 0 ? ' active' : ''}"><div class="fill"></div></div>`).join('')}
+                                </div>
+                                <div class="stories-track">
+                                    ${allSlides.map(s => `<img src="${s}" alt="${name}" loading="lazy" decoding="async">`).join('')}
+                                </div>
+                                <div class="stories-nav-zone prev" data-dir="prev"></div>
+                                <div class="stories-nav-zone next" data-dir="next"></div>
+                                <div class="stories-bottom">
+                                    <span class="text-white/70 text-[10px] uppercase tracking-widest font-semibold block mb-1">Tap to view mockups</span>
+                                    <span class="text-white text-sm font-bold">${name}</span>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4 mb-6 text-left">
+                            <div class="flex justify-between items-baseline px-1">
+                                <h4 class="text-lg serif italic text-clay">${name}</h4>
+                                <div class="text-right">
+                                    <span class="text-[10px] text-gray-300 line-through mr-1">$${p.oldPrice}</span>
+                                    <span class="text-base font-bold text-amber-700">$${p.price}</span>
+                                </div>
+                            </div>
+                            ${features ? `<div class="grid grid-cols-2 gap-3 border-t border-gray-100 pt-3 text-left px-1">
                                 <div>
-                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">${lang==='ru'?'Что вы получаете:':lang==='fr'?'Ce que vous obtenez :':'What you get:'}</p>
+                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">${lang==='ru'?'Что получите:':lang==='fr'?'Inclus :':'What you get:'}</p>
                                     <ul class="text-[10px] text-gray-500 space-y-0.5 italic">${features}</ul>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">${lang==='ru'?'Идеально подходит для:':lang==='fr'?'Idéal pour :':'Works best for:'}</p>
+                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">${lang==='ru'?'Лучше всего для:':lang==='fr'?'Idéal pour :':'Best for:'}</p>
                                     <ul class="text-[10px] text-gray-500 space-y-0.5 italic">${bestFor}</ul>
                                 </div>
+                            </div>` : ''}
+                            <div class="flex gap-2.5 px-1">
+                                <button data-action="add-to-cart" data-id="${p.id}" class="w-full text-center py-3.5 bg-[var(--clay)] text-white rounded-full text-[10px] uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold">${lang==='ru'?'В корзину':lang==='fr'?'Ajouter':'Add to Bag'}</button>
+                                <a href="https://app.lava.top/kayavox" target="_blank" rel="noopener" class="w-[48px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
                             </div>
-                        </div>
-                        <div class="flex gap-2.5">
-                            <button data-action="add-to-cart" data-id="${p.id}" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold">${lang==='ru'?'В корзину':lang==='fr'?'Ajouter au Panier':'Add to Bag'}</button>
-                            <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
-                        </div>
-                    </div>`;
+                        </div>`;
+                });
+
+                html += `</div></div>`;
             });
-            grid.innerHTML = html;
+
+            container.innerHTML = html;
             if (typeof lucide !== 'undefined') lucide.createIcons();
+            initStoriesCarousels();
             const revealObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); } });
             }, { root: null, rootMargin: "0px 0px -50px 0px", threshold: 0.1 });
-            grid.querySelectorAll('.reveal-node').forEach(node => revealObserver.observe(node));
+            container.querySelectorAll('.reveal-node').forEach(node => revealObserver.observe(node));
+        }
+
+        function initStoriesCarousels() {
+            document.querySelectorAll('.stories-carousel').forEach(carousel => {
+                const slides = JSON.parse(carousel.dataset.slides || '[]');
+                if (slides.length <= 1) return;
+                let current = 0;
+                const total = slides.length;
+                const track = carousel.querySelector('.stories-track');
+                const progressBars = carousel.querySelectorAll('.bar');
+                let autoTimer = null;
+
+                function goTo(index) {
+                    if (index < 0) index = total - 1;
+                    if (index >= total) index = 0;
+                    current = index;
+                    track.style.transform = `translateX(-${current * 100}%)`;
+                    progressBars.forEach((bar, i) => {
+                        bar.classList.remove('active', 'done');
+                        if (i < current) bar.classList.add('done');
+                        if (i === current) bar.classList.add('active');
+                    });
+                    resetAuto();
+                }
+
+                function resetAuto() {
+                    clearInterval(autoTimer);
+                    autoTimer = setInterval(() => goTo(current + 1), 4000);
+                }
+
+                carousel.querySelectorAll('.stories-nav-zone').forEach(zone => {
+                    zone.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const dir = zone.dataset.dir;
+                        goTo(dir === 'next' ? current + 1 : current - 1);
+                    });
+                });
+
+                let touchStartX = 0;
+                carousel.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+                carousel.addEventListener('touchend', (e) => {
+                    const diff = touchStartX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 40) {
+                        goTo(diff > 0 ? current + 1 : current - 1);
+                    }
+                }, { passive: true });
+
+                resetAuto();
+            });
         }
 
         const roomBackgrounds = {
@@ -1802,7 +1795,9 @@
 
                 if (property === 'locale') {
                     localStorage.setItem('kayavox_locale', value);
+                    document.documentElement.lang = value;
                     applyTranslations(value);
+                    if (catalogJSON) renderCollections();
                 }
 
                 return true;
@@ -2105,8 +2100,24 @@
                 submitBtn.innerText = 'Sending...';
             }
 
-            // Simulate server-side post success
-            setTimeout(() => {
+            const name = document.getElementById('contact-name').value.replace(/[<>'"&]/g, "");
+            const email = document.getElementById('contact-email').value.replace(/[<>'"&]/g, "");
+            const message = document.getElementById('contact-msg').value.replace(/[<>'"&]/g, "");
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('message', message);
+            formData.append('date', new Date().toLocaleString());
+            formData.append('type', 'contact');
+
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+            fetch('https://script.google.com/macros/s/AKfycbyxaDRq35ddflE07iEDirgMMuQ0aJRCq1WXohUmrktHC90pUBAuPlDW5oxNIEgMVW132w/exec', {
+                method: 'POST', body: formData, mode: 'no-cors', signal: controller.signal
+            }).catch(() => {}).finally(() => {
+                clearTimeout(timeoutId);
                 form.style.display = 'none';
                 successMsg.classList.remove('hidden');
                 showToast("Message sent successfully!");
@@ -2114,7 +2125,7 @@
                     submitBtn.disabled = false;
                     submitBtn.innerText = 'Send Message';
                 }
-            }, 1200);
+            });
         }
 
         function setupInteractiveSpeculator() {
@@ -2221,12 +2232,10 @@
 
             // Room tabs — direct listeners
             var roomBtns = document.querySelectorAll('[data-room]');
-            console.log('Room buttons found:', roomBtns.length);
             roomBtns.forEach(function(btn) {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    console.log('Room clicked:', this.getAttribute('data-room'));
                     var roomId = this.getAttribute('data-room');
                     document.querySelectorAll('.room-tab').forEach(function(b) {
                         b.classList.remove('active');
@@ -2236,14 +2245,12 @@
                     this.setAttribute('aria-pressed', 'true');
 
                     var roomImgEl = document.getElementById('room-background');
-                    console.log('Room img element:', roomImgEl);
                     if (roomImgEl && roomBackgrounds[roomId]) {
                         roomImgEl.style.opacity = '0';
                         setTimeout(function() {
                             roomImgEl.src = roomBackgrounds[roomId].src + '?t=' + Date.now();
                             roomImgEl.srcset = roomBackgrounds[roomId].srcset;
                             roomImgEl.style.opacity = '1';
-                            console.log('Room changed to:', roomId);
                         }, 300);
                     }
                 });
@@ -2251,12 +2258,10 @@
 
             // Art selectors — direct listeners
             var artBtns = document.querySelectorAll('[data-art]');
-            console.log('Art buttons found:', artBtns.length);
             artBtns.forEach(function(btn) {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    console.log('Art clicked:', this.getAttribute('data-art'));
                     var artId = this.getAttribute('data-art');
                     var title = this.getAttribute('data-title');
 
@@ -2271,7 +2276,6 @@
                             artImgEl.src = artImages[artId].src + '?t=' + Date.now();
                             artImgEl.srcset = artImages[artId].srcset;
                             artImgEl.style.opacity = '1';
-                            console.log('Art changed to:', artId);
                         }, 300);
                     }
                 });
@@ -2434,15 +2438,35 @@
                 const downloadsListEl = document.getElementById('downloads-list');
                 if (downloadsListEl) {
                     downloadsListEl.innerHTML = `
-                        <div class="flex items-center justify-between p-3.5 bg-gray-50 rounded-xl border border-black/5">
+                        <div class="flex items-center justify-between p-3.5 bg-amber-50/50 rounded-xl border border-amber-200/50">
                             <div class="flex items-center gap-3">
-                                <img src="assets/soft-coastal-dawn.webp" alt="Free Sample" class="w-12 h-16 object-cover rounded-lg shadow-sm">
+                                <img src="assets/soft-coastal-dawn.webp" alt="Soft Coastal Dawn" class="w-12 h-16 object-cover rounded-lg shadow-sm">
                                 <div>
-                                    <span class="block text-xs font-bold text-clay uppercase tracking-wider">Golden Shoreline Freebie Pack</span>
-                                    <span class="text-[10px] text-gray-400">High-Res Sample Print &bull; 18.2 MB</span>
+                                    <span class="block text-xs font-bold text-[var(--clay)] uppercase tracking-wider" data-i18n="art_title_golden">Soft Coastal Dawn</span>
+                                    <span class="text-[10px] text-gray-400">Free Sample &bull; High-Res</span>
                                 </div>
                             </div>
-                            <button data-action="download-item" data-file="KayaVox_GoldenShoreline_FreeSample.zip" class="text-xs text-amber-700 hover:text-amber-800 font-bold uppercase tracking-widest border-b border-amber-700/30">Get ZIP</button>
+                            <button data-action="download-item" data-file="KayaVox_SoftCoastalDawn_FreeSample.zip" class="text-xs text-amber-700 hover:text-amber-800 font-bold uppercase tracking-widest border-b border-amber-700/30">Get ZIP</button>
+                        </div>
+                        <div class="flex items-center justify-between p-3.5 bg-amber-50/50 rounded-xl border border-amber-200/50">
+                            <div class="flex items-center gap-3">
+                                <img src="assets/golden-tide-reflection.webp" alt="Golden Tide Reflection" class="w-12 h-16 object-cover rounded-lg shadow-sm">
+                                <div>
+                                    <span class="block text-xs font-bold text-[var(--clay)] uppercase tracking-wider" data-i18n="art_title_lavender">Golden Tide Reflection</span>
+                                    <span class="text-[10px] text-gray-400">Free Sample &bull; High-Res</span>
+                                </div>
+                            </div>
+                            <button data-action="download-item" data-file="KayaVox_GoldenTideReflection_FreeSample.zip" class="text-xs text-amber-700 hover:text-amber-800 font-bold uppercase tracking-widest border-b border-amber-700/30">Get ZIP</button>
+                        </div>
+                        <div class="flex items-center justify-between p-3.5 bg-amber-50/50 rounded-xl border border-amber-200/50">
+                            <div class="flex items-center gap-3">
+                                <img src="assets/mist-horizon.webp" alt="Mist Horizon" class="w-12 h-16 object-cover rounded-lg shadow-sm">
+                                <div>
+                                    <span class="block text-xs font-bold text-[var(--clay)] uppercase tracking-wider" data-i18n="art_title_mist">Mist Horizon</span>
+                                    <span class="text-[10px] text-gray-400">Free Sample &bull; High-Res</span>
+                                </div>
+                            </div>
+                            <button data-action="download-item" data-file="KayaVox_MistHorizon_FreeSample.zip" class="text-xs text-amber-700 hover:text-amber-800 font-bold uppercase tracking-widest border-b border-amber-700/30">Get ZIP</button>
                         </div>
                     `;
                 }
@@ -2532,11 +2556,9 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-            console.log('DOMContentLoaded fired');
             loadCatalogJSON();
             applyTranslations(state.locale);
             updateCartUI(state.cart);
-            console.log('Calling setupUniversalEventBus');
             setupUniversalEventBus();
             setupInteractiveSpeculator();
             setupCookieConsent();

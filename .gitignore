@@ -1,5 +1,6 @@
 # Large image assets (not referenced in HTML)
 *.png
+!assets/products/*.webp
 !index.html
 
 # OS files
