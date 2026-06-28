@@ -1633,13 +1633,88 @@
             }
         };
 
-        // Catalog configuration
-        const catalogProducts = [
+        // Catalog configuration — loaded from catalog.json
+        let catalogProducts = [
             { id: 'prod-coastal-dawn', name: 'Soft Coastal Dawn', price: 9, oldPrice: 29, imageUrl: 'assets/soft-coastal-dawn.webp' },
             { id: 'prod-golden-tide', name: 'Golden Tide Reflection', price: 14, oldPrice: 35, imageUrl: 'assets/golden-tide-reflection.webp' },
             { id: 'prod-mist-horizon', name: 'Mist Horizon', price: 19, oldPrice: 45, imageUrl: 'assets/mist-horizon.webp' },
             { id: 'prod-bundle', name: 'Complete Horizon Set', price: 29, oldPrice: 109, imageUrl: 'assets/soft-coastal-dawn.webp' }
         ];
+        let catalogJSON = null;
+
+        async function loadCatalogJSON() {
+            try {
+                const res = await fetch('catalog.json');
+                if (!res.ok) return;
+                catalogJSON = await res.json();
+                const lang = state.locale || 'en';
+                catalogProducts = catalogJSON.products.map(p => ({
+                    id: p.id,
+                    name: p.name[lang] || p.name.en,
+                    price: p.price,
+                    oldPrice: p.oldPrice,
+                    imageUrl: p.image
+                }));
+                if (catalogJSON.bundle) {
+                    catalogProducts.push({
+                        id: catalogJSON.bundle.id,
+                        name: catalogJSON.bundle.name[lang] || catalogJSON.bundle.name.en,
+                        price: catalogJSON.bundle.price,
+                        oldPrice: catalogJSON.bundle.oldPrice,
+                        imageUrl: catalogJSON.bundle.image
+                    });
+                }
+                renderProductGrid();
+            } catch (e) { console.log('Catalog.json not loaded, using defaults'); }
+        }
+
+        function renderProductGrid() {
+            if (!catalogJSON) return;
+            const grid = document.getElementById('product-grid');
+            if (!grid) return;
+            const lang = state.locale || 'en';
+            let html = '';
+            catalogJSON.products.forEach((p, i) => {
+                const name = p.name[lang] || p.name.en;
+                const features = (p.features[lang] || p.features.en).map(f => '<li>&bull; ' + f + '</li>').join('');
+                const bestFor = (p.bestFor[lang] || p.bestFor.en).map(b => '<li>&bull; ' + b + '</li>').join('');
+                html += `
+                    <div class="reveal-node group flex flex-col justify-between h-full space-y-6" data-product-card="${p.id}" style="transition-delay: ${50 + i * 100}ms;">
+                        <div>
+                            <div class="img-zoom mb-6 shadow-sm rounded-2xl aspect-[4/5]">
+                                <img src="${p.image}" alt="${name}" class="w-full h-full object-cover" width="800" height="1000" loading="lazy" decoding="async">
+                            </div>
+                            <div class="flex justify-between items-baseline mb-4">
+                                <h3 class="text-xl md:text-2xl serif italic text-clay">${name}</h3>
+                                <div class="text-right">
+                                    <span class="text-xs text-gray-300 line-through mr-1.5">$${p.oldPrice}</span>
+                                    <span class="text-lg md:text-xl font-bold text-amber-700">$${p.price}</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 border-t border-gray-100 pt-4 mb-6 text-left">
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">${lang==='ru'?'Что вы получаете:':lang==='fr'?'Ce que vous obtenez :':'What you get:'}</p>
+                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">${features}</ul>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-1">${lang==='ru'?'Идеально подходит для:':lang==='fr'?'Idéal pour :':'Works best for:'}</p>
+                                    <ul class="text-[10px] text-gray-500 space-y-0.5 italic">${bestFor}</ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-2.5">
+                            <button data-action="add-to-cart" data-id="${p.id}" class="w-full text-center py-4 bg-clay text-white rounded-full text-xs uppercase tracking-widest hover:bg-amber-600 transition-colors min-h-[48px] font-semibold">${lang==='ru'?'В корзину':lang==='fr'?'Ajouter au Panier':'Add to Bag'}</button>
+                            <a href="https://app.lava.top/kayavox" data-intent="prefetch" target="_blank" rel="noopener" class="w-[52px] flex items-center justify-center bg-gray-100 text-[var(--clay)] hover:bg-gray-200 rounded-full transition-colors min-h-[48px]" aria-label="Buy on Lava.top"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                        </div>
+                    </div>`;
+            });
+            grid.innerHTML = html;
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); } });
+            }, { root: null, rootMargin: "0px 0px -50px 0px", threshold: 0.1 });
+            grid.querySelectorAll('.reveal-node').forEach(node => revealObserver.observe(node));
+        }
 
         const roomBackgrounds = {
             'living': {
@@ -2456,6 +2531,7 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             console.log('DOMContentLoaded fired');
+            loadCatalogJSON();
             applyTranslations(state.locale);
             updateCartUI(state.cart);
             console.log('Calling setupUniversalEventBus');

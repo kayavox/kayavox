@@ -1,0 +1,208 @@
+{
+  "products": [
+    {
+      "id": "prod-coastal-dawn",
+      "name": {
+        "en": "Soft Coastal Dawn",
+        "ru": "Нежное прибрежное утро",
+        "fr": "Aube Côtière Douce"
+      },
+      "price": 9,
+      "oldPrice": 29,
+      "image": "assets/soft-coastal-dawn.webp",
+      "features": {
+        "en": ["5 print sizes (A1-A4)", "300 DPI quality"],
+        "ru": ["5 форматов печати (A1-A4)", "Качество 300 DPI"],
+        "fr": ["5 tailles d'impression (A1-A4)", "Qualité 300 DPI"]
+      },
+      "bestFor": {
+        "en": ["living rooms", "calm interiors"],
+        "ru": ["гостиные комнаты", "тихие интерьеры"],
+        "fr": ["salons", "intérieurs calmes"]
+      },
+      "inStock": true
+    },
+    {
+      "id": "prod-golden-tide",
+      "name": {
+        "en": "Golden Tide Reflection",
+        "ru": "Золотое отражение прилива",
+        "fr": "Reflet Doré de la Marée"
+      },
+      "price": 14,
+      "oldPrice": 35,
+      "image": "assets/golden-tide-reflection.webp",
+      "features": {
+        "en": ["5 print sizes (A1-A4)", "300 DPI quality"],
+        "ru": ["5 форматов печати (A1-A4)", "Качество 300 DPI"],
+        "fr": ["5 tailles d'impression (A1-A4)", "Qualité 300 DPI"]
+      },
+      "bestFor": {
+        "en": ["bedrooms", "zen spaces"],
+        "ru": ["спальни", "дзен-зоны"],
+        "fr": ["chambres", "espaces zen"]
+      },
+      "inStock": true
+    },
+    {
+      "id": "prod-mist-horizon",
+      "name": {
+        "en": "Mist Horizon",
+        "ru": "Туманный горизонт",
+        "fr": "Horizon Brumeux"
+      },
+      "price": 19,
+      "oldPrice": 45,
+      "image": "assets/mist-horizon.webp",
+      "features": {
+        "en": ["5 print sizes (A1-A4)", "300 DPI quality"],
+        "ru": ["5 форматов печати (A1-A4)", "Качество 300 DPI"],
+        "fr": ["5 tailles d'impression (A1-A4)", "Qualité 300 DPI"]
+      },
+      "bestFor": {
+        "en": ["home offices", "minimalist walls"],
+        "ru": ["домашние кабинеты", "минималистичные стены"],
+        "fr": ["bureaux à domicile", "murs minimalistes"]
+      },
+      "inStock": true
+    }
+  ],
+  "bundle": {
+    "id": "prod-bundle",
+    "name": {
+      "en": "The Complete Horizon Set",
+      "ru": "Коллекция «Тихие Атмосферы»",
+      "fr": "La Collection Atmosphères Sereines"
+    },
+    "price": 29,
+    "oldPrice": 109,
+    "description": {
+      "en": "Secure all three premium digital print sets (15 high-res files) plus our exclusive digital styling & framing companion guide at an exceptional collector's rate.",
+      "ru": "Получите все три премиальных импасто-принта (15 файлов высокого разрешения в 5 форматах) плюс эксклюзивный гид по стилю и оформлению по специальной цене.",
+      "fr": "Obtenez les trois impressions impasto côtières premium (15 fichiers haute résolution en 5 formats) ainsi que notre guide exclusif de mise en scène à un tarif de collectionneur."
+    },
+    "image": "assets/soft-coastal-dawn.webp"
+  },
+  "collections": [
+    {
+      "id": "coll-horizon",
+      "name": {
+        "en": "Horizon Collection",
+        "ru": "Коллекция «Горизонт»",
+        "fr": "Collection Horizon"
+      },
+      "description": {
+        "en": "Infinite horizons where sky meets sea in soft color transitions. Coming soon.",
+        "ru": "Бесконечные горизонты, где небо встречается с морем в мягких переходах цвета. Скоро.",
+        "fr": "Horizons infinis où le ciel rencontre la mer en douces transitions de couleur. Bientôt disponible."
+      },
+      "icon": "mountain",
+      "status": "coming_soon"
+    },
+    {
+      "id": "coll-shorelines",
+      "name": {
+        "en": "Shorelines Collection",
+        "ru": "Коллекция «Береговые линии»",
+        "fr": "Collection Shorelines"
+      },
+      "description": {
+        "en": "Coastal lines, sand and water in natural abstract forms. Coming soon.",
+        "ru": "Прибрежные линии, песок и вода в естественных абстракциях. Скоро.",
+        "fr": "Lignes côtières, sable et eau en formes abstraites naturelles. Bientôt disponible."
+      },
+      "icon": "waves",
+      "status": "coming_soon"
+    }
+  ],
+  "faq": [
+    {
+      "question": {
+        "en": "What is impasto art?",
+        "ru": "Что такое импасто?"
+      },
+      "answer": {
+        "en": "Impasto is a technique where paint is laid on a surface in very thick layers, usually thick enough that the brush or palette knife strokes are visible. KayaVox prints capture this texture at 300 DPI using high-end macro optics, creating a realistic illusion of dimensional oil painting when printed on fine-art paper.",
+        "ru": "Импасто — это техника, при которой краска наносится очень толстыми слоями, обычно достаточно толстыми, чтобы мазки кисти или мастихина были видны. Печати KayaVox фиксируют эту текстуру с разрешением 300 DPI с помощью макрооптики высокого класса, создавая реалистичную иллюзию объёмной масляной живописи при печати на художественной бумаге."
+      }
+    },
+    {
+      "question": {
+        "en": "How do I print digital art at home?",
+        "ru": "Как печатать цифровое искусство дома?"
+      },
+      "answer": {
+        "en": "After purchase, you receive high-resolution 300 DPI files formatted for standard US frame sizes (A1 through A4). Take the files to any local print shop or use an online printing service. For best results, request 210g/m² matte fine art paper or soft matte photo rag to preserve the deep brush textures.",
+        "ru": "После покупки вы получаете файлы высокого разрешения 300 DPI, форматированные под стандартные размеры рам (от A1 до A4). Отнесите файлы в любую местную типографию или воспользуйтесь онлайн-сервисом печати. Для лучшего результата закажите матовую художественную бумагу плотностью 210 г/м², чтобы сохранить глубокие текстуры мазков."
+      }
+    },
+    {
+      "question": {
+        "en": "What paper should I use for KayaVox prints?",
+        "ru": "Какую бумагу использовать для печатей KayaVox?"
+      },
+      "answer": {
+        "en": "For the most luxurious finish, we recommend 210g/m² matte fine art paper or soft matte photo rag. This weight and finish preserves the deep impasto brush textures and gives the print a museum-quality feel. Standard photo paper also works well for a glossy finish.",
+        "ru": "Для максимально роскошного вида рекомендуем матовую художественную бумагу плотностью 210 г/м² или мягкую матовую фотобумагу. Эта плотность и отделка сохраняют глубокие текстуры мазков импасто и придают отпечатку ощущение музейного качества."
+      }
+    },
+    {
+      "question": {
+        "en": "What file formats and sizes are included?",
+        "ru": "Какие форматы и размеры файлов включены?"
+      },
+      "answer": {
+        "en": "Each purchase includes 5 print sizes (A1 through A4) at 300 DPI resolution. Files are delivered as high-resolution digital downloads, formatted for standard US framing ratios. A complimentary framing guide is included with every order.",
+        "ru": "Каждая покупка включает 5 размеров печати (от A1 до A4) с разрешением 300 DPI. Файлы доставляются в виде цифровых загрузок высокого разрешения, форматированных под стандартные пропорции рам. Бесплатное руководство по оформлению включено в каждый заказ."
+      }
+    },
+    {
+      "question": {
+        "en": "Can I get a custom size for my print?",
+        "ru": "Можно ли получить индивидуальный размер?"
+      },
+      "answer": {
+        "en": "Yes! Every collection purchase includes complimentary bespoke AI-upscaling up to 60×90 inches (152×228cm) at ultra-sharp 300 DPI. Simply reply to your delivery email with your required dimensions.",
+        "ru": "Да! Каждая покупка коллекции включает бесплатное индивидуальное AI-масштабирование до 60×90 дюймов (152×228 см) с чёткостью 300 DPI. Просто ответьте на письмо с доставкой, указав нужные размеры."
+      }
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Coming Soon",
+      "location": "New York, NY",
+      "text": {
+        "en": "The texture is unreal — my guests think it's an original oil painting. The framing guide made the whole process effortless.",
+        "ru": "Текстура невероятная — мои гости думают, что это оригинальная масляная картина. Руководство по оформлению сделало весь процесс простым."
+      },
+      "rating": 5
+    },
+    {
+      "name": "Coming Soon",
+      "location": "Los Angeles, CA",
+      "text": {
+        "en": "I used the room visualizer before buying and it looked exactly like the preview. Soft Coastal Dawn transformed my living room.",
+        "ru": "Я воспользовалась визуализатором интерьера перед покупкой, и результат оказался точь-в-точь как на превью. Нежное прибрежное утро преобразило мою гостиную."
+      },
+      "rating": 5
+    },
+    {
+      "name": "Coming Soon",
+      "location": "Miami, FL",
+      "text": {
+        "en": "The 300 DPI quality is gallery-worthy. Printed on matte fine art paper and the impasto texture pops beautifully.",
+        "ru": "Качество 300 DPI — на уровне галереи. Напечатал на матовой художественной бумаге — текстура импасто смотрится потрясающе."
+      },
+      "rating": 5
+    }
+  ],
+  "roomBackgrounds": {
+    "living": "assets/rooms/living.svg",
+    "bedroom": "assets/rooms/bedroom.svg",
+    "office": "assets/rooms/office.svg"
+  },
+  "meta": {
+    "lastUpdated": "2026-06-28",
+    "version": 1
+  }
+}

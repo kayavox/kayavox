@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KayaVox — Admin Panel</title>
+    <link rel="stylesheet" href="lib/styles.css">
+    <link rel="stylesheet" href="lib/fonts.css">
+    <style>
+        :root { --cream: #FAF7F0; --clay: #1A1814; --gold: #C5A059; --sand: #E5DED0; --border: rgba(26,24,20,0.08); }
+        body { background: var(--cream); color: var(--clay); font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        h1,h2,h3,.serif { font-family: 'Playfair Display', serif; }
+        .login-screen { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:2rem; }
+        .login-card { background:#fff; border-radius:1.5rem; padding:3rem; max-width:420px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.08); border:1px solid var(--border); }
+        .login-card input { width:100%; padding:1rem 1.25rem; border:1px solid var(--border); border-radius:1rem; font-size:0.875rem; outline:none; background:var(--cream); margin-bottom:1rem; box-sizing:border-box; }
+        .login-card input:focus { border-color:var(--gold); }
+        .login-card button { width:100%; padding:1rem; background:var(--gold); color:#fff; border:none; border-radius:1rem; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; cursor:pointer; transition:background 0.2s; }
+        .login-card button:hover { background:#B08D4B; }
+        .admin-panel { display:none; }
+        .admin-header { background:#fff; border-bottom:1px solid var(--border); padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:10; }
+        .admin-header h2 { font-size:1.25rem; margin:0; }
+        .admin-content { max-width:900px; margin:2rem auto; padding:0 1.5rem; }
+        .section { background:#fff; border-radius:1.5rem; padding:2rem; margin-bottom:1.5rem; border:1px solid var(--border); }
+        .section h3 { font-size:1.1rem; margin:0 0 1.5rem; padding-bottom:0.75rem; border-bottom:1px solid var(--border); }
+        .product-row { display:grid; grid-template-columns:60px 1fr auto auto; gap:1rem; align-items:center; padding:1rem 0; border-bottom:1px solid var(--border); }
+        .product-row:last-child { border-bottom:none; }
+        .product-row img { width:50px; height:65px; object-fit:cover; border-radius:0.5rem; }
+        .field { margin-bottom:0.75rem; }
+        .field label { display:block; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.15em; color:#999; font-weight:600; margin-bottom:0.25rem; }
+        .field input, .field textarea, .field select { width:100%; padding:0.6rem 0.8rem; border:1px solid var(--border); border-radius:0.75rem; font-size:0.8rem; outline:none; font-family:'Inter',sans-serif; box-sizing:border-box; }
+        .field input:focus, .field textarea:focus { border-color:var(--gold); }
+        .field textarea { resize:vertical; min-height:60px; }
+        .price-input { display:flex; gap:0.5rem; align-items:center; }
+        .price-input span { color:#ccc; }
+        .btn { padding:0.6rem 1.5rem; border:none; border-radius:0.75rem; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600; cursor:pointer; transition:all 0.2s; }
+        .btn-save { background:var(--gold); color:#fff; }
+        .btn-save:hover { background:#B08D4B; }
+        .btn-save:disabled { opacity:0.5; cursor:not-allowed; }
+        .btn-danger { background:#fee2e2; color:#dc2626; }
+        .btn-danger:hover { background:#fecaca; }
+        .btn-secondary { background:var(--cream); color:var(--clay); border:1px solid var(--border); }
+        .btn-secondary:hover { background:var(--sand); }
+        .add-btn { display:flex; align-items:center; gap:0.5rem; padding:0.75rem 1.25rem; border:2px dashed var(--border); border-radius:1rem; background:transparent; color:#999; font-size:0.75rem; cursor:pointer; transition:all 0.2s; width:100%; justify-content:center; }
+        .add-btn:hover { border-color:var(--gold); color:var(--gold); }
+        .toast { position:fixed; bottom:2rem; right:2rem; background:#fff; border:1px solid var(--border); border-radius:1rem; padding:1rem 1.5rem; box-shadow:0 10px 40px rgba(0,0,0,0.1); font-size:0.8rem; transform:translateY(100px); opacity:0; transition:all 0.4s; z-index:100; }
+        .toast.show { transform:translateY(0); opacity:1; }
+        .toast.success { border-left:4px solid #22c55e; }
+        .toast.error { border-left:4px solid #dc2626; }
+        .status-bar { display:flex; gap:1rem; align-items:center; }
+        .status-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; }
+        .loading { text-align:center; padding:3rem; color:#999; font-style:italic; }
+        .tabs { display:flex; gap:0.5rem; margin-bottom:1.5rem; flex-wrap:wrap; }
+        .tab { padding:0.5rem 1.25rem; border-radius:2rem; border:1px solid var(--border); background:#fff; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:600; cursor:pointer; transition:all 0.2s; }
+        .tab.active { background:var(--gold); color:#fff; border-color:var(--gold); }
+        .tab:hover:not(.active) { border-color:var(--gold); }
+        .hidden { display:none !important; }
+    </style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen" class="login-screen">
+    <div class="login-card">
+        <h2 class="serif" style="margin:0 0 0.5rem; font-size:1.75rem;">KayaVox Admin</h2>
+        <p style="font-size:0.8rem; color:#999; margin:0 0 2rem;">Enter your GitHub token to manage the catalog.</p>
+        <input type="password" id="token-input" placeholder="GitHub Personal Access Token">
+        <button onclick="authenticate()">Connect</button>
+        <p style="font-size:0.7rem; color:#bbb; margin-top:1rem; text-align:center;">Token is saved in your browser only. Never shared.</p>
+    </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel" class="admin-panel">
+    <div class="admin-header">
+        <h2 class="serif">KayaVox Admin</h2>
+        <div class="status-bar">
+            <span id="status-text" style="font-size:0.75rem; color:#999;">Connected</span>
+            <div class="status-dot"></div>
+            <button class="btn btn-secondary" onclick="logout()">Disconnect</button>
+        </div>
+    </div>
+
+    <div class="admin-content">
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('products')">Products</button>
+            <button class="tab" onclick="switchTab('collections')">Collections</button>
+            <button class="tab" onclick="switchTab('faq')">FAQ</button>
+            <button class="tab" onclick="switchTab('testimonials')">Testimonials</button>
+        </div>
+
+        <!-- PRODUCTS TAB -->
+        <div id="tab-products" class="tab-content">
+            <div class="section">
+                <h3>Products</h3>
+                <div id="products-list"></div>
+                <button class="add-btn" onclick="addProduct()">+ Add Product</button>
+            </div>
+        </div>
+
+        <!-- COLLECTIONS TAB -->
+        <div id="tab-collections" class="tab-content hidden">
+            <div class="section">
+                <h3>Collections</h3>
+                <div id="collections-list"></div>
+                <button class="add-btn" onclick="addCollection()">+ Add Collection</button>
+            </div>
+        </div>
+
+        <!-- FAQ TAB -->
+        <div id="tab-faq" class="tab-content hidden">
+            <div class="section">
+                <h3>FAQ</h3>
+                <div id="faq-list"></div>
+                <button class="add-btn" onclick="addFAQ()">+ Add Question</button>
+            </div>
+        </div>
+
+        <!-- TESTIMONIALS TAB -->
+        <div id="tab-testimonials" class="tab-content hidden">
+            <div class="section">
+                <h3>Testimonials</h3>
+                <div id="testimonials-list"></div>
+                <button class="add-btn" onclick="addTestimonial()">+ Add Testimonial</button>
+            </div>
+        </div>
+
+        <!-- SAVE BUTTON -->
+        <div style="position:sticky; bottom:0; padding:1.5rem 0; text-align:center;">
+            <button id="save-btn" class="btn btn-save" onclick="saveCatalog()" disabled>
+                Save & Publish Changes
+            </button>
+            <p id="save-hint" style="font-size:0.7rem; color:#bbb; margin-top:0.5rem;">Make changes above, then save.</p>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<script>
+const GITHUB_REPO = 'kayavox/kayavox';
+const CATALOG_PATH = 'catalog.json';
+let token = localStorage.getItem('kayavox_admin_token') || '';
+let catalogData = null;
+let sha = null;
+let hasChanges = false;
+
+function showToast(msg, type = 'success') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast show ' + type;
+    setTimeout(() => t.className = 'toast', 3000);
+}
+
+function markDirty() {
+    hasChanges = true;
+    document.getElementById('save-btn').disabled = false;
+    document.getElementById('save-hint').textContent = 'Unsaved changes — click Save to publish.';
+}
+
+async function githubAPI(endpoint, method = 'GET', body = null) {
+    const opts = {
+        method,
+        headers: {
+            'Authorization': `token ${token}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+        }
+    };
+    if (body) opts.body = JSON.stringify(body);
+    const res = await fetch(`https://api.github.com${endpoint}`, opts);
+    if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.message || `GitHub API error ${res.status}`);
+    }
+    return res.status === 204 ? null : res.json();
+}
+
+async function authenticate() {
+    const input = document.getElementById('token-input');
+    const t = input.value.trim();
+    if (!t) return;
+    token = t;
+    try {
+        await githubAPI('/user');
+        localStorage.setItem('kayavox_admin_token', token);
+        loadCatalog();
+    } catch (e) {
+        showToast('Invalid token: ' + e.message, 'error');
+        token = '';
+    }
+}
+
+function logout() {
+    localStorage.removeItem('kayavox_admin_token');
+    token = '';
+    document.getElementById('login-screen').style.display = 'flex';
+    document.getElementById('admin-panel').style.display = 'none';
+}
+
+async function loadCatalog() {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-panel').style.display = 'block';
+    document.getElementById('status-text').textContent = 'Loading...';
+    try {
+        const file = await githubAPI(`/repos/${GITHUB_REPO}/contents/${CATALOG_PATH}`);
+        sha = file.sha;
+        catalogData = JSON.parse(atob(file.content));
+        renderAll();
+        document.getElementById('status-text').textContent = 'Connected';
+    } catch (e) {
+        showToast('Failed to load catalog: ' + e.message, 'error');
+        document.getElementById('status-text').textContent = 'Error';
+    }
+}
+
+function renderAll() {
+    renderProducts();
+    renderCollections();
+    renderFAQ();
+    renderTestimonials();
+}
+
+function renderProducts() {
+    const el = document.getElementById('products-list');
+    el.innerHTML = catalogData.products.map((p, i) => `
+        <div class="product-row" data-index="${i}">
+            <img src="${p.image}" alt="${p.name.en}">
+            <div>
+                <div class="field">
+                    <label>Name (EN)</label>
+                    <input value="${esc(p.name.en)}" onchange="updateProduct(${i},'name','en',this.value)">
+                </div>
+                <div class="field">
+                    <label>Name (RU)</label>
+                    <input value="${esc(p.name.ru)}" onchange="updateProduct(${i},'name','ru',this.value)">
+                </div>
+                <div class="field">
+                    <label>Image Path</label>
+                    <input value="${esc(p.image)}" onchange="updateProduct(${i},'image',null,this.value)">
+                </div>
+            </div>
+            <div class="price-input">
+                <div class="field">
+                    <label>Price</label>
+                    <input type="number" value="${p.price}" style="width:80px" onchange="updateProduct(${i},'price',null,Number(this.value))">
+                </div>
+                <span>/</span>
+                <div class="field">
+                    <label>Old Price</label>
+                    <input type="number" value="${p.oldPrice}" style="width:80px" onchange="updateProduct(${i},'oldPrice',null,Number(this.value))">
+                </div>
+            </div>
+            <button class="btn btn-danger" onclick="removeProduct(${i})">Remove</button>
+        </div>
+    `).join('');
+}
+
+function renderCollections() {
+    const el = document.getElementById('collections-list');
+    el.innerHTML = catalogData.collections.map((c, i) => `
+        <div class="product-row" data-index="${i}">
+            <div style="width:50px;height:65px;background:var(--cream);border-radius:0.5rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">${c.icon === 'mountain' ? '⛰️' : '🌊'}</div>
+            <div>
+                <div class="field">
+                    <label>Name (EN)</label>
+                    <input value="${esc(c.name.en)}" onchange="updateCollection(${i},'name','en',this.value)">
+                </div>
+                <div class="field">
+                    <label>Status</label>
+                    <select onchange="updateCollection(${i},'status',null,this.value)">
+                        <option value="coming_soon" ${c.status==='coming_soon'?'selected':''}>Coming Soon</option>
+                        <option value="active" ${c.status==='active'?'selected':''}>Active</option>
+                    </select>
+                </div>
+            </div>
+            <div></div>
+            <button class="btn btn-danger" onclick="removeCollection(${i})">Remove</button>
+        </div>
+    `).join('');
+}
+
+function renderFAQ() {
+    const el = document.getElementById('faq-list');
+    el.innerHTML = catalogData.faq.map((f, i) => `
+        <div style="padding:1rem 0; border-bottom:1px solid var(--border);">
+            <div class="field">
+                <label>Question (EN)</label>
+                <input value="${esc(f.question.en)}" onchange="updateFAQ(${i},'question','en',this.value)">
+            </div>
+            <div class="field">
+                <label>Question (RU)</label>
+                <input value="${esc(f.question.ru)}" onchange="updateFAQ(${i},'question','ru',this.value)">
+            </div>
+            <div class="field">
+                <label>Answer (EN)</label>
+                <textarea onchange="updateFAQ(${i},'answer','en',this.value)">${esc(f.answer.en)}</textarea>
+            </div>
+            <div class="field">
+                <label>Answer (RU)</label>
+                <textarea onchange="updateFAQ(${i},'answer','ru',this.value)">${esc(f.answer.ru)}</textarea>
+            </div>
+            <button class="btn btn-danger" onclick="removeFAQ(${i})" style="margin-top:0.5rem;">Remove</button>
+        </div>
+    `).join('');
+}
+
+function renderTestimonials() {
+    const el = document.getElementById('testimonials-list');
+    el.innerHTML = catalogData.testimonials.map((t, i) => `
+        <div style="padding:1rem 0; border-bottom:1px solid var(--border);">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+                <div class="field">
+                    <label>Name</label>
+                    <input value="${esc(t.name)}" onchange="updateTestimonial(${i},'name',null,this.value)">
+                </div>
+                <div class="field">
+                    <label>Location</label>
+                    <input value="${esc(t.location)}" onchange="updateTestimonial(${i},'location',null,this.value)">
+                </div>
+            </div>
+            <div class="field">
+                <label>Text (EN)</label>
+                <textarea onchange="updateTestimonial(${i},'text','en',this.value)">${esc(t.text.en)}</textarea>
+            </div>
+            <div class="field">
+                <label>Text (RU)</label>
+                <textarea onchange="updateTestimonial(${i},'text','ru',this.value)">${esc(t.text.ru)}</textarea>
+            </div>
+            <button class="btn btn-danger" onclick="removeTestimonial(${i})" style="margin-top:0.5rem;">Remove</button>
+        </div>
+    `).join('');
+}
+
+function esc(s) { return String(s||'').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+
+// Update functions
+function updateProduct(i, key, lang, val) {
+    if (lang) catalogData.products[i][key][lang] = val;
+    else catalogData.products[i][key] = val;
+    markDirty();
+}
+function updateCollection(i, key, lang, val) {
+    if (lang) catalogData.collections[i][key][lang] = val;
+    else catalogData.collections[i][key] = val;
+    markDirty();
+}
+function updateFAQ(i, key, lang, val) {
+    if (lang) catalogData.faq[i][key][lang] = val;
+    else catalogData.faq[i][key] = val;
+    markDirty();
+}
+function updateTestimonial(i, key, lang, val) {
+    if (lang) catalogData.testimonials[i][key][lang] = val;
+    else catalogData.testimonials[i][key] = val;
+    markDirty();
+}
+
+// Add functions
+function addProduct() {
+    catalogData.products.push({
+        id: 'prod-' + Date.now(),
+        name: { en: 'New Product', ru: 'Новый товар', fr: 'Nouveau Produit' },
+        price: 9, oldPrice: 19,
+        image: 'assets/soft-coastal-dawn.webp',
+        features: { en: ['5 print sizes (A1-A4)', '300 DPI quality'], ru: ['5 форматов печати (A1-A4)', 'Качество 300 DPI'], fr: ['5 tailles (A1-A4)', 'Qualité 300 DPI'] },
+        bestFor: { en: ['living rooms'], ru: ['гостиные'], fr: ['salons'] },
+        inStock: true
+    });
+    renderProducts(); markDirty();
+}
+function addCollection() {
+    catalogData.collections.push({
+        id: 'coll-' + Date.now(),
+        name: { en: 'New Collection', ru: 'Новая коллекция', fr: 'Nouvelle Collection' },
+        description: { en: 'Description', ru: 'Описание', fr: 'Description' },
+        icon: 'mountain', status: 'coming_soon'
+    });
+    renderCollections(); markDirty();
+}
+function addFAQ() {
+    catalogData.faq.push({
+        question: { en: 'New question?', ru: 'Новый вопрос?' },
+        answer: { en: 'Answer here.', ru: 'Ответ здесь.' }
+    });
+    renderFAQ(); markDirty();
+}
+function addTestimonial() {
+    catalogData.testimonials.push({
+        name: 'Name', location: 'City',
+        text: { en: 'Testimonial text.', ru: 'Текст отзыва.' },
+        rating: 5
+    });
+    renderTestimonials(); markDirty();
+}
+
+// Remove functions
+function removeProduct(i) { if (confirm('Remove this product?')) { catalogData.products.splice(i,1); renderProducts(); markDirty(); } }
+function removeCollection(i) { if (confirm('Remove this collection?')) { catalogData.collections.splice(i,1); renderCollections(); markDirty(); } }
+function removeFAQ(i) { if (confirm('Remove this FAQ?')) { catalogData.faq.splice(i,1); renderFAQ(); markDirty(); } }
+function removeTestimonial(i) { if (confirm('Remove this testimonial?')) { catalogData.testimonials.splice(i,1); renderTestimonials(); markDirty(); } }
+
+// Save
+async function saveCatalog() {
+    const btn = document.getElementById('save-btn');
+    btn.disabled = true;
+    btn.textContent = 'Saving...';
+    try {
+        catalogData.meta.lastUpdated = new Date().toISOString().split('T')[0];
+        catalogData.meta.version = (catalogData.meta.version || 0) + 1;
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(catalogData, null, 2))));
+        await githubAPI(`/repos/${GITHUB_REPO}/contents/${CATALOG_PATH}`, 'PUT', {
+            message: `Update catalog v${catalogData.meta.version}`,
+            content: content,
+            sha: sha
+        });
+        const updated = await githubAPI(`/repos/${GITHUB_REPO}/contents/${CATALOG_PATH}`);
+        sha = updated.sha;
+        hasChanges = false;
+        showToast('Catalog saved & published!');
+        document.getElementById('save-hint').textContent = 'All changes published.';
+    } catch (e) {
+        showToast('Save failed: ' + e.message, 'error');
+        btn.disabled = false;
+    }
+    btn.textContent = 'Save & Publish Changes';
+}
+
+// Tab switching
+function switchTab(name) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.remove('hidden');
+    event.target.classList.add('active');
+}
+
+// Auto-login if token exists
+if (token) loadCatalog();
+</script>
+</body>
+</html>
